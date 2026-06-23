@@ -1,0 +1,39 @@
+{
+  "version": 3,
+  "lastUpdated": "2026-06-18",
+  "notes": {
+    "_products_lioness_the-mystique-midi-dress_html": {
+      "productName": "The Mystique Midi Dress",
+      "retailer": "Lioness",
+      "noteText": "The elasticated neckline is genuinely stretchy and accommodates a larger cup well. The structured bodice gives real shape. Sized up one as the waist runs small. Overall a strong fit for narrow-back / large-cup — the construction lives up to the score.",
+      "bustRating": "positive",
+      "authorSize": "32F",
+      "dateAdded": "2026-06-01",
+      "dateEdited": "2026-06-01",
+      "signalOverrides": {}
+    }
+  },
+  "brandPatterns": {
+    "eliza-j": {
+      "brandName": "Eliza J",
+      "brandAliases": ["elizaj", "eliza j", "eliza-j"],
+      "patternName": "Fit-and-flare v-neck silhouette",
+      "matchSignals": {
+        "silhouettes": ["fit and flare", "a-line", "fit-and-flare"],
+        "necklines": ["v-neck", "v neck", "split neck"],
+        "construction": ["sleeveless", "tank", "lined", "concealed zip", "back zip"],
+        "minMatchCount": 2
+      },
+      "noteText": "This v-neck style from Eliza J is one of the ONLY well fitting formal dresses I have found that is both flattering on the waist with proper tailoring and also fits my bust completely while flattering and providing lift with no bra needed. The v-neckline gives the bust room without cutting in, and the defined waist with flared skirt means the bodice can fit the chest without fighting the hip. The structured lining helps hold shape. Size up if you're between sizes — the bodice runs snug at the cup.",
+      "bustRating": "positive",
+      "authorSize": "34J",
+      "dateAdded": "2026-06-18",
+      "signalOverrides": {
+        "capScoreAt": null,
+        "scoreBoost": 12
+      },
+      "images": [],
+      "retailers": ["nordstrom.com", "bloomingdales.com", "macys.com", "dillards.com", "rack.nordstrom.com"]
+    }
+  }
+}
