@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "lastUpdated": "2026-06-18",
+  "version": 4,
+  "lastUpdated": "2026-06-23",
   "notes": {
     "_products_lioness_the-mystique-midi-dress_html": {
       "productName": "The Mystique Midi Dress",
@@ -16,24 +16,48 @@
   "brandPatterns": {
     "eliza-j": {
       "brandName": "Eliza J",
-      "brandAliases": ["elizaj", "eliza j", "eliza-j"],
+      "brandAliases": [
+        "elizaj",
+        "eliza j",
+        "eliza-j"
+      ],
       "patternName": "Fit-and-flare v-neck silhouette",
+      "retailers": [
+        "nordstrom.com",
+        "bloomingdales.com",
+        "macys.com",
+        "dillards.com",
+        "rack.nordstrom.com"
+      ],
       "matchSignals": {
-        "silhouettes": ["fit and flare", "a-line", "fit-and-flare"],
-        "necklines": ["v-neck", "v neck", "split neck"],
-        "construction": ["sleeveless", "tank", "lined", "concealed zip", "back zip"],
+        "silhouettes": [
+          "fit and flare",
+          "a-line",
+          "fit-and-flare"
+        ],
+        "necklines": [
+          "v-neck",
+          "v neck",
+          "split neck"
+        ],
+        "construction": [
+          "sleeveless",
+          "tank",
+          "lined",
+          "concealed zip",
+          "back zip"
+        ],
         "minMatchCount": 2
       },
-      "noteText": "This v-neck style from Eliza J is one of the ONLY well fitting formal dresses I have found that is both flattering on the waist with proper tailoring and also fits my bust completely while flattering and providing lift with no bra needed. The v-neckline gives the bust room without cutting in, and the defined waist with flared skirt means the bodice can fit the chest without fighting the hip. The structured lining helps hold shape. Size up if you're between sizes — the bodice runs snug at the cup.",
+      "noteText": "This v-neck style from Eliza J is one of the ONLY well fitting formal dresses I have found that is both flattering on the waist with proper tailoring and also fits my bust completely while flattering and providing lift with no bra needed. The v-neckline gives the bust room without cutting in, and the defined waist with flared skirt means the bodice can fit the chest without fighting the hip. The structured lining helps hold shape. Size up if you're between sizes — the bodice runs snug at the cup. https://res.cloudinary.com/dihdcofux/image/upload/Subject_ejdp4f.png",
       "bustRating": "positive",
       "authorSize": "34J",
-      "dateAdded": "2026-06-18",
       "signalOverrides": {
-        "capScoreAt": null,
-        "scoreBoost": 12
+        "scoreBoost": 12,
+        "capScoreAt": null
       },
-      "images": [],
-      "retailers": ["nordstrom.com", "bloomingdales.com", "macys.com", "dillards.com", "rack.nordstrom.com"]
+      "dateAdded": "2026-06-23",
+      "images": []
     }
   }
 }
