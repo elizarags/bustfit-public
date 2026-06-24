@@ -1,5 +1,5 @@
 {
-  "version": 18,
+  "version": 19,
   "lastUpdated": "2026-06-24",
   "notes": {
     "_products_lioness_the-mystique-midi-dress_html": {
@@ -54,7 +54,7 @@
       "authorSize": "34J",
       "signalOverrides": {
         "scoreBoost": 12,
-        "capScoreAt": null
+        "scoreFloor": 88
       },
       "dateAdded": "2026-06-24",
       "images": []
