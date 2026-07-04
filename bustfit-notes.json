@@ -1,6 +1,6 @@
 {
-  "version": 21,
-  "lastUpdated": "2026-06-24",
+  "version": 22,
+  "lastUpdated": "2026-07-04",
   "notes": {
     "_products_lioness_the-mystique-midi-dress_html": {
       "productName": "The Mystique Midi Dress",
@@ -54,7 +54,8 @@
       "authorSize": "34J",
       "signalOverrides": {
         "scoreBoost": 12,
-        "scoreFloor": 88
+        "scoreFloor": 88,
+        "capScoreAt": 92
       },
       "dateAdded": "2026-06-24",
       "images": []
