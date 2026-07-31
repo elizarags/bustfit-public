@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-07-30",
+  "sites": [
+    {
+      "type": "domain",
+      "domain": "nordstrom.com",
+      "displayName": "Nordstrom",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": true,
+      "notes": "Fetches up to 90 BV reviews/product (chrome.scripting MAIN-world fetch, 9 pages x 10 — see fetchNordstromBVViaScripting in background-v2.js). Real coverage on high-volume (200+ review) products has not yet been live-measured: Nordstrom blocks both direct curl and headless browser automation with bot detection, so this requires running the extension in a real Chrome session. Debug logging is already in place (NORDSTROM_BV_DEBUG_COVERAGE flag) — look for '[bustfit][COVERAGE]' lines in the service worker console on a few 200+-review products and update this value/note with the real percentage. Provisionally set to \"limited\" to match the same 90-review-cap architecture's measured coverage on Macy's (~30%) and Urban Outfitters (~2-14%) until Nordstrom-specific numbers are collected."
+    },
+    {
+      "type": "domain",
+      "domain": "rack.nordstrom.com",
+      "displayName": "Nordstrom Rack",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": true,
+      "notes": "Does not use the BV main-world pagination fetch (explicitly excluded — see _isNordstromMainTab in background-v2.js). Reviews come only from an interval + MutationObserver DOM poller reading whatever the BV widget renders on-page, so coverage is lower than nordstrom.com's already-limited API path."
+    },
+    {
+      "type": "domain",
+      "domain": "macys.com",
+      "displayName": "Macy's",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": false,
+      "notes": "Direct BV Conversations API fetch, capped at 90 reviews (3 pages x 30). Measured live: product 27228519 has 181 total reviews, 54 fetched (~30%). No order-confirmation adapter exists for macys.com (not Shopify/WooCommerce/BigCommerce as far as verified) so purchase detection is not supported here."
+    },
+    {
+      "type": "domain",
+      "domain": "bloomingdales.com",
+      "displayName": "Bloomingdale's",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": false,
+      "notes": "Same BV direct-API integration and 90-review cap as Macy's (shared code path). Coverage percentage has not been independently measured for Bloomingdale's specifically. No order-confirmation adapter exists."
+    },
+    {
+      "type": "domain",
+      "domain": "dillards.com",
+      "displayName": "Dillard's",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": false,
+      "notes": "Basic title/brand/description scoring only (untested end-to-end per RETAILER_SCRAPERS.md). No direct BV API integration built — reviews are DOM-scraped best-effort from the BV widget, which may not have loaded by scrape time. No order-confirmation adapter exists."
+    },
+    {
+      "type": "domain",
+      "domain": "asos.com",
+      "displayName": "ASOS",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": true,
+      "notes": "Reviews come from ASOS's own widget via DOM polling, not an API — coverage depends entirely on the widget rendering before the MutationObserver fires. A 2026-07-28 live scan found zero reviews on two tested ASOS DESIGN product pages, conflicting with earlier \"working\" reports; not yet reconciled (see RETAILER_SCRAPERS.md). Purchase confirmation detection (checkout/order-confirmation, order/success) is dedicated and reliable."
+    },
+    {
+      "type": "domain",
+      "domain": "revolve.com",
+      "displayName": "Revolve",
+      "fitScoring": true,
+      "reviewData": true,
+      "purchaseDetection": false,
+      "notes": "Direct Yotpo widget API fetch, uncapped up to 150 reviews. Measured live: 62 of 62 total reviews fetched (100%) on a tested product. Revolve's checkout is a custom PHP flow (orderconfirm.php), not yet built as an order-confirmation adapter."
+    },
+    {
+      "type": "domain",
+      "domain": "urbanoutfitters.com",
+      "displayName": "Urban Outfitters",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": false,
+      "notes": "Same BV direct-API integration and 90-review cap as Macy's/Bloomingdale's. Measured live on two products: 90 of 639 (~14%) and 90 of 4,651 (~2%). Storefront is a custom Vue app, not confirmed to run Shopify/WooCommerce/BigCommerce, so no order-confirmation adapter exists."
+    },
+    {
+      "type": "domain",
+      "domain": "freepeople.com",
+      "displayName": "Free People",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": false,
+      "notes": "Sibling URBN brand sharing Urban Outfitters' exact BV integration pattern and 90-review cap; own coverage percentage not yet independently measured. Most recently added integration in this codebase — re-verify this entry once it's had more live testing."
+    },
+    {
+      "type": "domain",
+      "domain": "amazon.com",
+      "displayName": "Amazon",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": false,
+      "notes": "No third-party review platform exists to call directly — DOM-scraped only. Logged-out users get a one-shot synchronous scrape of the ~13 reviews present on the PDP; logged-in users get an additional hidden-iframe pagination fetch of up to 5 pages (~50 reviews total). No order-confirmation adapter exists for Amazon."
+    },
+    {
+      "type": "platform",
+      "platform": "shopify",
+      "displayName": "Shopify-platform stores",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": true,
+      "notes": "Generic detection via DOM signals (shopify-checkout-api-token meta tag, myshopify.com canonical link, or /products//collections URL pattern + Product JSON-LD) rather than a dedicated per-retailer adapter — but it only runs on domains already in Bustfit's approved site list (content.js is only injected there; there is no wildcard or arbitrary-site injection), so this covers approved sites that happen to run on Shopify, not arbitrary third-party Shopify stores across the web. Title/brand/description scrape works reliably. Review coverage varies entirely by store: only works if the store's review plugin renders BV- or Yotpo-compatible DOM. Purchase confirmation is dedicated and high-confidence (thank_you/order-confirmation URL patterns)."
+    },
+    {
+      "type": "platform",
+      "platform": "woocommerce",
+      "displayName": "WooCommerce-platform stores",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "purchaseDetection": true,
+      "notes": "Generic detection via body classes (woocommerce / woocommerce-page) gated on a clothing-keyword check, rather than a dedicated per-retailer adapter — but like Shopify above, this only ever runs on domains already in Bustfit's approved site list, not arbitrary third-party WooCommerce stores. Title/brand/description scrape works reliably. Review coverage depends entirely on the store's review plugin. Purchase confirmation detected via the /checkout/order-received/<id> URL pattern."
+    },
+    {
+      "type": "platform",
+      "platform": "bigcommerce",
+      "displayName": "BigCommerce-platform stores",
+      "fitScoring": false,
+      "reviewData": false,
+      "purchaseDetection": true,
+      "notes": "Purchase confirmation detection only — no product-page scraper exists for BigCommerce stores, so there is no fit score or review data on this platform at all. Detected via a /checkout/order-confirmation URL plus a bigcommerce.com script tag on the page, and (like Shopify/WooCommerce above) only runs on domains already in Bustfit's approved site list."
+    }
+  ]
+}
