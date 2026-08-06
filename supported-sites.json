@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-08-03",
+  "lastUpdated": "2026-08-06",
   "sites": [
     {
       "type": "domain",
@@ -82,13 +82,14 @@
       "type": "domain",
       "domain": "freepeople.com",
       "displayName": "Free People",
-      "fitScoring": true,
+      "fitScoring": "limited",
       "reviewData": "limited",
       "reviewSampleCap": 90,
       "purchaseDetection": false,
+      "limitationText": "Fit badges can be harder to spot and show up less often here — Free People's product pages rely more on descriptive text than the structured data we usually read.",
       "photoStyle": "busy",
       "badgePosition": "bottom-left",
-      "notes": "Sibling URBN brand sharing Urban Outfitters' exact fetchDeptStoreBVReviews code path (background-v2.js) — same hard 90-review-per-product cap (fixed 3 pages x 30). Measured live via direct curl to api.bazaarvoice.com: Good Karma High-Rise 7/8 Leggings (FP-52536018-000), 773 total reviews — hits the cap cleanly, all 90 raw records had non-empty ReviewText (matches Urban Outfitters' pattern, not Macy's textless-review issue — see their respective notes). Coverage: 90/773 (~11.6%). Most recently added integration in this codebase — re-verify this entry once it's had more live testing. photoStyle: \"busy\" — product photos are shot on location (gardens, stone buildings) rather than white studio backgrounds, which made the standard translucent browse badge illegible; gets the halo+shadow badge treatment instead (see content.css). No other retailer in this file is classified \"busy\" yet — deliberate, not an oversight (see content.js's photoStyle lookup comment). badgePosition: \"bottom-left\" — from the badge-positioning investigation (top-left was overlapping model faces on FP's portrait-style photography); FP was confirmed clean of any bottom-corner retailer UI (its own \"Top Rated\" badge and wishlist heart are both top corners). No other retailer is set to \"bottom-left\": Nordstrom and Nordstrom Rack both have their own bottom-left promotional badges the moved badge would collide with, and the remaining retailers are unverified either way — deliberate, not an oversight. Known open gap: FP's own cropped/close-up shots (e.g. intimates) weren't re-verified live for bottom-left hand/ring overlap this session (bot-detection blocked repeat automated access) — accepted as a known limitation per the task's own call, since bottom-left is still expected to be a net improvement over the universal top-left face-overlap issue."
+      "notes": "Sibling URBN brand sharing Urban Outfitters' exact fetchDeptStoreBVReviews code path (background-v2.js) — same hard 90-review-per-product cap (fixed 3 pages x 30). Measured live via direct curl to api.bazaarvoice.com: Good Karma High-Rise 7/8 Leggings (FP-52536018-000), 773 total reviews — hits the cap cleanly, all 90 raw records had non-empty ReviewText (matches Urban Outfitters' pattern, not Macy's textless-review issue — see their respective notes). Coverage: 90/773 (~11.6%). Most recently added integration in this codebase — re-verify this entry once it's had more live testing. photoStyle: \"busy\" — product photos are shot on location (gardens, stone buildings) rather than white studio backgrounds, which made the standard translucent browse badge illegible; gets the halo+shadow badge treatment instead (see content.css). No other retailer in this file is classified \"busy\" yet — deliberate, not an oversight (see content.js's photoStyle lookup comment). badgePosition: \"bottom-left\" — from the badge-positioning investigation (top-left was overlapping model faces on FP's portrait-style photography); FP was confirmed clean of any bottom-corner retailer UI (its own \"Top Rated\" badge and wishlist heart are both top corners). No other retailer is set to \"bottom-left\": Nordstrom and Nordstrom Rack both have their own bottom-left promotional badges the moved badge would collide with, and the remaining retailers are unverified either way — deliberate, not an oversight. Known open gap: FP's own cropped/close-up shots (e.g. intimates) weren't re-verified live for bottom-left hand/ring overlap this session (bot-detection blocked repeat automated access) — accepted as a known limitation per the task's own call, since bottom-left is still expected to be a net improvement over the universal top-left face-overlap issue. fitScoring downgraded from true to \"limited\" (2026-08-06, task-directed, not independently re-measured this session): Free People product pages lean on descriptive text rather than structured data (titles/specs) Bustfit can reliably parse, which is also the root cause behind the busy-photoStyle and bottom-left-badgePosition workarounds above — the badge itself is harder to place and shows up less consistently as a result. limitationText carries the shopper-facing version of this; this note is the engineering-facing one. Should be re-verified with live measurement (e.g. badge-render success rate across a sample of FP product pages) rather than left on task-supplied rationale indefinitely."
     },
     {
       "type": "domain",
@@ -126,6 +127,14 @@
       "reviewData": false,
       "purchaseDetection": true,
       "notes": "Purchase confirmation detection only — no product-page scraper exists for BigCommerce stores, so there is no fit score or review data on this platform at all. Detected via a /checkout/order-confirmation URL plus a bigcommerce.com script tag on the page, and (like Shopify/WooCommerce above) only runs on domains already in Bustfit's approved site list."
+    }
+  ],
+  "comingSoon": [
+    {
+      "displayName": "Abercrombie"
+    },
+    {
+      "displayName": "Anthropologie"
     }
   ]
 }
