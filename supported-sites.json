@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-07-30",
+  "lastUpdated": "2026-08-03",
   "sites": [
     {
       "type": "domain",
@@ -8,8 +8,9 @@
       "displayName": "Nordstrom",
       "fitScoring": true,
       "reviewData": "limited",
+      "reviewSampleCap": 90,
       "purchaseDetection": true,
-      "notes": "Fetches up to 90 BV reviews/product (chrome.scripting MAIN-world fetch, 9 pages x 10 — see fetchNordstromBVViaScripting in background-v2.js). Real coverage on high-volume (200+ review) products has not yet been live-measured: Nordstrom blocks both direct curl and headless browser automation with bot detection, so this requires running the extension in a real Chrome session. Debug logging is already in place (NORDSTROM_BV_DEBUG_COVERAGE flag) — look for '[bustfit][COVERAGE]' lines in the service worker console on a few 200+-review products and update this value/note with the real percentage. Provisionally set to \"limited\" to match the same 90-review-cap architecture's measured coverage on Macy's (~30%) and Urban Outfitters (~2-14%) until Nordstrom-specific numbers are collected."
+      "notes": "Hard-capped at 90 reviews per product, always — fetchNordstromBVViaScripting (background-v2.js) loops a fixed 9 pages x 10 (args: [apiKey, numericId, 10, 9]) and only stops early if a page comes back empty or the running total already reaches the product's own totalResults. So a product with <=90 reviews gets 100% coverage; anything above 90 gets exactly 90/total. Live-measured (2026-08-01) against three real 200+-review Nordstrom products using the NORDSTROM_BV_DEBUG_COVERAGE logging added for this purpose: 33%, 48%, and 26% coverage (avg ~36%) — all well under \"large majority,\" confirming \"limited\" over \"true.\" Consistent with the same 90-review-cap mechanism measured on macys.com/bloomingdales.com/urbanoutfitters.com/freepeople.com — coverage on any given product is a function of that product's total review count (min(90, totalReviews) / totalReviews), not a fixed retailer-wide rate, so these three numbers are illustrative data points rather than a guarantee for every product. Debug logging remains in place for future re-verification — look for '[bustfit][COVERAGE]' lines in the service worker console."
     },
     {
       "type": "domain",
@@ -26,8 +27,9 @@
       "displayName": "Macy's",
       "fitScoring": true,
       "reviewData": "limited",
+      "reviewSampleCap": 90,
       "purchaseDetection": false,
-      "notes": "Direct BV Conversations API fetch, capped at 90 reviews (3 pages x 30). Measured live: product 27228519 has 181 total reviews, 54 fetched (~30%). No order-confirmation adapter exists for macys.com (not Shopify/WooCommerce/BigCommerce as far as verified) so purchase detection is not supported here."
+      "notes": "Hard-capped at 90 raw reviews per product, always — fetchDeptStoreBVReviews (background-v2.js, shared with bloomingdales.com/urbanoutfitters.com/freepeople.com) loops a fixed 3 pages x 30 (`for (let page = 0; page < 3; page++)`, `limit = 30`) and only stops early if a page comes back empty or the running total already reaches the product's own TotalResults. Root cause of the 54-of-181 anomaly confirmed by re-running the exact fetch live against api.bazaarvoice.com (product 27228519, now 182 total reviews — one more than when first logged): the cap itself is hit cleanly every time (all 3 raw pages return a full 30 records, 90/90), so it was never an early stop, a partial page, or a rate limit. The gap is a filter *after* the fetch — the code keeps only records with non-empty ReviewText (`.filter(r => r.text)`), and a large share of Macy's BV reviews are ratings-only with no written text: only 23+16+14=53 of the 90 raw records had text this time (~29%, matching the original 54/181≈30%). Bloomingdale's/Urban Outfitters/Free People (see their notes) show zero equivalent textless-review attrition on the products tested — every one of their 90 raw records had text — so this looks like a Macy's catalog trait, not a shared BV-integration behavior, though only confirmed on this one product so far. No order-confirmation adapter exists for macys.com (not Shopify/WooCommerce/BigCommerce as far as verified) so purchase detection is not supported here."
     },
     {
       "type": "domain",
@@ -35,8 +37,9 @@
       "displayName": "Bloomingdale's",
       "fitScoring": true,
       "reviewData": "limited",
+      "reviewSampleCap": 90,
       "purchaseDetection": false,
-      "notes": "Same BV direct-API integration and 90-review cap as Macy's (shared code path). Coverage percentage has not been independently measured for Bloomingdale's specifically. No order-confirmation adapter exists."
+      "notes": "Same fetchDeptStoreBVReviews code path as Macy's (background-v2.js) — hard-capped at 90 reviews per product (fixed 3 pages x 30, stops early only on an empty page or reaching the product's own TotalResults). Coverage on any given product = min(90, totalReviews) / totalReviews. Measured directly against the live BV Conversations API (api.bazaarvoice.com, reachable via plain curl — unlike Nordstrom, this fetch never touches bloomingdales.com itself so there's no bot-detection to work around): SPANX OnCore High-Waisted Shorts, product 1456334, 174 total reviews — all 3 pages returned a full 30 non-empty ReviewText each, so the code fetches exactly 90 of 174 (~52%), cleanly hitting the cap. No textless-review attrition like Macy's shows (see its notes) — every raw record here had text. 52% happens to clear \"majority\" on this one mid-volume product, but the same hard 90-review ceiling means coverage keeps shrinking as review count grows past it (see urbanoutfitters.com's 90/642 and 90/4,651 examples on the identical mechanism) — \"limited\" reflects that ceiling, not this one product. No order-confirmation adapter exists."
     },
     {
       "type": "domain",
@@ -71,8 +74,9 @@
       "displayName": "Urban Outfitters",
       "fitScoring": true,
       "reviewData": "limited",
+      "reviewSampleCap": 90,
       "purchaseDetection": false,
-      "notes": "Same BV direct-API integration and 90-review cap as Macy's/Bloomingdale's. Measured live on two products: 90 of 639 (~14%) and 90 of 4,651 (~2%). Storefront is a custom Vue app, not confirmed to run Shopify/WooCommerce/BigCommerce, so no order-confirmation adapter exists."
+      "notes": "Same fetchDeptStoreBVReviews code path as Macy's/Bloomingdale's (background-v2.js) — hard-capped at 90 reviews per product (fixed 3 pages x 30). Re-verified live via direct curl to api.bazaarvoice.com on both original test products: BDG Kayla Low-Rise Jeans (UO-89297493-000, now 642 total reviews, was 639) and a corset (UO-57537995-000, 4,651 total reviews, unchanged). Both hit the cap cleanly with all 90 raw records carrying non-empty ReviewText — no textless-review attrition like Macy's shows (see its notes). Coverage: 90/642 (~14%) and 90/4,651 (~2%). Storefront is a custom Vue app, not confirmed to run Shopify/WooCommerce/BigCommerce, so no order-confirmation adapter exists."
     },
     {
       "type": "domain",
@@ -80,8 +84,11 @@
       "displayName": "Free People",
       "fitScoring": true,
       "reviewData": "limited",
+      "reviewSampleCap": 90,
       "purchaseDetection": false,
-      "notes": "Sibling URBN brand sharing Urban Outfitters' exact BV integration pattern and 90-review cap; own coverage percentage not yet independently measured. Most recently added integration in this codebase — re-verify this entry once it's had more live testing."
+      "photoStyle": "busy",
+      "badgePosition": "bottom-left",
+      "notes": "Sibling URBN brand sharing Urban Outfitters' exact fetchDeptStoreBVReviews code path (background-v2.js) — same hard 90-review-per-product cap (fixed 3 pages x 30). Measured live via direct curl to api.bazaarvoice.com: Good Karma High-Rise 7/8 Leggings (FP-52536018-000), 773 total reviews — hits the cap cleanly, all 90 raw records had non-empty ReviewText (matches Urban Outfitters' pattern, not Macy's textless-review issue — see their respective notes). Coverage: 90/773 (~11.6%). Most recently added integration in this codebase — re-verify this entry once it's had more live testing. photoStyle: \"busy\" — product photos are shot on location (gardens, stone buildings) rather than white studio backgrounds, which made the standard translucent browse badge illegible; gets the halo+shadow badge treatment instead (see content.css). No other retailer in this file is classified \"busy\" yet — deliberate, not an oversight (see content.js's photoStyle lookup comment). badgePosition: \"bottom-left\" — from the badge-positioning investigation (top-left was overlapping model faces on FP's portrait-style photography); FP was confirmed clean of any bottom-corner retailer UI (its own \"Top Rated\" badge and wishlist heart are both top corners). No other retailer is set to \"bottom-left\": Nordstrom and Nordstrom Rack both have their own bottom-left promotional badges the moved badge would collide with, and the remaining retailers are unverified either way — deliberate, not an oversight. Known open gap: FP's own cropped/close-up shots (e.g. intimates) weren't re-verified live for bottom-left hand/ring overlap this session (bot-detection blocked repeat automated access) — accepted as a known limitation per the task's own call, since bottom-left is still expected to be a net improvement over the universal top-left face-overlap issue."
     },
     {
       "type": "domain",
@@ -89,8 +96,9 @@
       "displayName": "Amazon",
       "fitScoring": true,
       "reviewData": "limited",
-      "purchaseDetection": false,
-      "notes": "No third-party review platform exists to call directly — DOM-scraped only. Logged-out users get a one-shot synchronous scrape of the ~13 reviews present on the PDP; logged-in users get an additional hidden-iframe pagination fetch of up to 5 pages (~50 reviews total). No order-confirmation adapter exists for Amazon."
+      "reviewSampleCap": 50,
+      "purchaseDetection": true,
+      "notes": "No third-party review platform exists to call directly — DOM-scraped only. Logged-out users get a one-shot synchronous scrape of the ~13 reviews present on the PDP; logged-in users get an additional hidden-iframe pagination fetch of up to 5 pages (~50 reviews total). reviewSampleCap (50) reflects the logged-in ceiling (AMAZON_REVIEW_PAGE_COUNT x 10 in content.js) — the only one of the two figures backed by an actual code constant, so it's what validate-supported-sites.js checks; the logged-out ~13 is an empirical DOM-count observation, not a fixed cap in code. Purchase detection (2026-08-04) is NOT one of the ORDER_CONFIRMATION_ADAPTERS in content.js — live investigation found automated add-to-cart/checkout actions silently no-op'd by Amazon's bot mitigation, so there's no reachable confirmation page to build selectors against. Instead it diffs the real 'Your Orders' page (selectors verified live against a real logged-in account) against a locally-seeded baseline of order numbers, routing genuinely-new orders through the same processOrderConfirmation() pipeline every other retailer uses (background-v2.js). Known limitations: grocery/pickup orders (Whole Foods-style 'PICKUP AT' cards) render products as image-only alt text with no title-link text and are skipped entirely, since they're not clothing anyway; a purchase placed in the exact window before the very first seed snapshot completes is an inherent blind spot of snapshot-based seeding, not a bug; only a single shipment/status per order card was confirmed live, so multi-shipment orders with per-item delivery dates are unverified. See RETAILER_SCRAPERS.md → Amazon for the full design writeup."
     },
     {
       "type": "platform",
