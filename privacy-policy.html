@@ -175,19 +175,19 @@
     <div class="header">
       <div class="brand">bustfit</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: 1 July 2025 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension</p>
+      <p class="meta">Last updated: 6 August 2026 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension</p>
     </div>
 
     <!-- ── Plain-English summary ───────────────────────────── -->
     <div class="summary">
-      <p><strong>The short version:</strong> Bustfit stores your size and preferences on your device only. We don't run servers, we don't collect personal data, and we don't sell anything about you to anyone.</p>
-      <p>When you use features that require talking to the internet — like image analysis or fetching reviews — we're clear below about exactly what's sent, where it goes, and why.</p>
+      <p><strong>The short version:</strong> Bustfit stores your size and preferences on your device only. Bustfit's own backend handles a few features (API-powered image analysis and review summaries, and pooled anonymous sizing feedback) — none of it is ever tied to your identity, and we don't sell anything about you to anyone.</p>
+      <p>When you use features that require talking to the internet — like image analysis, fetching reviews, or sharing anonymous sizing feedback — we're clear below about exactly what's sent, where it goes, and why.</p>
     </div>
 
     <!-- ── 1 ───────────────────────────────────────────────── -->
     <h2>1. What Bustfit is and how it works</h2>
-    <p>Bustfit is a Chrome extension that analyses clothing products and gives you a fit score based on your bust measurements and preferences. All scoring logic runs locally inside the extension. There are no Bustfit servers — your data never passes through any system we control.</p>
-    <p>Some optional features (image analysis, review summaries) use external APIs that you opt into by providing your own API key. Those are covered in detail below.</p>
+    <p>Bustfit is a Chrome extension that analyses clothing products and gives you a fit score based on your bust measurements and preferences. All scoring logic runs locally inside the extension.</p>
+    <p>A small number of features use Bustfit's own backend server (image analysis, review summaries, and pooled anonymous sizing feedback) or public third-party services (Reddit, DuckDuckGo). None of these send anything that identifies you personally — no name, email, account, or precise measurements. Each is covered in detail below.</p>
 
     <!-- ── 2 ───────────────────────────────────────────────── -->
     <h2>2. Data stored on your device</h2>
@@ -201,10 +201,6 @@
         <tr>
           <td><strong>Your preferences</strong></td>
           <td>Band size, cup size, bra style preference, strapless bra preference, typical fit challenges, auto-open panel setting</td>
-        </tr>
-        <tr>
-          <td><strong>Your API key</strong></td>
-          <td>The Anthropic API key you enter. Stored locally and used only to make requests on your behalf — see Section 4.</td>
         </tr>
         <tr>
           <td><strong>Scored products</strong></td>
@@ -224,11 +220,19 @@
         </tr>
         <tr>
           <td><strong>Usage analytics</strong></td>
-          <td>Counts of: products scored, retailer links clicked, purchases detected, feedback submitted. Stored locally only. See Section 7.</td>
+          <td>Counts of: products scored, retailer links clicked, purchases detected, feedback submitted. Stored locally only. See Section 8.</td>
         </tr>
         <tr>
           <td><strong>Admin product notes</strong></td>
           <td>Notes added via the admin editor, stored per product URL. Only relevant if you use the admin features.</td>
+        </tr>
+        <tr>
+          <td><strong>Anonymous device ID</strong></td>
+          <td>A random identifier generated on your device (not tied to your name, email, or any account) and stored locally. Used to attribute API requests and pooled sizing feedback to "one device" — e.g. so the same device can't submit sizing feedback for the same product twice. See Sections 4 and 6.</td>
+        </tr>
+        <tr>
+          <td><strong>Your sizing feedback</strong></td>
+          <td>Your own post-purchase answers (size ordered, how it fit) for products you've bought. A copy is submitted anonymously to Bustfit's backend — see Section 6.</td>
         </tr>
       </tbody>
     </table>
@@ -244,14 +248,14 @@
 
     <!-- ── 4 ───────────────────────────────────────────────── -->
     <h2>4. Anthropic API — image analysis and review summaries</h2>
-    <p>Two features use the <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic API</a>. Both are opt-in and only work if you have provided an Anthropic API key in the extension settings.</p>
+    <p>Bustfit uses the <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic API</a> for two features: garment image analysis and review summarisation. API requests are made on your behalf using Bustfit's own API credentials — you do not need to provide or manage an API key.</p>
 
     <p><strong>Image analysis:</strong> When scoring a product, the extension sends the product image URL to Anthropic's API along with a structured prompt asking it to identify garment construction details (neckline type, strap style, silhouette). No personal information — no your size, name, or account details — is included in this request.</p>
 
     <p><strong>Review summaries:</strong> When bust-relevant reviews are found for a product, excerpts of those reviews (plain text only, no reviewer names or identifiers) are sent to Anthropic's API to generate a brief summary. Again, no personal information is included.</p>
 
     <div class="callout callout--warn">
-      Both of these requests use <strong>your own Anthropic API key</strong>, which means they count against your own API usage quota and are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data.
+      These requests are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data. Product image URLs and bust-relevant review text are sent to Anthropic's servers for processing.
     </div>
 
     <!-- ── 5 ───────────────────────────────────────────────── -->
@@ -267,7 +271,14 @@
     <p>Supported retailers include Shopify-based stores, ASOS, Nordstrom, Net-a-Porter, Mytheresa, and WooCommerce stores. You can see the full list in the extension source code.</p>
 
     <!-- ── 6 ───────────────────────────────────────────────── -->
-    <h2>6. External services used to fetch reviews</h2>
+    <h2>6. Sizing feedback (shared, anonymous)</h2>
+    <p>After a detected purchase (Section 5), or any time you use the sizing feedback prompt in the Sizing tab, you can optionally log what size you ordered and how it fit. This is always stored locally on your device first.</p>
+    <p>A copy of that same answer — the size you ordered, how it fit, and the retailer's domain — is also submitted to Bustfit's backend, tagged with the anonymous device ID described in Section 2. <strong>Nothing that could identify you is included</strong>: no name, email, account, order number, exact measurements, or free-text notes you may have added locally.</p>
+    <p>Bustfit pools this feedback across everyone who submits it for the same product, and shows aggregate counts (e.g. "3 people sized up, fit well") to other shoppers looking at that same product — never individual submissions. Aggregates only appear once at least 3 people have submitted feedback for a product, so a single person's answer is never shown on its own.</p>
+    <p>Each device can submit feedback once per product. If you don't want to participate, simply don't use the sizing feedback prompt — nothing is submitted unless you actively answer it.</p>
+
+    <!-- ── 7 ───────────────────────────────────────────────── -->
+    <h2>7. External services used to fetch reviews</h2>
     <p>To find community reviews, Bustfit queries two public search services:</p>
 
     <p><strong>Reddit (<code>reddit.com</code>):</strong> The extension sends a search query containing the product's brand name and title to Reddit's public search API. This returns public Reddit posts mentioning the product. No personal information is included in the query.</p>
@@ -276,8 +287,8 @@
 
     <p>These requests are made the same way a normal web search would be. Neither service receives your size, preferences, or any identifying information.</p>
 
-    <!-- ── 7 ───────────────────────────────────────────────── -->
-    <h2>7. Usage analytics</h2>
+    <!-- ── 8 ───────────────────────────────────────────────── -->
+    <h2>8. Usage analytics</h2>
     <p>Bustfit tracks four anonymous usage counts, stored locally on your device:</p>
     <ul>
       <li>Number of products scored</li>
@@ -288,52 +299,52 @@
     <p>These counts are stored as part of an event log (capped at 500 entries) in local extension storage. They are never transmitted automatically. If you use the admin export feature, you can export this data manually — that export goes only to wherever you choose to save it.</p>
     <p>There is no analytics service, no tracking pixel, and no beacon of any kind that reports your behaviour back to us.</p>
 
-    <!-- ── 8 ───────────────────────────────────────────────── -->
-    <h2>8. Editor notes (hosted JSON)</h2>
+    <!-- ── 9 ───────────────────────────────────────────────── -->
+    <h2>9. Editor notes (hosted JSON)</h2>
     <p>Bustfit fetches a public JSON file from jsDelivr (<code>cdn.jsdelivr.net</code>) that contains editor-curated notes about specific products and brand fit patterns. This file is publicly accessible to anyone. The request to fetch it includes no user data — it is the same as loading any public web resource.</p>
     <p>The cached copy of this file is stored locally on your device and refreshed every 24 hours.</p>
 
-    <!-- ── 9 ───────────────────────────────────────────────── -->
-    <h2>9. Retailer link tagging</h2>
+    <!-- ── 10 ───────────────────────────────────────────────── -->
+    <h2>10. Retailer link tagging</h2>
     <p>When you click a retailer link from within the Bustfit panel, the extension appends UTM attribution tags to the URL. These tags look like: <code>utm_source=bustfit&amp;utm_content=good-fit</code>.</p>
     <p>These tags identify that the click came from Bustfit and which score tier the product received. They contain no personal information — no size, no preferences, no identifier tied to you as an individual.</p>
     <p>This tagging exists to support future affiliate partnerships that help sustain Bustfit as a free tool. The retailer may record the click as part of their normal web analytics.</p>
 
-    <!-- ── 10 ──────────────────────────────────────────────── -->
-    <h2>10. What we do not collect</h2>
+    <!-- ── 11 ──────────────────────────────────────────────── -->
+    <h2>11. What we do not collect</h2>
     <div class="callout">
       <strong>Bustfit does not:</strong>
       <ul style="margin: 8px 0 0 18px;">
         <li>Collect your name, email address, or any contact information</li>
         <li>Collect financial data, payment details, or card numbers</li>
         <li>Track your browsing history beyond the product page currently open</li>
-        <li>Store or transmit your bra size or body measurements to any server</li>
-        <li>Run any server-side infrastructure that receives your data</li>
+        <li>Store or transmit your exact bra size or body measurements to any server — sizing feedback (Section 6) only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
+        <li>Tie anything sent to our backend to your identity — requests and pooled sizing feedback use only the anonymous, on-device ID described in Section 2</li>
         <li>Sell, rent, or share any data with advertisers or data brokers</li>
         <li>Use your data for advertising targeting of any kind</li>
-        <li>Share data between users or aggregate personal profiles</li>
+        <li>Aggregate personal profiles of individual users — sizing feedback is pooled per-product, not per-person, and only ever shown once at least 3 people have contributed</li>
       </ul>
     </div>
 
-    <!-- ── 11 ──────────────────────────────────────────────── -->
-    <h2>11. Data retention and deletion</h2>
+    <!-- ── 12 ──────────────────────────────────────────────── -->
+    <h2>12. Data retention and deletion</h2>
     <p>All locally stored data (preferences, scores, order history, analytics, cached notes) can be cleared at any time by removing the extension from Chrome, or by clearing the extension's storage via Chrome's developer tools.</p>
     <p>Review summary caches expire automatically after 7 days. The recent products list is capped at 50 entries (oldest removed automatically). The analytics event log is capped at 500 entries.</p>
     <p>Because we don't receive your data, there's nothing for us to delete on our end.</p>
 
-    <!-- ── 12 ──────────────────────────────────────────────── -->
-    <h2>12. Children's privacy</h2>
+    <!-- ── 13 ──────────────────────────────────────────────── -->
+    <h2>13. Children's privacy</h2>
     <p>Bustfit is not directed at children under 13 and we do not knowingly collect information from anyone under 13.</p>
 
-    <!-- ── 13 ──────────────────────────────────────────────── -->
-    <h2>13. Changes to this policy</h2>
+    <!-- ── 14 ──────────────────────────────────────────────── -->
+    <h2>14. Changes to this policy</h2>
     <p>If we make meaningful changes to this policy, we will update the "last updated" date at the top of this page. For significant changes — particularly any that would involve sending new categories of data externally — we will also notify users via the extension itself (via the popup or panel).</p>
     <p>Continuing to use Bustfit after a policy update means you've seen and accept the updated policy.</p>
 
-    <!-- ── 14 ──────────────────────────────────────────────── -->
-    <h2>14. Contact</h2>
+    <!-- ── 15 ──────────────────────────────────────────────── -->
+    <h2>15. Contact</h2>
     <p>Questions about this privacy policy or how Bustfit handles data? Get in touch:</p>
-    <p><a href="mailto:privacy@bustfit.app">privacy@bustfit.app</a></p>
+    <p><a href="mailto:elizalagarde.1@gmail.com">elizalagarde.1@gmail.com</a></p>
 
     <!-- ── Footer ─────────────────────────────────────────── -->
     <div class="footer">
