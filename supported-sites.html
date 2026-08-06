@@ -78,6 +78,36 @@
     .legend-item { display: flex; align-items: center; gap: 6px; }
     .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
 
+    /* Deliberately dot-less and boxed — visually distinct from the status
+       list above so it can't be mistaken for a live functional state. */
+    .coming-soon {
+      margin-top: 32px;
+      padding: 16px 18px;
+      background: #F7F6FF;
+      border: 1px dashed #C9C6E0;
+      border-radius: 12px;
+    }
+
+    .coming-soon-heading {
+      font-size: 15px;
+      font-weight: 700;
+      color: #5A52CC;
+      margin-bottom: 4px;
+    }
+
+    .coming-soon-sub { font-size: 13px; color: #666; margin-bottom: 12px; }
+
+    .coming-soon-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .coming-soon-chip {
+      font-size: 13px;
+      font-weight: 600;
+      color: #5A52CC;
+      background: #EEEDFF;
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+
     footer { margin-top: 40px; font-size: 13px; color: #999; }
     footer a { color: #8B85FF; }
   </style>
@@ -87,7 +117,7 @@
     <div class="header">
       <div class="brand">bustfit</div>
       <h1>Supported Sites</h1>
-      <div class="meta">Generated from supported-sites.json — last updated 2026-08-03</div>
+      <div class="meta">Generated from supported-sites.json — last updated 2026-08-06</div>
     </div>
 
     
@@ -158,16 +188,16 @@
         <div class="site-row">
           <span class="dot" style="background:#34C759"></span>
           <div>
-            <div class="site-name">Free People</div>
-            <div class="site-desc">Partial review coverage</div>
+            <div class="site-name">Amazon</div>
+            <div class="site-desc">Partial review coverage · Fit follow-up after purchase</div>
           </div>
         </div>
 
         <div class="site-row">
-          <span class="dot" style="background:#34C759"></span>
+          <span class="dot" style="background:#FFB020"></span>
           <div>
-            <div class="site-name">Amazon</div>
-            <div class="site-desc">Partial review coverage · Fit follow-up after purchase</div>
+            <div class="site-name">Free People</div>
+            <div class="site-desc">Fit badges can be harder to spot and show up less often here — Free People&#39;s product pages rely more on descriptive text than the structured data we usually read.</div>
           </div>
         </div>
 
@@ -196,9 +226,18 @@
         </div>
 
     <div class="legend">
-      <div class="legend-item"><span class="legend-dot" style="background:#34C759"></span>Fit scoring works</div>
-      <div class="legend-item"><span class="legend-dot" style="background:#FFB020"></span>Limited fit scoring</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#34C759"></span>Fit scoring works smoothly</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#FFB020"></span>Works, with a known limitation</div>
       <div class="legend-item"><span class="legend-dot" style="background:#C9C6E0"></span>Not currently supported</div>
+    </div>
+    
+    <div class="coming-soon">
+      <h2 class="coming-soon-heading">Coming soon</h2>
+      <p class="coming-soon-sub">Not live yet — no fit scoring or review data on these sites today.</p>
+      <div class="coming-soon-list">
+            <span class="coming-soon-chip">Abercrombie</span>
+            <span class="coming-soon-chip">Anthropologie</span>
+      </div>
     </div>
 
     <footer>
