@@ -1,6 +1,6 @@
 {
-  "version": 22,
-  "lastUpdated": "2026-07-04",
+  "version": 23,
+  "lastUpdated": "2026-08-19",
   "notes": {
     "_products_lioness_the-mystique-midi-dress_html": {
       "productName": "The Mystique Midi Dress",
@@ -10,6 +10,16 @@
       "authorSize": "32F",
       "dateAdded": "2026-06-01",
       "dateEdited": "2026-06-01",
+      "signalOverrides": {}
+    },
+    "_s_princess_polly_fionna_floral_sleeveless_maxi_dress_891637": {
+      "productName": "Fionna Floral Sleeveless Maxi Dress",
+      "retailer": "Princess Polly",
+      "noteText": "test note #1.",
+      "bustRating": "",
+      "authorSize": "",
+      "dateAdded": "2026-08-19",
+      "dateEdited": "2026-08-19",
       "signalOverrides": {}
     }
   },
