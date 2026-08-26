@@ -106,6 +106,15 @@
       "notes": "No third-party review platform exists to call directly — DOM-scraped only. Logged-out users get a one-shot synchronous scrape of the ~13 reviews present on the PDP; logged-in users get an additional hidden-iframe pagination fetch of up to 5 pages (~50 reviews total). reviewSampleCap (50) reflects the logged-in ceiling (AMAZON_REVIEW_PAGE_COUNT x 10 in content.js) — the only one of the two figures backed by an actual code constant, so it's what validate-supported-sites.js checks; the logged-out ~13 is an empirical DOM-count observation, not a fixed cap in code. Purchase detection (2026-08-04) is NOT one of the ORDER_CONFIRMATION_ADAPTERS in content.js — live investigation found automated add-to-cart/checkout actions silently no-op'd by Amazon's bot mitigation, so there's no reachable confirmation page to build selectors against. Instead it diffs the real 'Your Orders' page (selectors verified live against a real logged-in account) against a locally-seeded baseline of order numbers, routing genuinely-new orders through the same processOrderConfirmation() pipeline every other retailer uses (background-v2.js). Known limitations: grocery/pickup orders (Whole Foods-style 'PICKUP AT' cards) render products as image-only alt text with no title-link text and are skipped entirely, since they're not clothing anyway; a purchase placed in the exact window before the very first seed snapshot completes is an inherent blind spot of snapshot-based seeding, not a bug; only a single shipment/status per order card was confirmed live, so multi-shipment orders with per-item delivery dates are unverified. See RETAILER_SCRAPERS.md → Amazon for the full design writeup."
     },
     {
+      "type": "domain",
+      "domain": "abercrombie.com",
+      "displayName": "Abercrombie & Fitch",
+      "fitScoring": true,
+      "reviewData": false,
+      "purchaseDetection": true,
+      "notes": "Product scraper (scrapeAbercrombie(), content.js) reads standard Product JSON-LD (name/description/image/aggregateRating, no brand field — single-brand store, hardcoded) plus a server-rendered 'Details & Material' accordion panel ([data-testid=\"fabric-care-mfe\"] h4) for fabric composition (e.g. 'BODY: 85% POLYESTER, 15% ELASTANE') — confirmed live via a raw fetch() of the page HTML that this is fully SSR despite the accordion UI, no click/wait needed. Browse-grid is unusually clean structurally: [data-testid=\"catalog-product-card\"] cards wrap both the image and [data-testid=\"catalog-product-card-name\"] title directly, no badgeAnchor/sortAnchor override needed. Order-confirmation adapter (ORDER_CONFIRMATION_ADAPTERS 'abercrombie', content.js) matches the custom-platform /shop/OrderConfirmationDisplayView URL (not Shopify/WooCommerce/BigCommerce). Verified live against a real saved 4-item order: the item list renders TWICE on this page (a desktop right-rail summary and a small-screen summary, both always mounted, CSS-toggled for responsive layout) — an unscoped query returns 8 elements for 4 real items, so the adapter scopes to #right-rail-shopping-bag and dedupes by data-sku, not name — this order has two genuinely different SKUs (different colors) sharing one product name, which a name-based dedup would have wrongly collapsed into one. Estimated-delivery text never carries a year (e.g. 'Wed, 08/19') — _parseAbercrombieDeliveryDate() infers it, rolling FORWARD a year when the guess lands more than a day in the past (the mirror image of Amazon's order-history date logic, which rolls BACK — verified via a Node repro that blindly reusing Amazon's rollback direction here would silently misdate an order placed right at the December/January boundary). reviewData is false: individual review text does not render on this platform even after scrolling/clicking the rating link (confirmed live, consistent with the original feasibility scan). The on-page widget is Bazaarvoice, but via a newer 'BFD' endpoint (apps.bazaarvoice.com/bfd/v1/...) rather than the passkey-based Conversations API every other BV retailer here uses — no passkey needed, and the numeric product id is directly in the SSR HTML (data-bv-product-id), but the endpoint is CORS-restricted to abercrombie.com's own origin (confirmed via a cross-origin no-cors probe that the server does respond, just without a readable-origin header), meaning it needs Nordstrom-style MAIN-world scripting rather than a plain background fetch. It also returned a genuine 401 (not a 429) on repeated calls that persisted across reloads, different products, and a brand-new browser tab, and appeared to suppress the real on-page widget too — under active investigation before the review-fetch pipeline is built; see RETAILER_SCRAPERS.md and SESSION_HANDOFF.md for the latest."
+    },
+    {
       "type": "platform",
       "platform": "shopify",
       "displayName": "Shopify-platform stores",
@@ -134,9 +143,6 @@
     }
   ],
   "comingSoon": [
-    {
-      "displayName": "Abercrombie"
-    },
     {
       "displayName": "Anthropologie"
     }
