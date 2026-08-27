@@ -96,6 +96,17 @@
     },
     {
       "type": "domain",
+      "domain": "anthropologie.com",
+      "displayName": "Anthropologie",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "reviewSampleCap": 90,
+      "purchaseDetection": false,
+      "badgePosition": "bottom-left",
+      "notes": "Third URBN sibling brand, same fetchDeptStoreBVReviews code path as Urban Outfitters/Free People (background-v2.js) — same hard 90-review-per-product cap (fixed 3 pages x 30). Confirmed live via direct fetch to api.bazaarvoice.com on the Delphine Sweater Twofer Mini Dress (AN-4130916210343-000, 225 total reviews): hits the cap cleanly, all 30 raw records on the 3rd page (offset=60) had non-empty ReviewText — same clean pattern as UO/FP, not Macy's textless-review attrition. Coverage: 90/225 (40%). Storefront is the same custom Vue/Pinia PWA as UO/FP, not Shopify/WooCommerce/BigCommerce, so no order-confirmation adapter exists — this is a pre-existing, family-wide gap shared with UO/FP, not something specific to Anthropologie (see SESSION_HANDOFF.md's URBN order-confirmation follow-up). Browse grid (.c-pwa-tile-grid-tile / .c-pwa-tile-grid-inner), quickshop modal (.o-pwa-modal-overlay, data-qa-quickshop-button), and slow-mounting tile images are all confirmed live identical to UO/FP's component library. badgePosition: \"bottom-left\" — real collision found live, not assumed: 4 of 62 tiles on a real /dresses page carry a \"Plus Sizes\" label (.o-pwa-product-visual-badge__text) sitting almost exactly where a top-left badge would land (5px inset from the tile's own corner); bottom-left checked clean of any competing label. content.js's badgeAnchor was added at the same time, identical fallback chain to UO/FP's own, so \"bottom\" anchors to the photo, not the whole card."
+    },
+    {
+      "type": "domain",
       "domain": "amazon.com",
       "displayName": "Amazon",
       "fitScoring": true,
