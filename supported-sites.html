@@ -117,7 +117,16 @@
     <div class="header">
       <div class="brand">bustfit</div>
       <h1>Supported Sites</h1>
-      <div class="meta">Generated from supported-sites.json — last updated 2026-08-13</div>
+      <!-- "Last updated" is today's date at publish time, not a field read
+           from supported-sites.json — that field used to be manually
+           maintained and silently went stale for weeks despite the file
+           itself being edited repeatedly (confirmed live: it still said
+           2026-08-13 after several substantive edits). This page only ever
+           gets regenerated when supported-sites.json actually changed (see
+           main()'s git-diff check / the commit hook that invokes this
+           script), so "today" at publish time is always correct by
+           construction and can't drift the way a hand-set field can. -->
+      <div class="meta">Generated from supported-sites.json — last updated 2026-08-27</div>
     </div>
 
     
