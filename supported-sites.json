@@ -107,6 +107,15 @@
     },
     {
       "type": "domain",
+      "domain": "oldnavy.gap.com",
+      "displayName": "Old Navy",
+      "fitScoring": true,
+      "reviewData": false,
+      "purchaseDetection": false,
+      "notes": "First Gap Inc. brand added — oldnavy.com itself redirects to oldnavy.gap.com, a genuine subdomain of gap.com, not a separately-built site. Confirmed live (2026-08-27) that Gap.com shares the identical storefront platform: same data-testid component library (plp_product-card, plp_product-name, bv-reviews-root), same /browse/product.do?pid=... URL routing, same Product-details/Size-&-fit/Fabric-&-care heading structure, same <body> class naming convention (on/gap/br for Old Navy/Gap/Banana Republic) — tested side by side on both sites, not assumed. scrapeOldNavy() (content.js) reads title/brand from JSON-LD and description/fabric/fit signal from the three heading-anchored accordion panels, confirmed genuinely SSR via a raw fetch() of the page HTML (present without any JS/click). Browse grid: 194-229 cards under one shared parent (not URBN's unique-per-tile-wrapper shape), findCards()/cardTitle() work directly with no anchor-walking needed. sortStrategy: 'css-order' required — confirmed live via direct insertBefore repro (same test that caught Abercrombie's bug) that physically moving a card corrupts displaced cards' title text, even though this isn't a virtualized grid. No badgePosition/badgeAnchor override: confirmed live across a 194-card scan that neither top corner of the image has a competing label (no wishlist icon exists on these cards at all). reviewData is false, not a number, because review integration is deliberately not built yet: Bazaarvoice is confirmed as the platform (data-bv-product-id/data-bv-show attributes present and correctly populated with real per-product ids), but the actual API access was not confirmed live — the review widget never populated real text in the investigation environment even on a 6,053-rating bestseller, and root cause (sandbox-side JS-execution gap suspected, given zero .js network requests were observed loading at all and a real Add to Bag click also never fired) was not pinned down. See SESSION_HANDOFF.md for the open follow-up and RETAILER_SCRAPERS.md for the full writeup. purchaseDetection is false for the same reason plus a second one: the add-to-bag/checkout transition type couldn't be observed either, in the same investigation session. Fit scoring itself does not depend on reviews and works today from fabric/description/image signal alone."
+    },
+    {
+      "type": "domain",
       "domain": "amazon.com",
       "displayName": "Amazon",
       "fitScoring": true,
