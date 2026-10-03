@@ -137,6 +137,26 @@
     },
     {
       "type": "domain",
+      "domain": "bananarepublicfactory.gapfactory.com",
+      "displayName": "Banana Republic Factory",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "reviewSampleCap": 90,
+      "purchaseDetection": false,
+      "notes": "Gap Inc. outlet storefront on the same platform as Banana Republic. Same product/browse scrapers and the same Bazaarvoice Conversations API, but a separate review deployment with its own passkey — outlet reviews are a distinct corpus from the parent brand’s. Confirmed live 2026-10-03."
+    },
+    {
+      "type": "domain",
+      "domain": "gapfactory.com",
+      "displayName": "Gap Factory",
+      "fitScoring": true,
+      "reviewData": "limited",
+      "reviewSampleCap": 90,
+      "purchaseDetection": false,
+      "notes": "Gap Inc. outlet storefront on the same platform as Gap. Same product/browse scrapers and the same Bazaarvoice Conversations API, but a separate review deployment with its own passkey — outlet reviews are a distinct corpus from the parent brand’s. Confirmed live 2026-10-03."
+    },
+    {
+      "type": "domain",
       "domain": "lululemon.com",
       "displayName": "lululemon",
       "fitScoring": true,
