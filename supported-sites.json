@@ -78,7 +78,7 @@
       "reviewData": "limited",
       "reviewSampleCap": 90,
       "purchaseDetection": false,
-      "badgePosition": "bottom-left",
+      "badgePosition": "top-left",
       "notes": "Same fetchDeptStoreBVReviews code path as Macy's/Bloomingdale's (background-v2.js) — hard-capped at 90 reviews per product (fixed 3 pages x 30). Re-verified live via direct curl to api.bazaarvoice.com on both original test products: BDG Kayla Low-Rise Jeans (UO-89297493-000, now 642 total reviews, was 639) and a corset (UO-57537995-000, 4,651 total reviews, unchanged). Both hit the cap cleanly with all 90 raw records carrying non-empty ReviewText — no textless-review attrition like Macy's shows (see its notes). Coverage: 90/642 (~14%) and 90/4,651 (~2%). Storefront is a custom Vue app, not confirmed to run Shopify/WooCommerce/BigCommerce, so no order-confirmation adapter exists. badgePosition: 'bottom-left' set 2026-08-12 per direct user request (moved from the default top-left) — content.js's badgeAnchor for this retailer was updated at the same time to anchor to the tile's image wrapper rather than the whole card, mirroring Free People's existing fix for the identical issue on the same URBN tile component."
     },
     {
@@ -91,7 +91,7 @@
       "purchaseDetection": false,
       "limitationText": "Fit badges can be harder to spot and show up less often here — Free People's product pages rely more on descriptive text than the structured data we usually read.",
       "photoStyle": "busy",
-      "badgePosition": "bottom-left",
+      "badgePosition": "top-left",
       "notes": "Sibling URBN brand sharing Urban Outfitters' exact fetchDeptStoreBVReviews code path (background-v2.js) — same hard 90-review-per-product cap (fixed 3 pages x 30). Measured live via direct curl to api.bazaarvoice.com: Good Karma High-Rise 7/8 Leggings (FP-52536018-000), 773 total reviews — hits the cap cleanly, all 90 raw records had non-empty ReviewText (matches Urban Outfitters' pattern, not Macy's textless-review issue — see their respective notes). Coverage: 90/773 (~11.6%). Most recently added integration in this codebase — re-verify this entry once it's had more live testing. photoStyle: \"busy\" — product photos are shot on location (gardens, stone buildings) rather than white studio backgrounds, which made the standard translucent browse badge illegible; gets the halo+shadow badge treatment instead (see content.css). No other retailer in this file is classified \"busy\" yet — deliberate, not an oversight (see content.js's photoStyle lookup comment). badgePosition: \"bottom-left\" — from the badge-positioning investigation (top-left was overlapping model faces on FP's portrait-style photography); FP was confirmed clean of any bottom-corner retailer UI (its own \"Top Rated\" badge and wishlist heart are both top corners). No other retailer is set to \"bottom-left\": Nordstrom and Nordstrom Rack both have their own bottom-left promotional badges the moved badge would collide with, and the remaining retailers are unverified either way — deliberate, not an oversight. Known open gap: FP's own cropped/close-up shots (e.g. intimates) weren't re-verified live for bottom-left hand/ring overlap this session (bot-detection blocked repeat automated access) — accepted as a known limitation per the task's own call, since bottom-left is still expected to be a net improvement over the universal top-left face-overlap issue. fitScoring downgraded from true to \"limited\" (2026-08-06, task-directed, not independently re-measured this session): Free People product pages lean on descriptive text rather than structured data (titles/specs) Bustfit can reliably parse, which is also the root cause behind the busy-photoStyle and bottom-left-badgePosition workarounds above — the badge itself is harder to place and shows up less consistently as a result. limitationText carries the shopper-facing version of this; this note is the engineering-facing one. Should be re-verified with live measurement (e.g. badge-render success rate across a sample of FP product pages) rather than left on task-supplied rationale indefinitely."
     },
     {
@@ -102,7 +102,7 @@
       "reviewData": "limited",
       "reviewSampleCap": 90,
       "purchaseDetection": false,
-      "badgePosition": "bottom-left",
+      "badgePosition": "top-left",
       "notes": "Third URBN sibling brand, same fetchDeptStoreBVReviews code path as Urban Outfitters/Free People (background-v2.js) — same hard 90-review-per-product cap (fixed 3 pages x 30). Confirmed live via direct fetch to api.bazaarvoice.com on the Delphine Sweater Twofer Mini Dress (AN-4130916210343-000, 225 total reviews): hits the cap cleanly, all 30 raw records on the 3rd page (offset=60) had non-empty ReviewText — same clean pattern as UO/FP, not Macy's textless-review attrition. Coverage: 90/225 (40%). Storefront is the same custom Vue/Pinia PWA as UO/FP, not Shopify/WooCommerce/BigCommerce, so no order-confirmation adapter exists — this is a pre-existing, family-wide gap shared with UO/FP, not something specific to Anthropologie (see SESSION_HANDOFF.md's URBN order-confirmation follow-up). Browse grid (.c-pwa-tile-grid-tile / .c-pwa-tile-grid-inner), quickshop modal (.o-pwa-modal-overlay, data-qa-quickshop-button), and slow-mounting tile images are all confirmed live identical to UO/FP's component library. badgePosition: \"bottom-left\" — real collision found live, not assumed: 4 of 62 tiles on a real /dresses page carry a \"Plus Sizes\" label (.o-pwa-product-visual-badge__text) sitting almost exactly where a top-left badge would land (5px inset from the tile's own corner); bottom-left checked clean of any competing label. content.js's badgeAnchor was added at the same time, identical fallback chain to UO/FP's own, so \"bottom\" anchors to the photo, not the whole card."
     },
     {
@@ -134,26 +134,6 @@
       "reviewSampleCap": 90,
       "purchaseDetection": false,
       "notes": "Third Gap Inc. brand, ported from oldnavy.gap.com's confirmed build (2026-09-01) — same data-testid component library, heading structure, <body class=\"br\">, JSON-LD brand.name \"Banana Republic\", all confirmed live on Banana Republic's own pages independently (not assumed from Gap's confirmation). One real, brand-specific divergence found: on categories with more than ~165 total products, a contiguous tail of plp_product-card elements renders as a completely empty shell (zero children, no plp_product-name ever appears) that doesn't resolve even after aggressive scroll/scrollIntoView/multi-second waits — confirmed reproducible across two categories and two independent browser environments, with the exact stall point varying between runs (165, then 27 on a re-test), meaning it's a throttled/rate-limited progressive loader stalling at a variable point, not a fixed hard cap. Confirmed NOT a sandbox-wide artifact: Gap.com hit 200/200 clean in the identical environments in the same session. No special-case code was added for this — content.js's existing _injectBadgeOnCard() already treats an empty-title card as 'still hydrating' (leaves bfScore unset, not 'none'), so browseScrollObserver's mutation watch retries it automatically on every later DOM mutation, the same generic mechanism already covering Urban Outfitters' slow tile-mounting and Revolve's structural badgeAnchor case. Live-validated specifically against a >165-product category with patient real-time waiting (not just the first few seconds): previously-empty cards do eventually populate and get scored once the mechanism is given real time — see RETAILER_SCRAPERS.md for the measured before/after counts, not just a theoretical claim that the mechanism exists. Reviews: classic Bazaarvoice Conversations API, deployment name 'banana-republic' confirmed live (this one did match the hyphenated-brand-name convention, unlike Gap's). Passkey extracted from bvapi.js, independently confirmed live: Filter=ProductId:899792 returned TotalResults:2 with real review text AND a SecondaryRatings block including a literal 'bra' fit dimension — not seen on any other Gap Inc. brand's reviews checked so far. That 'bra' dimension is not currently surfaced anywhere: background-v2.js's _extractBVFitRating() only matches SecondaryRatings keys/Ids containing 'fit', so it's silently dropped the same way any other non-fit-labeled dimension is on any retailer using this shared function — confirmed by reading the code, not built into anything special here per this round's scope. Checkout transition confirmed live, same pattern as Gap: bananarepublic.gap.com -> secure-bananarepublic.gap.com, full page cross-subdomain navigation — stopped there, no purchase completed. purchaseDetection stays false, consistent with the rest of the Gap Inc. family."
-    },
-    {
-      "type": "domain",
-      "domain": "bananarepublicfactory.gapfactory.com",
-      "displayName": "Banana Republic Factory",
-      "fitScoring": true,
-      "reviewData": "limited",
-      "reviewSampleCap": 90,
-      "purchaseDetection": false,
-      "notes": "Gap Inc. outlet storefront on the same platform as Banana Republic. Same product/browse scrapers and the same Bazaarvoice Conversations API, but a separate review deployment with its own passkey — outlet reviews are a distinct corpus from the parent brand’s. Confirmed live 2026-10-03."
-    },
-    {
-      "type": "domain",
-      "domain": "gapfactory.com",
-      "displayName": "Gap Factory",
-      "fitScoring": true,
-      "reviewData": "limited",
-      "reviewSampleCap": 90,
-      "purchaseDetection": false,
-      "notes": "Gap Inc. outlet storefront on the same platform as Gap. Same product/browse scrapers and the same Bazaarvoice Conversations API, but a separate review deployment with its own passkey — outlet reviews are a distinct corpus from the parent brand’s. Confirmed live 2026-10-03."
     },
     {
       "type": "domain",
