@@ -175,7 +175,7 @@
     <div class="header">
       <div class="brand">bustfit</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: 13 October 2026 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension and the Bustfit email list</p>
+      <p class="meta">Last updated: 19 October 2026 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension and the Bustfit email list</p>
     </div>
 
     <!-- ── Plain-English summary ───────────────────────────── -->
@@ -228,7 +228,7 @@
         </tr>
         <tr>
           <td><strong>Anonymous device ID</strong></td>
-          <td>A random identifier generated on your device (not tied to your name, email, or any account) and stored locally. Used to attribute API requests and pooled sizing feedback to "one device" — e.g. so the same device can't submit sizing feedback for the same product twice. See Sections 4 and 7.</td>
+          <td>A random identifier generated on your device (not tied to your name, email, or any account) and stored locally. Used to attribute API requests and pooled sizing feedback to "one device" — e.g. so the same device can't submit sizing feedback for the same product twice — and to count how many devices use Bustfit, and on how many different days, so we can see whether it is useful. That count covers devices, not people, and is never linked to your name, email or size. See Sections 4 and 7.</td>
         </tr>
         <tr>
           <td><strong>Your sizing feedback</strong></td>
@@ -256,7 +256,7 @@
 
     <p><strong>Styling tips:</strong> When generating a personalized styling note for a product, the extension sends your saved profile (Section 2) to Bustfit's backend. The backend passes only your band size, cup size, bra style preference, and a broad body-shape category worked out from your band and cup (for example "a narrow frame paired with a fuller cup") to Anthropic's API, along with the product's detected construction details. The rest of your profile is not forwarded and is not stored. This is the one Anthropic-powered feature where your sizing information is included — it's what makes the tip specific to your size rather than generic advice. No name, email, or account details are ever included.</p>
 
-    <p>Each of these requests carries the anonymous device ID described in Section 2, and our backend records your IP address to apply rate limits (see Section 13).</p>
+    <p>Each of these requests carries the anonymous device ID described in Section 2, and our backend records a scrambled (one-way hashed) form of your IP address to apply rate limits (see Section 13).</p>
 
     <div class="callout callout--warn">
       These requests are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data. Product images or their URLs, bust-relevant review text, and (for styling tips only) your band and cup size, bra style preference, and body-shape category are sent to Anthropic's servers for processing.
@@ -306,7 +306,7 @@
 
     <p><strong>DuckDuckGo (<code>html.duckduckgo.com</code>):</strong> A similar search query is sent through Bustfit's backend to DuckDuckGo to find web-based reviews. Again, the query contains only the brand name and product title — no personal information.</p>
 
-    <p>None of these requests include your size, preferences, or any identifying information. As with any web request, services contacted directly see your IP address; for the searches that go through Bustfit's backend, our backend records it for rate limiting (see Section 13).</p>
+    <p>None of these requests include your size, preferences, or any identifying information. As with any web request, services contacted directly see your IP address; for the searches that go through Bustfit's backend, our backend records a scrambled (one-way hashed) form of it for rate limiting (see Section 13).</p>
 
     <!-- ── 8 ───────────────────────────────────────────────── -->
     <h2>9. Usage analytics</h2>
@@ -340,7 +340,7 @@
         <li>Collect financial data, payment details, or card numbers</li>
         <li>Track your browsing history beyond the product page currently open</li>
         <li>Store or transmit your exact bra size to a server, <strong>except</strong> in three specific, disclosed cases: styling tips (Section 4) and problem reports (Section 6) both include it, for the reasons explained there, and feedback on a score (Section 16) includes it only if you tick the box. Sizing feedback (Section 7) is not one of these — it only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
-        <li>Tie anything sent to our backend to your identity — requests, pooled sizing feedback, and feedback on scores use only the anonymous, on-device ID described in Section 2 (problem reports, Section 6, use no ID at all). Your IP address is recorded only for rate limiting and deleted after 30 days (Section 13)</li>
+        <li>Tie anything sent to our backend to your identity — requests, pooled sizing feedback, and feedback on scores use only the anonymous, on-device ID described in Section 2 (problem reports, Section 6, use no ID at all). Your IP address is stored only in scrambled (one-way hashed) form, used only for rate limiting, and deleted after 30 days (Section 13)</li>
         <li>Sell, rent, or share any data with advertisers or data brokers</li>
         <li>Use your data for advertising targeting of any kind</li>
         <li>Aggregate personal profiles of individual users — sizing feedback is pooled per-product, not per-person, and only ever shown once at least 3 people have contributed; feedback on scores is used only to improve how Bustfit scores products and is never shown to anyone</li>
@@ -356,7 +356,7 @@
       <li><strong>Sizing feedback</strong> (Section 7) isn't tied to your identity and is pooled with other submissions rather than kept per-person.</li>
       <li><strong>Feedback on scores</strong> (Section 16) is deleted automatically 90 days after you last sent it for that product.</li>
       <li><strong>Problem reports</strong> (Section 6) are sent to us on purpose and kept so we can fix bugs.</li>
-      <li><strong>IP addresses.</strong> Our backend records the IP address of requests for image analysis, review summaries, styling tips, brand information, review searches, and feedback on scores, so it can apply rate limits. These are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
+      <li><strong>IP addresses.</strong> Our backend records a scrambled form of the IP address of requests for image analysis, review summaries, styling tips, brand information, review searches, and feedback on scores, so it can apply rate limits. The address is passed through a keyed one-way hash before it is stored, so the stored value can tell repeat requests apart but can't be turned back into your address. These are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
     </ul>
     <p>If you'd like something you sent removed sooner — a problem report or your feedback on a score — contact us (Section 18) with the approximate date and the product or what you reported, and we'll do our best to locate and remove it. None of it is indexed by anything that identifies you, so locating a specific item depends on the details you can give us.</p>
 
