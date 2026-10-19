@@ -180,14 +180,14 @@
 
     <!-- ── Plain-English summary ───────────────────────────── -->
     <div class="summary">
-      <p><strong>The short version:</strong> Bustfit stores your size and preferences on your device, with a few disclosed exceptions: styling tips send your band and cup size to our API provider (Section 4), problem reports you choose to send include it (Section 6), and feedback on a score includes your sizing only if you tick the box (Section 16). Bustfit's own backend handles a few other features (image analysis and review summaries, pooled anonymous sizing feedback, optional feedback on scores, and problem reports you choose to send us) — none of it is tied to your identity, and we don't sell anything about you to anyone.</p>
+      <p><strong>The short version:</strong> Bustfit stores your size and preferences on your device, with a few disclosed exceptions: problem reports you choose to send include it (Section 6), and feedback on a score includes your sizing only if you tick the box (Section 16). Bustfit's own backend handles a few other features (image analysis and review summaries, pooled anonymous sizing feedback, optional feedback on scores, and problem reports you choose to send us) — none of it is tied to your identity, and we don't sell anything about you to anyone.</p>
       <p>When you use features that require talking to the internet — like image analysis, styling tips, fetching reviews, sharing anonymous sizing feedback, giving feedback on a score, or reporting a problem — we're clear below about exactly what's sent, where it goes, and why.</p>
     </div>
 
     <!-- ── 1 ───────────────────────────────────────────────── -->
     <h2>1. What Bustfit is and how it works</h2>
     <p>Bustfit is a Chrome extension that analyses clothing products and gives you a fit score based on your bust measurements and preferences. All scoring logic runs locally inside the extension.</p>
-    <p>A small number of features use Bustfit's own backend server (image analysis, review summaries, styling tips, pooled anonymous sizing feedback, and problem reports you choose to send) or public third-party services (Reddit, DuckDuckGo). None of these send anything that identifies you personally by name, email, or account — styling tips and problem reports are the two exceptions where your band/cup size is included, for the reasons explained in Sections 4 and 6. Each is covered in detail below.</p>
+    <p>A small number of features use Bustfit's own backend server (image analysis, review summaries, styling tips, pooled anonymous sizing feedback, and problem reports you choose to send) or a public third-party service (DuckDuckGo). None of these send anything that identifies you personally by name, email, or account — problem reports are the one exception where your band/cup size is included, for the reasons explained in Section 6. Each is covered in detail below.</p>
 
     <!-- ── 2 ───────────────────────────────────────────────── -->
     <h2>2. Data stored on your device</h2>
@@ -248,18 +248,18 @@
 
     <!-- ── 4 ───────────────────────────────────────────────── -->
     <h2>4. Anthropic API — image analysis, review summaries, and styling tips</h2>
-    <p>Bustfit uses the <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic API</a> for three features: garment image analysis, review summarisation, and personalized styling tips. API requests are made on your behalf using Bustfit's own API credentials — you do not need to provide or manage an API key.</p>
+    <p>Bustfit uses the <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic API</a> for three features: garment image analysis, review summarisation, and styling tips. API requests are made on your behalf using Bustfit's own API credentials — you do not need to provide or manage an API key.</p>
 
     <p><strong>Image analysis:</strong> When scoring a product, the extension sends the product image URL to Bustfit's backend, which asks Anthropic's API to identify garment construction details (neckline type, strap style, silhouette, how much of the bust the garment covers). For a few retailers whose image servers block this, the extension downloads the product image itself and sends the image to our backend instead of its URL. Results are cached on our servers by image URL so the same product isn't analysed twice. No personal information — not your size, name, or account details — is included.</p>
 
     <p><strong>Review summaries:</strong> When bust-relevant reviews are found for a product, excerpts of those reviews (plain text only, no reviewer names or identifiers), along with the product's ID and name, are sent through Bustfit's backend to Anthropic's API to generate a brief summary. Again, no personal information is included.</p>
 
-    <p><strong>Styling tips:</strong> When generating a personalized styling note for a product, the extension sends your saved profile (Section 2) to Bustfit's backend. The backend passes only your band size, cup size, bra style preference, and a broad body-shape category worked out from your band and cup (for example "a narrow frame paired with a fuller cup") to Anthropic's API, along with the product's detected construction details. The rest of your profile is not forwarded and is not stored. This is the one Anthropic-powered feature where your sizing information is included — it's what makes the tip specific to your size rather than generic advice. No name, email, or account details are ever included.</p>
+    <p><strong>Styling tips:</strong> When generating a styling note for a product, the extension sends the product's name and its detected construction details to Bustfit's backend, which passes them to Anthropic's API. Your size and preferences are not sent. No name, email, or account details are ever included.</p>
 
     <p>Each of these requests carries the anonymous device ID described in Section 2, and our backend records a scrambled (one-way hashed) form of your IP address to apply rate limits (see Section 13).</p>
 
     <div class="callout callout--warn">
-      These requests are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data. Product images or their URLs, bust-relevant review text, and (for styling tips only) your band and cup size, bra style preference, and body-shape category are sent to Anthropic's servers for processing.
+      These requests are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data. Product images or their URLs, bust-relevant review text, and product names and construction details are sent to Anthropic's servers for processing. Your size is not.
     </div>
 
     <!-- ── 5 ───────────────────────────────────────────────── -->
@@ -302,9 +302,7 @@
 
     <p><strong>The retailer's own review platform:</strong> On many supported retailers, reviews are hosted by a review service such as <a href="https://www.yotpo.com" target="_blank" rel="noopener">Yotpo</a> or <a href="https://www.bazaarvoice.com" target="_blank" rel="noopener">Bazaarvoice</a>. The extension requests that product's reviews from the service directly, using only the product's ID.</p>
 
-    <p><strong>Reddit (<code>reddit.com</code>):</strong> A search query containing the product's brand name and title is sent through Bustfit's backend to Reddit's public search API. This returns public Reddit posts mentioning the product. No personal information is included in the query.</p>
-
-    <p><strong>DuckDuckGo (<code>html.duckduckgo.com</code>):</strong> A similar search query is sent through Bustfit's backend to DuckDuckGo to find web-based reviews. Again, the query contains only the brand name and product title — no personal information.</p>
+    <p><strong>DuckDuckGo (<code>html.duckduckgo.com</code>):</strong> A search query containing the product's brand name and title is sent through Bustfit's backend to DuckDuckGo to find web-based reviews, which are shown in the panel and don't affect the score. The query contains only the brand name and product title — no personal information.</p>
 
     <p>None of these requests include your size, preferences, or any identifying information. As with any web request, services contacted directly see your IP address; for the searches that go through Bustfit's backend, our backend records a scrambled (one-way hashed) form of it for rate limiting (see Section 13).</p>
 
@@ -339,7 +337,7 @@
         <li>Collect your name, email address, or any contact information through the extension — unless you choose to type one into a free-text problem report (Section 6); we never ask for either. (If you joined the Bustfit email list on our website, we have the address you gave us there — see Section 17)</li>
         <li>Collect financial data, payment details, or card numbers</li>
         <li>Track your browsing history beyond the product page currently open</li>
-        <li>Store or transmit your exact bra size to a server, <strong>except</strong> in three specific, disclosed cases: styling tips (Section 4) and problem reports (Section 6) both include it, for the reasons explained there, and feedback on a score (Section 16) includes it only if you tick the box. Sizing feedback (Section 7) is not one of these — it only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
+        <li>Store or transmit your exact bra size to a server, <strong>except</strong> in two specific, disclosed cases: problem reports (Section 6) include it, for the reasons explained there, and feedback on a score (Section 16) includes it only if you tick the box. Sizing feedback (Section 7) is not one of these — it only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
         <li>Tie anything sent to our backend to your identity — requests, pooled sizing feedback, and feedback on scores use only the anonymous, on-device ID described in Section 2 (problem reports, Section 6, use no ID at all). Your IP address is stored only in scrambled (one-way hashed) form, used only for rate limiting, and deleted after 30 days (Section 13)</li>
         <li>Sell, rent, or share any data with advertisers or data brokers</li>
         <li>Use your data for advertising targeting of any kind</li>
@@ -386,7 +384,7 @@
     <h2>17. The Bustfit email list</h2>
     <p>This section is about the email list you can join on our website. It is separate from the extension: the extension never asks for your email address, and nothing in the extension is linked to it.</p>
     <p>If you sign up, the email address you enter is stored by <a href="https://resend.com" target="_blank" rel="noopener">Resend</a>, the email delivery service we use to send you a welcome email and occasional updates about Bustfit. Our own database keeps only Resend's internal reference for your signup, so that you are sent the welcome email once — not your address.</p>
-    <p><strong>Opens and clicks.</strong> Emails from the list record whether they were opened and which links in them were clicked. Opens are detected by a tiny invisible image in the email, and links pass through a Bustfit tracking address before taking you to the page. Resend records this against your email address, along with the time and the technical details your email app sends when it loads an image or follows a link (such as your IP address and the type of device or app). We use it only to see whether our emails are useful and which links people follow. It isn't combined with anything from the extension, and we don't sell it or use it for advertising. Blocking remote images in your email app prevents opens from being recorded.</p>
+    <p><strong>Link clicks.</strong> Links in emails from the list pass through a Bustfit tracking address before taking you to the page, so we can see which links were clicked. Resend records each click against your email address, along with the time and the technical details your email app sends when it follows a link (such as your IP address and the type of device or app). We don't track whether emails are opened. We use click information only to see whether our emails are useful and which links people follow. It isn't combined with anything from the extension, and we don't sell it or use it for advertising.</p>
     <p>You can leave the list at any time using the unsubscribe link in any email, or by contacting us (Section 18), and we'll remove your address from Resend if you ask.</p>
 
     <!-- ── 18 ──────────────────────────────────────────────── -->
@@ -397,7 +395,7 @@
     <!-- ── Footer ─────────────────────────────────────────── -->
     <div class="footer">
       <p>© 2026 Bustfit &nbsp;·&nbsp; <a href="https://github.com/elizarags/bustfit-public" target="_blank" rel="noopener">GitHub</a></p>
-      <p style="margin-top: 6px;">This policy applies to the Bustfit Chrome extension. It does not apply to any linked third-party services (Anthropic, Reddit, DuckDuckGo), which have their own privacy policies.</p>
+      <p style="margin-top: 6px;">This policy applies to the Bustfit Chrome extension. It does not apply to any linked third-party services (Anthropic, DuckDuckGo), which have their own privacy policies.</p>
     </div>
 
   </div>
