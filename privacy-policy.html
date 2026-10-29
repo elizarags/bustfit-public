@@ -187,7 +187,7 @@
     <!-- ── 1 ───────────────────────────────────────────────── -->
     <h2>1. What Bustfit is and how it works</h2>
     <p>Bustfit is a Chrome extension that analyses clothing products and gives you a fit score based on your bust measurements and preferences. All scoring logic runs locally inside the extension.</p>
-    <p>A small number of features use Bustfit's own backend server (image analysis, review summaries, styling tips, pooled anonymous sizing feedback, and problem reports you choose to send). None of these send anything that identifies you personally by name, email, or account — problem reports are the one exception where your band/cup size is included, for the reasons explained in Section 6. Each is covered in detail below.</p>
+    <p>A small number of features use Bustfit's own backend server (image analysis, review summaries, styling tips, pooled anonymous sizing feedback, and problem reports you choose to send). None of these send anything that identifies you personally by name, email, or account — problem reports are the one exception where your band/cup size is included, for the reasons explained in Section 6 (versions before 1.4.3 also sent it with styling tips, Section 4). Each is covered in detail below.</p>
 
     <!-- ── 2 ───────────────────────────────────────────────── -->
     <h2>2. Data stored on your device</h2>
@@ -256,10 +256,12 @@
 
     <p><strong>Styling tips:</strong> When generating a styling note for a product, the extension sends the product's name, its detected construction, fabric and neckline details, the brand note shown in the panel (if any), and the panel's own bra reading for the product (for example "built-in shelf bra only — unlikely to provide enough support at your size") to Bustfit's backend, which passes them to Anthropic's API. Your size and preferences are not sent. The bra reading is worked out from your size and bra preferences, but it doesn't contain them. No name, email, or account details are ever included.</p>
 
+    <p>Versions before 1.4.3 also sent your saved profile (Section 2) with styling tips, including your band size, cup size and bra style preference. Our backend used to pass your band size, cup size, bra style preference and a body-shape category worked out from your band and cup on to Anthropic's API. It no longer uses the profile: it isn't passed on or stored.</p>
+
     <p>Each of these requests carries the anonymous device ID described in Section 2, and our backend keeps your IP address only as a keyed one-way hash, to apply usage limits (see Section 13).</p>
 
     <div class="callout callout--warn">
-      These requests are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data. Product images or their URLs, bust-relevant review text, product names, construction details and the panel's bra reading are sent to Anthropic's servers for processing. Your size is not.
+      These requests are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data. Product images or their URLs, bust-relevant review text, product names, construction details and the panel's bra reading are sent to Anthropic's servers for processing. Your size is not. (Styling tips from versions before 1.4.3 used to send your band and cup size, bra style preference and body-shape category as well.)
     </div>
 
     <!-- ── 5 ───────────────────────────────────────────────── -->
@@ -302,7 +304,7 @@
 
     <p>These requests don't include your size, preferences, or any identifying information. As with any web request, the review service sees your IP address.</p>
 
-    <p>Earlier versions also searched Reddit and the wider web (through DuckDuckGo) for reviews. Bustfit no longer does either.</p>
+    <p>Versions before 1.4.3 also searched Reddit and DuckDuckGo for reviews, through Bustfit's backend, using the product's brand name and words from its title (and general words such as "sizing review"). These searches include no personal information, and our backend keeps the IP address only as a keyed one-way hash for usage limits (Section 13). Version 1.4.3 and later don't search Reddit or DuckDuckGo.</p>
 
     <!-- ── 8 ───────────────────────────────────────────────── -->
     <h2>9. Usage analytics</h2>
@@ -335,7 +337,7 @@
         <li>Collect your name, email address, or any contact information through the extension — unless you choose to type one into a free-text problem report (Section 6) or a feedback note (Section 16); we never ask for either. (If you joined the Bustfit email list on our website, we have the address you gave us there — see Section 17)</li>
         <li>Collect financial data, payment details, or card numbers</li>
         <li>Track your browsing history beyond the product page currently open</li>
-        <li>Store or transmit your exact bra size to a server, <strong>except</strong> in two specific, disclosed cases: problem reports (Section 6) include it, for the reasons explained there, and feedback you send from the panel (Section 16) includes it only if you tick the box. Sizing feedback (Section 7) is not one of these — it only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
+        <li>Store or transmit your exact bra size to a server, <strong>except</strong> in two specific, disclosed cases: problem reports (Section 6) include it, for the reasons explained there, and feedback you send from the panel (Section 16) includes it only if you tick the box. (Versions before 1.4.3 also sent it with styling tips — see Section 4.) Sizing feedback (Section 7) is not one of these — it only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
         <li>Tie anything sent to our backend to your identity — requests, pooled sizing feedback, and feedback from the panel use only the anonymous, on-device ID described in Section 2 (problem reports, Section 6, use no ID at all). Your IP address is kept only as a keyed one-way hash, used only for usage limits, and deleted after 30 days (Section 13)</li>
         <li>Sell, rent, or share any data with advertisers or data brokers</li>
         <li>Use your data for advertising targeting of any kind</li>
@@ -352,7 +354,7 @@
       <li><strong>Sizing feedback</strong> (Section 7) isn't tied to your identity and is pooled with other submissions rather than kept per-person.</li>
       <li><strong>Feedback from the panel</strong> (Section 16) is deleted automatically 90 days after you last sent it for that product.</li>
       <li><strong>Problem reports</strong> (Section 6) are sent to us on purpose and kept so we can fix bugs.</li>
-      <li><strong>IP addresses.</strong> For requests for image analysis, review summaries, styling tips, brand information, and feedback from the panel, our backend keeps the IP address only as a keyed one-way hash: the address is passed through the hash before anything is stored, and the address itself is never stored. The hash lets it count how many requests one address makes in a day (and, for image analysis, in ten minutes, to stop runaway loops) so it can apply usage limits. It can tell repeat requests apart but can't be turned back into your address. The hashes are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
+      <li><strong>IP addresses.</strong> For requests for image analysis, review summaries, styling tips, brand information, review searches (versions before 1.4.3 only), and feedback from the panel, our backend keeps the IP address only as a keyed one-way hash: the address is passed through the hash before anything is stored, and the address itself is never stored. The hash lets it count how many requests one address makes in a day (and, for image analysis, in ten minutes, to stop runaway loops) so it can apply usage limits. It can tell repeat requests apart but can't be turned back into your address. The hashes are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
     </ul>
     <p>If you'd like something you sent removed sooner — a problem report or your feedback from the panel — contact us (Section 18) with the approximate date and the product or what you reported, and we'll do our best to locate and remove it. None of it is indexed by anything that identifies you, so locating a specific item depends on the details you can give us.</p>
 
