@@ -175,19 +175,19 @@
     <div class="header">
       <div class="brand">bustfit</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: 19 October 2026 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension and the Bustfit email list</p>
+      <p class="meta">Last updated: 28 October 2026 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension and the Bustfit email list</p>
     </div>
 
     <!-- ── Plain-English summary ───────────────────────────── -->
     <div class="summary">
-      <p><strong>The short version:</strong> Bustfit stores your size and preferences on your device, with a few disclosed exceptions: problem reports you choose to send include it (Section 6), and feedback on a score includes your sizing only if you tick the box (Section 16). Bustfit's own backend handles a few other features (image analysis and review summaries, pooled anonymous sizing feedback, optional feedback on scores, and problem reports you choose to send us) — none of it is tied to your identity, and we don't sell anything about you to anyone.</p>
-      <p>When you use features that require talking to the internet — like image analysis, styling tips, fetching reviews, sharing anonymous sizing feedback, giving feedback on a score, or reporting a problem — we're clear below about exactly what's sent, where it goes, and why.</p>
+      <p><strong>The short version:</strong> Bustfit stores your size and preferences on your device, with a few disclosed exceptions: problem reports you choose to send include it (Section 6), and feedback you send from the panel includes your sizing only if you tick the box (Section 16). Bustfit's own backend handles a few other features (image analysis and review summaries, styling tips, pooled anonymous sizing feedback, optional feedback from the panel, and problem reports you choose to send us) — none of it is tied to your identity, and we don't sell anything about you to anyone.</p>
+      <p>When you use features that require talking to the internet — like image analysis, styling tips, fetching reviews, sharing anonymous sizing feedback, answering a feedback question, or reporting a problem — we're clear below about exactly what's sent, where it goes, and why.</p>
     </div>
 
     <!-- ── 1 ───────────────────────────────────────────────── -->
     <h2>1. What Bustfit is and how it works</h2>
     <p>Bustfit is a Chrome extension that analyses clothing products and gives you a fit score based on your bust measurements and preferences. All scoring logic runs locally inside the extension.</p>
-    <p>A small number of features use Bustfit's own backend server (image analysis, review summaries, styling tips, pooled anonymous sizing feedback, and problem reports you choose to send) or a public third-party service (DuckDuckGo). None of these send anything that identifies you personally by name, email, or account — problem reports are the one exception where your band/cup size is included, for the reasons explained in Section 6. Each is covered in detail below.</p>
+    <p>A small number of features use Bustfit's own backend server (image analysis, review summaries, styling tips, pooled anonymous sizing feedback, and problem reports you choose to send). None of these send anything that identifies you personally by name, email, or account — problem reports are the one exception where your band/cup size is included, for the reasons explained in Section 6. Each is covered in detail below.</p>
 
     <!-- ── 2 ───────────────────────────────────────────────── -->
     <h2>2. Data stored on your device</h2>
@@ -250,16 +250,16 @@
     <h2>4. Anthropic API — image analysis, review summaries, and styling tips</h2>
     <p>Bustfit uses the <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic API</a> for three features: garment image analysis, review summarisation, and styling tips. API requests are made on your behalf using Bustfit's own API credentials — you do not need to provide or manage an API key.</p>
 
-    <p><strong>Image analysis:</strong> When scoring a product, the extension sends the product image URL to Bustfit's backend, which asks Anthropic's API to identify garment construction details (neckline type, strap style, silhouette, how much of the bust the garment covers). For a few retailers whose image servers block this, the extension downloads the product image itself and sends the image to our backend instead of its URL. Results are cached on our servers by image URL so the same product isn't analysed twice. No personal information — not your size, name, or account details — is included.</p>
+    <p><strong>Image analysis:</strong> When scoring a product, the extension sends the product image URL (and, for some products, the URLs of a few more of its photos) to Bustfit's backend, which asks Anthropic's API to identify garment construction details (neckline type, strap style, silhouette, how much of the bust the garment covers). For a few retailers whose image servers block this, the extension downloads the product image itself and sends the image to our backend instead of its URL. Results are cached on our servers by image URL so the same product isn't analysed twice. No personal information — not your size, name, or account details — is included.</p>
 
     <p><strong>Review summaries:</strong> When bust-relevant reviews are found for a product, excerpts of those reviews (plain text only, no reviewer names or identifiers), along with the product's ID and name, are sent through Bustfit's backend to Anthropic's API to generate a brief summary. Again, no personal information is included.</p>
 
-    <p><strong>Styling tips:</strong> When generating a styling note for a product, the extension sends the product's name and its detected construction details to Bustfit's backend, which passes them to Anthropic's API. Your size and preferences are not sent. No name, email, or account details are ever included.</p>
+    <p><strong>Styling tips:</strong> When generating a styling note for a product, the extension sends the product's name, its detected construction, fabric and neckline details, the brand note shown in the panel (if any), and the panel's own bra reading for the product (for example "built-in shelf bra only — unlikely to provide enough support at your size") to Bustfit's backend, which passes them to Anthropic's API. Your size and preferences are not sent. The bra reading is worked out from your size and bra preferences, but it doesn't contain them. No name, email, or account details are ever included.</p>
 
-    <p>Each of these requests carries the anonymous device ID described in Section 2, and our backend records a scrambled (one-way hashed) form of your IP address to apply rate limits (see Section 13).</p>
+    <p>Each of these requests carries the anonymous device ID described in Section 2, and our backend keeps your IP address only as a keyed one-way hash, to apply usage limits (see Section 13).</p>
 
     <div class="callout callout--warn">
-      These requests are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data. Product images or their URLs, bust-relevant review text, and product names and construction details are sent to Anthropic's servers for processing. Your size is not.
+      These requests are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data. Product images or their URLs, bust-relevant review text, product names, construction details and the panel's bra reading are sent to Anthropic's servers for processing. Your size is not.
     </div>
 
     <!-- ── 5 ───────────────────────────────────────────────── -->
@@ -292,19 +292,17 @@
     <!-- ── 7 ───────────────────────────────────────────────── -->
     <h2>7. Sizing feedback (shared, anonymous)</h2>
     <p>After a detected purchase (Section 5), or any time you use the sizing feedback prompt in the Sizing tab, you can optionally log what size you ordered and how it fit. This is always stored locally on your device first.</p>
-    <p>A copy of that same answer — the size you ordered, how it fit, and the retailer's domain — is also submitted to Bustfit's backend, tagged with the anonymous device ID described in Section 2. <strong>Nothing that could identify you is included</strong>: no name, email, account, order number, exact measurements, or free-text notes you may have added locally. In particular, sizing feedback never includes your band or cup size — only the size-ordered category and the fit outcome. (Feedback on a score, Section 16, is separate and can include your sizing, but only if you tick the box.)</p>
+    <p>A copy of that same answer — the size you ordered, how it fit, and the retailer's domain — is also submitted to Bustfit's backend, tagged with the anonymous device ID described in Section 2. <strong>Nothing that could identify you is included</strong>: no name, email, account, order number, exact measurements, or free-text notes you may have added locally. In particular, sizing feedback never includes your band or cup size — only the size-ordered category and the fit outcome. (Feedback you send from the panel, Section 16, is separate and can include your sizing, but only if you tick the box.)</p>
     <p>Bustfit pools this feedback across everyone who submits it for the same product, and shows aggregate counts (e.g. "3 people sized up, fit well") to other shoppers looking at that same product — never individual submissions. Aggregates only appear once at least 3 people have submitted feedback for a product, so a single person's answer is never shown on its own.</p>
     <p>Each device can submit feedback once per product. If you don't want to participate, simply don't use the sizing feedback prompt — nothing is submitted unless you actively answer it.</p>
 
     <!-- ── 7 ───────────────────────────────────────────────── -->
     <h2>8. External services used to fetch reviews</h2>
-    <p>To find reviews, Bustfit uses two kinds of source:</p>
+    <p>Bustfit reads reviews from the retailer's own review platform. On many supported retailers, reviews are hosted by a review service such as <a href="https://www.yotpo.com" target="_blank" rel="noopener">Yotpo</a> or <a href="https://www.bazaarvoice.com" target="_blank" rel="noopener">Bazaarvoice</a>, or by the retailer itself. The extension requests that product's reviews from the service directly, using only the product's ID.</p>
 
-    <p><strong>The retailer's own review platform:</strong> On many supported retailers, reviews are hosted by a review service such as <a href="https://www.yotpo.com" target="_blank" rel="noopener">Yotpo</a> or <a href="https://www.bazaarvoice.com" target="_blank" rel="noopener">Bazaarvoice</a>. The extension requests that product's reviews from the service directly, using only the product's ID.</p>
+    <p>These requests don't include your size, preferences, or any identifying information. As with any web request, the review service sees your IP address.</p>
 
-    <p><strong>DuckDuckGo (<code>html.duckduckgo.com</code>):</strong> A search query containing the product's brand name and title is sent through Bustfit's backend to DuckDuckGo to find web-based reviews, which are shown in the panel and don't affect the score. The query contains only the brand name and product title — no personal information.</p>
-
-    <p>None of these requests include your size, preferences, or any identifying information. As with any web request, services contacted directly see your IP address; for the searches that go through Bustfit's backend, our backend records a scrambled (one-way hashed) form of it for rate limiting (see Section 13).</p>
+    <p>Earlier versions also searched Reddit and the wider web (through DuckDuckGo) for reviews. Bustfit no longer does either.</p>
 
     <!-- ── 8 ───────────────────────────────────────────────── -->
     <h2>9. Usage analytics</h2>
@@ -334,14 +332,14 @@
     <div class="callout">
       <strong>Bustfit does not:</strong>
       <ul style="margin: 8px 0 0 18px;">
-        <li>Collect your name, email address, or any contact information through the extension — unless you choose to type one into a free-text problem report (Section 6); we never ask for either. (If you joined the Bustfit email list on our website, we have the address you gave us there — see Section 17)</li>
+        <li>Collect your name, email address, or any contact information through the extension — unless you choose to type one into a free-text problem report (Section 6) or a feedback note (Section 16); we never ask for either. (If you joined the Bustfit email list on our website, we have the address you gave us there — see Section 17)</li>
         <li>Collect financial data, payment details, or card numbers</li>
         <li>Track your browsing history beyond the product page currently open</li>
-        <li>Store or transmit your exact bra size to a server, <strong>except</strong> in two specific, disclosed cases: problem reports (Section 6) include it, for the reasons explained there, and feedback on a score (Section 16) includes it only if you tick the box. Sizing feedback (Section 7) is not one of these — it only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
-        <li>Tie anything sent to our backend to your identity — requests, pooled sizing feedback, and feedback on scores use only the anonymous, on-device ID described in Section 2 (problem reports, Section 6, use no ID at all). Your IP address is stored only in scrambled (one-way hashed) form, used only for rate limiting, and deleted after 30 days (Section 13)</li>
+        <li>Store or transmit your exact bra size to a server, <strong>except</strong> in two specific, disclosed cases: problem reports (Section 6) include it, for the reasons explained there, and feedback you send from the panel (Section 16) includes it only if you tick the box. Sizing feedback (Section 7) is not one of these — it only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
+        <li>Tie anything sent to our backend to your identity — requests, pooled sizing feedback, and feedback from the panel use only the anonymous, on-device ID described in Section 2 (problem reports, Section 6, use no ID at all). Your IP address is kept only as a keyed one-way hash, used only for usage limits, and deleted after 30 days (Section 13)</li>
         <li>Sell, rent, or share any data with advertisers or data brokers</li>
         <li>Use your data for advertising targeting of any kind</li>
-        <li>Aggregate personal profiles of individual users — sizing feedback is pooled per-product, not per-person, and only ever shown once at least 3 people have contributed; feedback on scores is used only to improve how Bustfit scores products and is never shown to anyone</li>
+        <li>Aggregate personal profiles of individual users — sizing feedback is pooled per-product, not per-person, and only ever shown once at least 3 people have contributed; feedback from the panel is used only to improve how Bustfit reads products and is never shown to anyone</li>
       </ul>
     </div>
 
@@ -352,11 +350,11 @@
     <p>Most of what Bustfit does never touches our servers at all (see Section 2). The exceptions are:</p>
     <ul>
       <li><strong>Sizing feedback</strong> (Section 7) isn't tied to your identity and is pooled with other submissions rather than kept per-person.</li>
-      <li><strong>Feedback on scores</strong> (Section 16) is deleted automatically 90 days after you last sent it for that product.</li>
+      <li><strong>Feedback from the panel</strong> (Section 16) is deleted automatically 90 days after you last sent it for that product.</li>
       <li><strong>Problem reports</strong> (Section 6) are sent to us on purpose and kept so we can fix bugs.</li>
-      <li><strong>IP addresses.</strong> Our backend records a scrambled form of the IP address of requests for image analysis, review summaries, styling tips, brand information, review searches, and feedback on scores, so it can apply rate limits. The address is passed through a keyed one-way hash before it is stored, so the stored value can tell repeat requests apart but can't be turned back into your address. These are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
+      <li><strong>IP addresses.</strong> For requests for image analysis, review summaries, styling tips, brand information, and feedback from the panel, our backend keeps the IP address only as a keyed one-way hash: the address is passed through the hash before anything is stored, and the address itself is never stored. The hash lets it count how many requests one address makes in a day (and, for image analysis, in ten minutes, to stop runaway loops) so it can apply usage limits. It can tell repeat requests apart but can't be turned back into your address. The hashes are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
     </ul>
-    <p>If you'd like something you sent removed sooner — a problem report or your feedback on a score — contact us (Section 18) with the approximate date and the product or what you reported, and we'll do our best to locate and remove it. None of it is indexed by anything that identifies you, so locating a specific item depends on the details you can give us.</p>
+    <p>If you'd like something you sent removed sooner — a problem report or your feedback from the panel — contact us (Section 18) with the approximate date and the product or what you reported, and we'll do our best to locate and remove it. None of it is indexed by anything that identifies you, so locating a specific item depends on the details you can give us.</p>
 
     <!-- ── 13 ──────────────────────────────────────────────── -->
     <h2>14. Children's privacy</h2>
@@ -368,17 +366,26 @@
     <p>Continuing to use Bustfit after a policy update means you've seen and accept the updated policy.</p>
 
     <!-- ── 16 ──────────────────────────────────────────────── -->
-    <h2>16. Feedback on scores (optional)</h2>
-    <p>Under the fit score and the bust coverage estimate there's a "Give feedback" button. Nothing is sent unless you use it. If you do, the extension sends the following to Bustfit's backend:</p>
+    <h2>16. Feedback from the panel (optional)</h2>
+    <p>The panel asks a few short questions so we can check how well Bustfit reads products. Each one stays closed until you tap it, and nothing is sent unless you answer and tap Send. The questions are:</p>
     <ul>
-      <li>Whether the score or estimate felt right (yes, no, or unsure), and if not, whether it should be higher or lower</li>
+      <li><strong>Under the fit score:</strong> "Does this score feel accurate?" — yes, no, or unsure, and after a no, whether it should be higher or lower.</li>
+      <li><strong>Under the bust coverage estimate:</strong> "Does this feel accurate?" — yes or no, and after a no, whether it should be higher or lower.</li>
+      <li><strong>"Something feel off?"</strong> — a note in your own words about anything else.</li>
+      <li><strong>Under a sweater's, blazer's, coat's or cardigan's shape label:</strong> "Does this match the sweater?" (or blazer, coat or cardigan) — yes or no, and after a no, which shape it's closer to: Shows your shape, Falls straight, or Adds volume. When the listing doesn't say how it's cut, the question is "Can you see how it's cut?" instead, answered Fitted, Straight or Oversized.</li>
+      <li><strong>Under a blazer's, coat's or cardigan's "Closing it" line:</strong> "Have you worn it? Did it close over your bust?" — Closes, Gapes a little, Too tight to close, or I wear it open (by choice). For a wrap style it asks how it wrapped over your bust: Wraps comfortably, Gapes at the neckline, or Too small to wrap. It isn't asked on an open-front style with no buttons.</li>
+    </ul>
+    <p>The "Did it close over your bust?" answer is different from the others: it describes how a garment fit <strong>you</strong>, on your body, and it tells us you have worn it. Like every question here it's optional, and it's sent only when you tap Send.</p>
+    <p>When you send an answer, the extension sends the following to Bustfit's backend:</p>
+    <ul>
+      <li>Which question you answered, and your answer (including the follow-up choice after a no)</li>
       <li>Any note you choose to type</li>
-      <li>The product's name, its web address (without any tracking parameters), the retailer's website, and the score or estimate you were shown</li>
+      <li>The product's name, its web address (without any tracking parameters), the retailer's website, and what you were shown (the score, the coverage estimate, or the shape label or "Closing it" result)</li>
       <li>Which version of the panel's Sizing and Community tabs you were using (the current design or the earlier one some testers can switch back to)</li>
       <li>The anonymous device ID described in Section 2, and the time you sent it</li>
     </ul>
-    <p><strong>Your sizing is separate and optional.</strong> A checkbox, unticked by default, lets you include your sizing with that one piece of feedback. The exact values that would be sent are shown next to it before you decide: your band and cup size (converted to UK sizing so they can be compared) and the sizing system you use, and your usual clothing size and region. If you leave it unticked, none of your sizing is sent — and our server discards any sizing that arrives without that choice.</p>
-    <p>We use this feedback only to improve how Bustfit scores products. It's never shown to other shoppers and isn't sent to Sentry, including when something goes wrong. Each device keeps one answer per product for each kind of feedback: sending again replaces your earlier answer. Feedback is deleted automatically 90 days after you last sent it for that product (Section 13). We don't ask for your name or email; if you type either into the note, it's stored as you wrote it.</p>
+    <p><strong>Your sizing is separate and optional.</strong> If your profile has a size saved, every question offers a checkbox, unticked by default, that lets you include your sizing with that one answer. The exact values that would be sent are shown next to it before you decide: your band and cup size (converted to UK sizing so they can be compared) and the sizing system you use, and your usual clothing size and region. If you leave it unticked, none of your sizing is sent — and our server discards any sizing that arrives without that choice. So a "Did it close over your bust?" answer is stored with your bra size <strong>only</strong> if you tick that box.</p>
+    <p>We use this feedback only to improve how Bustfit reads products: an answer never changes a score, a shape label or a "Closing it" line by itself. It's never shown to other shoppers and isn't sent to Sentry, including when something goes wrong. Each device keeps one answer per product for each question: sending again replaces your earlier answer. Feedback is deleted automatically 90 days after you last sent it for that product (Section 13). We don't ask for your name or email; if you type either into the note, it's stored as you wrote it.</p>
 
     <!-- ── 17 ──────────────────────────────────────────────── -->
     <h2>17. The Bustfit email list</h2>
@@ -395,7 +402,7 @@
     <!-- ── Footer ─────────────────────────────────────────── -->
     <div class="footer">
       <p>© 2026 Bustfit &nbsp;·&nbsp; <a href="https://github.com/elizarags/bustfit-public" target="_blank" rel="noopener">GitHub</a></p>
-      <p style="margin-top: 6px;">This policy applies to the Bustfit Chrome extension. It does not apply to any linked third-party services (Anthropic, DuckDuckGo), which have their own privacy policies.</p>
+      <p style="margin-top: 6px;">This policy applies to the Bustfit Chrome extension. It does not apply to any linked third-party services (such as Anthropic), which have their own privacy policies.</p>
     </div>
 
   </div>
