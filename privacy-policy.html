@@ -175,7 +175,7 @@
     <div class="header">
       <div class="brand">bustfit</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: 28 October 2026 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension and the Bustfit email list</p>
+      <p class="meta">Last updated: 2 November 2026 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension, the Bustfit email list, and automatic replies on Bustfit's Instagram account</p>
     </div>
 
     <!-- ── Plain-English summary ───────────────────────────── -->
@@ -186,6 +186,7 @@
 
     <!-- ── 1 ───────────────────────────────────────────────── -->
     <h2>1. What Bustfit is and how it works</h2>
+    <p>Bustfit is made by Bust Fit Labs LLC, a company based in Raleigh, North Carolina, USA. In this policy, "Bustfit", "we" and "us" mean Bust Fit Labs LLC.</p>
     <p>Bustfit is a Chrome extension that analyses clothing products and gives you a fit score based on your bust measurements and preferences. All scoring logic runs locally inside the extension.</p>
     <p>A small number of features use Bustfit's own backend server (image analysis, review summaries, styling tips, pooled anonymous sizing feedback, and problem reports you choose to send). None of these send anything that identifies you personally by name, email, or account — problem reports are the one exception where your band/cup size is included, for the reasons explained in Section 6 (versions before 1.4.3 also sent it with styling tips, Section 4). Each is covered in detail below.</p>
 
@@ -334,7 +335,7 @@
     <div class="callout">
       <strong>Bustfit does not:</strong>
       <ul style="margin: 8px 0 0 18px;">
-        <li>Collect your name, email address, or any contact information through the extension — unless you choose to type one into a free-text problem report (Section 6) or a feedback note (Section 16); we never ask for either. (If you joined the Bustfit email list on our website, we have the address you gave us there — see Section 17)</li>
+        <li>Collect your name, email address, or any contact information through the extension — unless you choose to type one into a free-text problem report (Section 6) or a feedback note (Section 16); we never ask for either. (If you joined the Bustfit email list on our website, we have the address you gave us there — see Section 17. If you comment on or message Bustfit's Instagram account, we receive your Instagram username — see Section 18)</li>
         <li>Collect financial data, payment details, or card numbers</li>
         <li>Track your browsing history beyond the product page currently open</li>
         <li>Store or transmit your exact bra size to a server, <strong>except</strong> in two specific, disclosed cases: problem reports (Section 6) include it, for the reasons explained there, and feedback you send from the panel (Section 16) includes it only if you tick the box. (Versions before 1.4.3 also sent it with styling tips — see Section 4.) Sizing feedback (Section 7) is not one of these — it only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
@@ -354,9 +355,10 @@
       <li><strong>Sizing feedback</strong> (Section 7) isn't tied to your identity and is pooled with other submissions rather than kept per-person.</li>
       <li><strong>Feedback from the panel</strong> (Section 16) is deleted automatically 90 days after you last sent it for that product.</li>
       <li><strong>Problem reports</strong> (Section 6) are sent to us on purpose and kept so we can fix bugs.</li>
+      <li><strong>Instagram comments and messages</strong> (Section 18) are deleted automatically 90 days after we receive them.</li>
       <li><strong>IP addresses.</strong> For requests for image analysis, review summaries, styling tips, brand information, review searches (versions before 1.4.3 only), and feedback from the panel, our backend keeps the IP address only as a keyed one-way hash: the address is passed through the hash before anything is stored, and the address itself is never stored. The hash lets it count how many requests one address makes in a day (and, for image analysis, in ten minutes, to stop runaway loops) so it can apply usage limits. It can tell repeat requests apart but can't be turned back into your address. The hashes are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
     </ul>
-    <p>If you'd like something you sent removed sooner — a problem report or your feedback from the panel — contact us (Section 18) with the approximate date and the product or what you reported, and we'll do our best to locate and remove it. None of it is indexed by anything that identifies you, so locating a specific item depends on the details you can give us.</p>
+    <p>If you'd like something you sent removed sooner — a problem report or your feedback from the panel — contact us (Section 19) with the approximate date and the product or what you reported, and we'll do our best to locate and remove it. None of it is indexed by anything that identifies you, so locating a specific item depends on the details you can give us.</p>
 
     <!-- ── 13 ──────────────────────────────────────────────── -->
     <h2>14. Children's privacy</h2>
@@ -394,17 +396,34 @@
     <p>This section is about the email list you can join on our website. It is separate from the extension: the extension never asks for your email address, and nothing in the extension is linked to it.</p>
     <p>If you sign up, the email address you enter is stored by <a href="https://resend.com" target="_blank" rel="noopener">Resend</a>, the email delivery service we use to send you a welcome email and occasional updates about Bustfit. Our own database keeps only Resend's internal reference for your signup, so that you are sent the welcome email once — not your address.</p>
     <p><strong>Link clicks.</strong> Links in emails from the list pass through a Bustfit tracking address before taking you to the page, so we can see which links were clicked. Resend records each click against your email address, along with the time and the technical details your email app sends when it follows a link (such as your IP address and the type of device or app). We don't track whether emails are opened. We use click information only to see whether our emails are useful and which links people follow. It isn't combined with anything from the extension, and we don't sell it or use it for advertising.</p>
-    <p>You can leave the list at any time using the unsubscribe link in any email, or by contacting us (Section 18), and we'll remove your address from Resend if you ask.</p>
+    <p>You can leave the list at any time using the unsubscribe link in any email, or by contacting us (Section 19), and we'll remove your address from Resend if you ask.</p>
 
     <!-- ── 18 ──────────────────────────────────────────────── -->
-    <h2>18. Contact</h2>
+    <h2>18. Instagram comments and automatic messages</h2>
+    <p>This section is about Bustfit's Instagram account, <a href="https://www.instagram.com/trybustfit/" target="_blank" rel="noopener">@trybustfit</a>. It is separate from the extension, and nothing here is linked to the extension or its anonymous device ID.</p>
+    <p>When you comment a keyword such as "JOIN" on one of our posts, a tool we run on our own servers sends you a direct message with a link to join the Bustfit waitlist. To do that, Instagram sends us, through Meta's official Instagram API:</p>
+    <ul>
+      <li>Your Instagram username and Instagram's numeric ID for your account</li>
+      <li>The text of your comment, and which post it was on</li>
+      <li>If you message us or tap a button in our message, the text of that message or which button you tapped, and when you read our message</li>
+    </ul>
+    <p>We store your username, the comment text, which keyword it matched, and whether our message was delivered, so the tool doesn't message you twice and so we can fix it when a message fails. We don't receive your password, email address, phone number, or anything from your account beyond the above.</p>
+    <p><strong>The link in our message.</strong> The waitlist link passes through our own server before taking you to the page, so we can count how many people tap it. That visit records the time, a one-way hash of your IP address (not the address itself), your browser or app type, the page you came from, and a coded tag showing which Instagram account the link was sent to. If you then join the waitlist, Section 17 applies.</p>
+    <p><strong>Where it's kept.</strong> This data is stored in our database, hosted by <a href="https://neon.com" target="_blank" rel="noopener">Neon</a>, and processed by our servers on <a href="https://railway.com" target="_blank" rel="noopener">Railway</a>. Messages waiting to be sent sit briefly in a queue hosted by <a href="https://redis.io" target="_blank" rel="noopener">Redis Cloud</a>. Instagram itself handles your comments and messages under <a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener">Meta's Privacy Policy</a>.</p>
+    <p>We use this data only to send the waitlist message and to see whether it works. We don't sell it, use it for advertising, or combine it with anything from the extension.</p>
+    <p><strong>How long we keep it, and deleting it.</strong> Everything listed in this section is deleted automatically 90 days after we receive it. You can ask us to delete it sooner at any time: see our <a href="data-deletion.html">data deletion page</a> for how.</p>
+
+    <!-- ── 19 ──────────────────────────────────────────────── -->
+    <h2>19. Contact</h2>
     <p>Questions about this privacy policy or how Bustfit handles data? Get in touch:</p>
-    <p><a href="mailto:elizalagarde.1@gmail.com">elizalagarde.1@gmail.com</a></p>
+    <p><a href="mailto:hello@bustfit.com">hello@bustfit.com</a></p>
+    <p>Or write to us at:<br />Bust Fit Labs LLC<br />4030 Wake Forest Road, Ste 349<br />Raleigh, NC 27609<br />US</p>
 
     <!-- ── Footer ─────────────────────────────────────────── -->
     <div class="footer">
-      <p>© 2026 Bustfit &nbsp;·&nbsp; <a href="https://github.com/elizarags/bustfit-public" target="_blank" rel="noopener">GitHub</a></p>
-      <p style="margin-top: 6px;">This policy applies to the Bustfit Chrome extension. It does not apply to any linked third-party services (such as Anthropic), which have their own privacy policies.</p>
+      <p>© 2026 Bust Fit Labs LLC &nbsp;·&nbsp; <a href="terms-of-service.html">Terms of Service</a> &nbsp;·&nbsp; <a href="data-deletion.html">Data deletion</a> &nbsp;·&nbsp; <a href="https://github.com/elizarags/bustfit-public" target="_blank" rel="noopener">GitHub</a></p>
+      <p style="margin-top: 6px;">This policy applies to the Bustfit Chrome extension, the Bustfit email list, and automatic replies on Bustfit's Instagram account. It does not apply to any linked third-party services (such as Anthropic), which have their own privacy policies.</p>
+      <p style="margin-top: 6px;">Bust Fit Labs LLC<br />4030 Wake Forest Road, Ste 349<br />Raleigh, NC 27609<br />US</p>
     </div>
 
   </div>
