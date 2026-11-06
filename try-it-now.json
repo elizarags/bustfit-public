@@ -1,0 +1,105 @@
+{
+  "_about": "Products the 'Try it now' button at the end of onboarding opens (1.4.5). The live copy is fetched from bustfit-public (cdn.jsdelivr.net/gh/elizarags/bustfit-public@main/try-it-now.json) so a sold-out product can be swapped without a release; this bundled copy is used when that fetch fails. Ranges are by UK cup, the size scoring uses: a = US D to DDD/F, b = US G to H, c = US I and up. The first product in the shopper's range is opened, then the next, then the fallback list. Products approved by Eliza, 2026-11-06.",
+  "version": 1,
+  "updated": "2026-11-06",
+  "ranges": {
+    "a": {
+      "label": "US D to DDD",
+      "uk": [
+        "D",
+        "DD",
+        "E"
+      ]
+    },
+    "b": {
+      "label": "US G to H",
+      "uk": [
+        "F",
+        "FF"
+      ]
+    },
+    "c": {
+      "label": "US I and up",
+      "uk": [
+        "G",
+        "GG",
+        "H",
+        "HH",
+        "J",
+        "JJ",
+        "K",
+        "KK"
+      ]
+    }
+  },
+  "products": {
+    "a": [
+      {
+        "store": "Free People",
+        "title": "Dixie Maxi Dress",
+        "url": "https://www.freepeople.com/shop/dixie-maxi/"
+      },
+      {
+        "store": "Princess Polly",
+        "title": "Renaissance Corset Lace Faux Leather Top",
+        "url": "https://us.princesspolly.com/products/renaissance-corset-lace-faux-leather-top-black"
+      },
+      {
+        "store": "Abercrombie & Fitch",
+        "title": "A&F Dylan Bra-Free Knit Midi Dress",
+        "url": "https://www.abercrombie.com/shop/us/p/a-and-f-dylan-bra-free-knit-midi-dress-63129320"
+      }
+    ],
+    "b": [
+      {
+        "store": "Abercrombie & Fitch",
+        "title": "Curve Love A&F Bra-Free Dylan Midi Dress",
+        "url": "https://www.abercrombie.com/shop/us/p/100-cotton-curve-love-a-and-f-bra-free-dylan-midi-dress-63970319"
+      },
+      {
+        "store": "Free People",
+        "title": "We The Free Neria V-Neck Tank Top",
+        "url": "https://www.freepeople.com/shop/we-the-free-neria-v-neck-tank-top/"
+      },
+      {
+        "store": "Princess Polly",
+        "title": "Renaissance Corset Lace Faux Leather Top",
+        "url": "https://us.princesspolly.com/products/renaissance-corset-lace-faux-leather-top-black"
+      }
+    ],
+    "c": [
+      {
+        "store": "Free People",
+        "title": "Dixie Maxi Dress",
+        "url": "https://www.freepeople.com/shop/dixie-maxi/"
+      },
+      {
+        "store": "Abercrombie & Fitch",
+        "title": "Curve Love A&F Bra-Free Dylan Midi Dress",
+        "url": "https://www.abercrombie.com/shop/us/p/100-cotton-curve-love-a-and-f-bra-free-dylan-midi-dress-63970319"
+      },
+      {
+        "store": "Princess Polly",
+        "title": "Renaissance Corset Lace Faux Leather Top",
+        "url": "https://us.princesspolly.com/products/renaissance-corset-lace-faux-leather-top-black"
+      }
+    ]
+  },
+  "fallback": [
+    {
+      "store": "Free People",
+      "title": "Marsai Maxi Dress",
+      "url": "https://www.freepeople.com/shop/marsai-maxi-dress/"
+    },
+    {
+      "store": "Free People",
+      "title": "We The Free Ballad Reversible Tank",
+      "url": "https://www.freepeople.com/shop/we-the-free-ballad-reversible-tank/"
+    },
+    {
+      "store": "Abercrombie & Fitch",
+      "title": "A&F Dylan Bra-Free Knit Midi Dress",
+      "url": "https://www.abercrombie.com/shop/us/p/a-and-f-dylan-bra-free-knit-midi-dress-63129320"
+    }
+  ]
+}
