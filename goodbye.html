@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+  The uninstall survey (1.4.5). Chrome opens this page right after bustfit is
+  removed (chrome.runtime.setUninstallURL in background-v2.js, with ?v=<version>).
+  Published to elizarags.github.io/bustfit-public/goodbye.html by
+  `node publish-public.js goodbye`.
+
+  One question, optional note. It posts to the backend's /api/feedback as type
+  'uninstall' (feedback.js TYPE_RULES): the answer, the note, the version, and
+  a random id made here, never the extension's device id, so an answer can't
+  be joined to anything bustfit stored. Nothing is sent until Send is pressed.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bustfit — sorry to see you go</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root {
+      --primary: #8B85FF; --primary-dark: #5A52CC; --primary-light: #EEEDFF;
+      --text: #1a1a1a; --muted: #666; --border: #E4E2F5; --bg: #F8F7FF;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 48px 16px; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px; line-height: 1.5;
+    }
+    main { max-width: 520px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 32px 28px; box-shadow: 0 8px 30px rgba(90, 82, 204, 0.08); }
+    .logo { font-size: 22px; font-weight: 700; color: var(--primary); }
+    h1 { font-size: 24px; margin: 16px 0 4px; }
+    .lead { color: var(--muted); margin: 0 0 24px; }
+    fieldset { border: 0; padding: 0; margin: 0; }
+    legend { font-weight: 600; margin-bottom: 12px; }
+    .opt { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; cursor: pointer; }
+    .opt:hover { background: var(--primary-light); }
+    .opt input { margin-top: 3px; accent-color: var(--primary-dark); }
+    .opt:has(input:checked) { border-color: var(--primary); background: var(--primary-light); }
+    label.note { display: block; font-weight: 600; margin: 20px 0 6px; }
+    label.note span { font-weight: 400; color: var(--muted); }
+    textarea { width: 100%; min-height: 84px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; font: inherit; resize: vertical; }
+    .hint { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+    button { margin-top: 20px; width: 100%; padding: 13px; border: 0; border-radius: 10px; background: var(--primary-dark); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+    button:disabled { opacity: 0.5; cursor: default; }
+    .status { margin-top: 12px; font-size: 14px; color: var(--muted); min-height: 1.5em; }
+    .done h1 { margin-top: 8px; }
+    .privacy { margin-top: 20px; font-size: 13px; color: var(--muted); }
+    .privacy a, .done a { color: var(--primary-dark); }
+  </style>
+</head>
+<body>
+  <main id="survey">
+    <div class="logo">bustfit</div>
+    <h1>Sorry to see you go</h1>
+    <p class="lead">One quick question helps us make bustfit better for the next person.</p>
+    <form id="form">
+      <fieldset>
+        <legend>What made you remove bustfit?</legend>
+        <label class="opt"><input type="radio" name="why" value="stores" /> It didn't work on the stores I shop</label>
+        <label class="opt"><input type="radio" name="why" value="findScore" /> I couldn't find my fit score or how to use it</label>
+        <label class="opt"><input type="radio" name="why" value="scores" /> The scores didn't seem right for me</label>
+        <label class="opt"><input type="radio" name="why" value="coverage" /> My size or the clothes I wanted aren't covered</label>
+        <label class="opt"><input type="radio" name="why" value="tryingOut" /> I was just trying it out</label>
+        <label class="opt"><input type="radio" name="why" value="other" /> Something else</label>
+      </fieldset>
+      <label class="note" for="note">Anything else? <span>(optional)</span></label>
+      <textarea id="note" maxlength="1000" placeholder="What would have made bustfit worth keeping?"></textarea>
+      <p class="hint">Please don't include your name or email.</p>
+      <button type="submit" id="send" disabled>Send</button>
+      <div class="status" id="status" role="status"></div>
+    </form>
+    <p class="privacy">Anonymous: we receive only your answer, your note and the bustfit version, never anything bustfit stored on your device. <a href="https://elizarags.github.io/bustfit-public/privacy-policy.html" target="_blank" rel="noopener">Privacy policy</a></p>
+  </main>
+
+  <script>
+    const API = 'https://bustfit-api.vercel.app/api/feedback';
+    const STORE_URL = 'https://chromewebstore.google.com/detail/bustfit-beta/jakbcggmafngacnegfbhfapkjpefkhlj';
+    const version = (new URLSearchParams(location.search).get('v') || '').replace(/[^0-9.]/g, '').slice(0, 20) || null;
+    const form = document.getElementById('form');
+    const send = document.getElementById('send');
+    const status = document.getElementById('status');
+    form.addEventListener('change', () => { send.disabled = !form.querySelector('input[name="why"]:checked'); });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const why = form.querySelector('input[name="why"]:checked')?.value;
+      if (!why) return;
+      send.disabled = true;
+      status.textContent = 'Sending…';
+      // A fresh random id for this one answer, never the extension's device id.
+      const id = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 64);
+      const note = document.getElementById('note').value.trim();
+      try {
+        const res = await fetch(API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'uninstall', productKey: 'uninstall', deviceId: id, agreement: why, shownValue: version, reason: note || undefined, timestamp: new Date().toISOString() }),
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        document.getElementById('survey').innerHTML =
+          '<div class="logo">bustfit</div><div class="done"><h1>Thank you</h1><p class="lead">That helps. If you ever want to try bustfit again, it’s in the <a href="' + STORE_URL + '">Chrome Web Store</a>.</p></div>';
+      } catch (_) {
+        send.disabled = false;
+        status.textContent = 'That didn’t send. Please try again in a moment.';
+      }
+    });
+  </script>
+</body>
+</html>
