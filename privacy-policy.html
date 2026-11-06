@@ -175,7 +175,7 @@
     <div class="header">
       <div class="brand">bustfit</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: 2 November 2026 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension, the Bustfit email list, and automatic replies on Bustfit's Instagram account</p>
+      <p class="meta">Last updated: 6 November 2026 &nbsp;·&nbsp; Applies to the Bustfit Chrome extension, the Bustfit email list, and automatic replies on Bustfit's Instagram account</p>
     </div>
 
     <!-- ── Plain-English summary ───────────────────────────── -->
@@ -201,7 +201,7 @@
       <tbody>
         <tr>
           <td><strong>Your preferences</strong></td>
-          <td>Band size, cup size, bra style preference, strapless bra preference, typical fit challenges, usual clothing size and region, auto-open panel setting</td>
+          <td>Band size, cup size, bra style preference, strapless bra preference, typical fit challenges, usual clothing size and region</td>
         </tr>
         <tr>
           <td><strong>Scored products</strong></td>
@@ -232,6 +232,10 @@
           <td>A random identifier generated on your device (not tied to your name, email, or any account) and stored locally. Used to attribute API requests and pooled sizing feedback to "one device" — e.g. so the same device can't submit sizing feedback for the same product twice — and to count how many devices use Bustfit, and on how many different days, so we can see whether it is useful. That count covers devices, not people, and is never linked to your name, email or size. See Sections 4 and 7.</td>
         </tr>
         <tr>
+          <td><strong>Welcome tour</strong></td>
+          <td>Whether you've finished or skipped the short tour of the fit panel, so it isn't shown again unless you ask for it (version 1.4.5 and later).</td>
+        </tr>
+        <tr>
           <td><strong>Your sizing feedback</strong></td>
           <td>Your own post-purchase answers (size ordered, how it fit) for products you've bought. A copy is submitted anonymously to Bustfit's backend — see Section 7.</td>
         </tr>
@@ -259,7 +263,7 @@
 
     <p>Versions before 1.4.3 also sent your saved profile (Section 2) with styling tips, including your band size, cup size and bra style preference. Our backend used to pass your band size, cup size, bra style preference and a body-shape category worked out from your band and cup on to Anthropic's API. It no longer uses the profile: it isn't passed on or stored.</p>
 
-    <p>Each of these requests carries the anonymous device ID described in Section 2, and our backend keeps your IP address only as a keyed one-way hash, to apply usage limits (see Section 13).</p>
+    <p>Each of these requests carries the anonymous device ID described in Section 2, and our backend keeps your IP address only as a keyed one-way hash, to apply usage limits (see Section 13). Our backend records each request with the same details whether it succeeds or not: since version 1.4.5 that includes requests it turns down (for example over a usage limit) or that fail, so we can see when a feature isn't working.</p>
 
     <div class="callout callout--warn">
       These requests are subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>. We recommend reviewing Anthropic's policy to understand how they handle API request data. Product images or their URLs, bust-relevant review text, product names, construction details and the panel's bra reading are sent to Anthropic's servers for processing. Your size is not. (Styling tips from versions before 1.4.3 used to send your band and cup size, bra style preference and body-shape category as well.)
@@ -320,9 +324,10 @@
     <p>There is no analytics service, no tracking pixel, and no beacon of any kind in the extension that reports your behaviour back to us. (Emails from the Bustfit email list are different — see Section 17.)</p>
 
     <!-- ── 9 ───────────────────────────────────────────────── -->
-    <h2>10. Editor notes (hosted JSON)</h2>
+    <h2>10. Editor notes and example products (hosted JSON)</h2>
     <p>Bustfit fetches a public JSON file from jsDelivr (<code>cdn.jsdelivr.net</code>) that contains editor-curated notes about specific products and brand fit patterns. This file is publicly accessible to anyone. The request to fetch it includes no user data — it is the same as loading any public web resource.</p>
     <p>The cached copy of this file is stored locally on your device and refreshed every 24 hours.</p>
+    <p>At the end of setup, and when you ask to replay the tour, Bustfit also fetches a second public file from jsDelivr: a short list of example products for "Try it now" (version 1.4.5 and later). This request also includes no user data. Bustfit picks one product from the list for your cup size on your device and opens it in your tab; your size isn't sent anywhere to do this. If the file can't be fetched, a copy built into the extension is used.</p>
 
     <!-- ── 10 ───────────────────────────────────────────────── -->
     <h2>11. Retailer link tagging</h2>
@@ -335,11 +340,11 @@
     <div class="callout">
       <strong>Bustfit does not:</strong>
       <ul style="margin: 8px 0 0 18px;">
-        <li>Collect your name, email address, or any contact information through the extension — unless you choose to type one into a free-text problem report (Section 6) or a feedback note (Section 16); we never ask for either. (If you joined the Bustfit email list on our website, we have the address you gave us there — see Section 17. If you comment on or message Bustfit's Instagram account, we receive your Instagram username — see Section 18)</li>
+        <li>Collect your name, email address, or any contact information through the extension — unless you choose to type one into a free-text problem report (Section 6), a feedback note or the note in the survey shown when you remove Bustfit (Section 16); we never ask for either. (If you joined the Bustfit email list on our website, we have the address you gave us there — see Section 17. If you comment on or message Bustfit's Instagram account, we receive your Instagram username — see Section 18)</li>
         <li>Collect financial data, payment details, or card numbers</li>
         <li>Track your browsing history beyond the product page currently open</li>
         <li>Store or transmit your exact bra size to a server, <strong>except</strong> in two specific, disclosed cases: problem reports (Section 6) include it, for the reasons explained there, and feedback you send from the panel (Section 16) includes it only if you tick the box. (Versions before 1.4.3 also sent it with styling tips — see Section 4.) Sizing feedback (Section 7) is not one of these — it only ever shares a size-ordered category (e.g. "sized up one") and a fit outcome, never your stored band/cup measurements</li>
-        <li>Tie anything sent to our backend to your identity — requests, pooled sizing feedback, and feedback from the panel use only the anonymous, on-device ID described in Section 2 (problem reports, Section 6, use no ID at all). Your IP address is kept only as a keyed one-way hash, used only for usage limits, and deleted after 30 days (Section 13)</li>
+        <li>Tie anything sent to our backend to your identity — requests, pooled sizing feedback, and feedback from the panel use only the anonymous, on-device ID described in Section 2 (problem reports, Section 6, use no ID at all, and an answer to the survey shown when you remove Bustfit carries only a random ID made for that one answer, Section 16). Your IP address is kept only as a keyed one-way hash, used only for usage limits, and deleted after 30 days (Section 13)</li>
         <li>Sell, rent, or share any data with advertisers or data brokers</li>
         <li>Use your data for advertising targeting of any kind</li>
         <li>Aggregate personal profiles of individual users — sizing feedback is pooled per-product, not per-person, and only ever shown once at least 3 people have contributed; feedback from the panel is used only to improve how Bustfit reads products and is never shown to anyone</li>
@@ -354,9 +359,10 @@
     <ul>
       <li><strong>Sizing feedback</strong> (Section 7) isn't tied to your identity and is pooled with other submissions rather than kept per-person.</li>
       <li><strong>Feedback from the panel</strong> (Section 16) is deleted automatically 90 days after you last sent it for that product.</li>
+      <li><strong>Answers to the survey shown when you remove Bustfit</strong> (Section 16) are deleted automatically 90 days after they're sent.</li>
       <li><strong>Problem reports</strong> (Section 6) are sent to us on purpose and kept so we can fix bugs.</li>
       <li><strong>Instagram comments and messages</strong> (Section 18) are deleted automatically 90 days after we receive them.</li>
-      <li><strong>IP addresses.</strong> For requests for image analysis, review summaries, styling tips, brand information, review searches (versions before 1.4.3 only), and feedback from the panel, our backend keeps the IP address only as a keyed one-way hash: the address is passed through the hash before anything is stored, and the address itself is never stored. The hash lets it count how many requests one address makes in a day (and, for image analysis, in ten minutes, to stop runaway loops) so it can apply usage limits. It can tell repeat requests apart but can't be turned back into your address. The hashes are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
+      <li><strong>IP addresses.</strong> For requests for image analysis, review summaries, styling tips, brand information, review searches (versions before 1.4.3 only), feedback from the panel, and the survey shown when you remove Bustfit, our backend keeps the IP address only as a keyed one-way hash: the address is passed through the hash before anything is stored, and the address itself is never stored. The hash lets it count how many requests one address makes in a day (and, for image analysis, in ten minutes, to stop runaway loops) so it can apply usage limits. It can tell repeat requests apart but can't be turned back into your address. The hashes are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
     </ul>
     <p>If you'd like something you sent removed sooner — a problem report or your feedback from the panel — contact us (Section 19) with the approximate date and the product or what you reported, and we'll do our best to locate and remove it. None of it is indexed by anything that identifies you, so locating a specific item depends on the details you can give us.</p>
 
@@ -390,6 +396,8 @@
     </ul>
     <p><strong>Your sizing is separate and optional.</strong> If your profile has a size saved, every question offers a checkbox, unticked by default, that lets you include your sizing with that one answer. The exact values that would be sent are shown next to it before you decide: your band and cup size (converted to UK sizing so they can be compared) and the sizing system you use, and your usual clothing size and region. If you leave it unticked, none of your sizing is sent — and our server discards any sizing that arrives without that choice. So a "Did it close over your bust?" answer is stored with your bra size <strong>only</strong> if you tick that box.</p>
     <p>We use this feedback only to improve how Bustfit reads products: an answer never changes a score, a shape label or a "Closing it" line by itself. It's never shown to other shoppers and isn't sent to Sentry, including when something goes wrong. Each device keeps one answer per product for each question: sending again replaces your earlier answer. Feedback is deleted automatically 90 days after you last sent it for that product (Section 13). We don't ask for your name or email; if you type either into the note, it's stored as you wrote it.</p>
+    <p><strong>If you remove Bustfit.</strong> From version 1.4.5, when you remove Bustfit from Chrome, Chrome opens a page on our website with one question: what made you remove it. The answers are: it didn't work on the stores you shop; you couldn't find your fit score or how to use it; the scores didn't seem right for you; your size or the clothes you wanted aren't covered; you were just trying it out; or something else. There's also an optional note. Answering is entirely optional, and nothing is sent unless you choose an answer and tap Send.</p>
+    <p>If you send it, our backend receives your answer, any note you type, the Bustfit version you had, and the time. The page makes a random ID for that one answer; it is <strong>not</strong> the anonymous device ID from Section 2, and the page has no access to anything Bustfit stored on your device, so your answer can't be linked to your profile, your scores or anything else you sent. As with other feedback, our backend keeps your IP address only as a keyed one-way hash, for usage limits (Section 13). Answers are deleted automatically after 90 days. We don't ask for your name or email; if you type either into the note, it's stored as you wrote it.</p>
 
     <!-- ── 17 ──────────────────────────────────────────────── -->
     <h2>17. The Bustfit email list</h2>
