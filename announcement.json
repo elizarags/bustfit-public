@@ -1,0 +1,7 @@
+{
+  "_about": "One optional link in the bustfit panel's menu and the toolbar popup (extension 1.4.5 and later), fetched from cdn.jsdelivr.net/gh/elizarags/bustfit-public@main/announcement.json. To switch it on, set enabled to true, a label of at most 40 characters (for example \"✦ Black Friday picks\"), an https url on bustfit.com (or a subdomain) or under elizarags.github.io/bustfit-public/ or cdn.jsdelivr.net/gh/elizarags/bustfit-public@, and optionally until (a date such as 2026-12-01 runs to the end of that day; empty means no end). Anything else hides the link, and so does a failed fetch. After a change, purge this file on jsDelivr. Rules: announcement-lib.js in the extension.",
+  "enabled": false,
+  "label": "",
+  "url": "",
+  "until": ""
+}
