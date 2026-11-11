@@ -324,10 +324,11 @@
     <p>There is no analytics service, no tracking pixel, and no beacon of any kind in the extension that reports your behaviour back to us. (Emails from the bustfit email list are different — see Section 17.)</p>
 
     <!-- ── 9 ───────────────────────────────────────────────── -->
-    <h2>10. Editor notes and example products (hosted JSON)</h2>
+    <h2>10. Editor notes, example products and announcements (hosted JSON)</h2>
     <p>bustfit fetches a public JSON file from jsDelivr (<code>cdn.jsdelivr.net</code>) that contains editor-curated notes about specific products and brand fit patterns. This file is publicly accessible to anyone. The request to fetch it includes no user data — it is the same as loading any public web resource.</p>
     <p>The cached copy of this file is stored locally on your device and refreshed every 24 hours.</p>
     <p>At the end of setup, and when you ask to replay the tour, bustfit also fetches a second public file from jsDelivr: a short list of example products for "Try it now" (version 1.4.5 and later). This request also includes no user data. bustfit picks one product from the list for your cup size on your device and opens it in your tab; your size isn't sent anywhere to do this. If the file can't be fetched, a copy built into the extension is used.</p>
+    <p>When you open the bustfit panel or the toolbar popup, bustfit also checks a third public file on jsDelivr for an optional announcement (version 1.4.5 and later): one short link, such as a seasonal picks page, shown in the panel's ⋯ menu and in the popup. This request also includes no user data. The link can only open a secure (https) page on bustfit.com or bustfit's own public pages; any other link is ignored. Nothing is sent to bustfit when you see or click the link, and neither is counted. The file is kept on your device for up to an hour before it is checked again. If it can't be fetched, or there is no announcement, nothing is shown.</p>
 
     <!-- ── 10 ───────────────────────────────────────────────── -->
     <h2>11. Retailer link tagging</h2>
