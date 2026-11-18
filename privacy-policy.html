@@ -337,7 +337,7 @@
     <!-- ── 8 ───────────────────────────────────────────────── -->
     <h2>9. Usage analytics</h2>
     <p><strong>On your device.</strong> bustfit keeps four usage counts in local extension storage: products scored, retailer links clicked from the panel, purchases detected, and fit feedback submissions completed. They're part of an event log capped at 500 entries and are never sent anywhere. If you use the admin export feature, that export goes only where you choose to save it.</p>
-    <p><strong>Optional: sharing anonymous usage (version 1.4.6 and later).</strong> It's <strong>off unless you turn it on</strong>. bustfit asks once — on the last screen of setup, or with a one-time card in the panel if you installed an earlier version — with a box that starts unticked. You can turn it on or off at any time from the panel's ⋯ menu ("Share anonymous usage"). We use it only to see which features are used and where bustfit breaks, so we can fix and improve it.</p>
+    <p><strong>Optional: sharing anonymous usage (version 1.4.6 and later).</strong> It's <strong>off unless you turn it on</strong>. bustfit asks once — on the first screen of setup, or with a one-time card in the panel if you installed an earlier version — with a box that starts unticked. You can turn it on or off at any time from the panel's ⋯ menu ("Share anonymous usage"). We use it only to see which features are used and where bustfit breaks, so we can fix and improve it.</p>
     <p>If you turn it on, the extension sends these events to <a href="https://posthog.com" target="_blank" rel="noopener">PostHog</a> (PostHog Inc.), an analytics service, on its EU cloud (<code>eu.i.posthog.com</code>, hosted in Frankfurt, Germany). Each event carries only the fields listed:</p>
     <ul>
       <li>a setup step was viewed or completed: which step (welcome, bra size, bra preference, clothing size, done)</li>
@@ -348,9 +348,17 @@
       <li>a feedback question was shown or answered: which question, and the answer's category (for example "yes", "no", or a shape tier) — never anything you type</li>
       <li>you turned usage sharing on, and where (setup, the panel card or the menu)</li>
     </ul>
-    <p>Each event also carries a random ID made only for this (not the anonymous device ID in Section 2, so these events can't be linked to anything bustfit's backend records), the time, your browser and operating system names and versions, your browser's language and time zone, and the version of PostHog's code.</p>
+    <p>Each event also carries a random ID made only for this (not the anonymous device ID in Section 2, so these events can't be linked to anything bustfit's backend records) and the time. PostHog's code adds these to every event by itself:</p>
+    <ul>
+      <li>your browser's name and version, and your operating system's name and version</li>
+      <li>the kind of device (for example "Desktop")</li>
+      <li>your browser's language (for example "en-US") and your time zone (for example "America/New_York")</li>
+      <li>the version of PostHog's code</li>
+      <li>a random ID for each event, and random IDs for the session, made fresh each time the extension starts</li>
+    </ul>
+    <p>Anything else PostHog's code would add is removed before an event is sent.</p>
     <p>It <strong>never</strong> sends your bra size or anything else from your profile, the address of any page you visit, product names or IDs, review text, or anything you type. A check in bustfit's release tests fails if any event includes one of these. bustfit doesn't use PostHog's automatic click tracking, page-view tracking, session recording, surveys, cookies or person profiles, and loads none of PostHog's code from the internet: the code is part of the extension.</p>
-    <p>PostHog receives your IP address with each request, as with any web request; our PostHog project is set to discard it, so it isn't stored. Events are kept for [RETENTION — CONFIRM IN POSTHOG PROJECT SETTINGS]. Because the ID isn't linked to you, we can't find your events from your name or email; turning sharing off stops anything more being sent straight away. PostHog's handling is covered by <a href="https://posthog.com/privacy" target="_blank" rel="noopener">its privacy policy</a>.</p>
+    <p>PostHog receives your IP address with each request, as with any web request; our PostHog project is set to discard it, so it isn't stored. Events are kept for 1 year, then deleted by PostHog. Because the ID isn't linked to you, we can't find your events from your name or email; turning sharing off stops anything more being sent straight away. PostHog's handling is covered by <a href="https://posthog.com/privacy" target="_blank" rel="noopener">its privacy policy</a>.</p>
     <p>Apart from this optional sharing, there is no analytics service, tracking pixel or beacon in the extension. (Emails from the bustfit email list are different — see Section 17.)</p>
 
     <!-- ── 9 ───────────────────────────────────────────────── -->
@@ -393,7 +401,7 @@
       <li><strong>Answers to the survey shown when you remove bustfit</strong> (Section 16) are deleted automatically 90 days after they're sent.</li>
       <li><strong>"Let us know" reports</strong> (Section 6) are deleted automatically 90 days after they're sent.</li>
       <li><strong>Request records.</strong> Our backend's record of each request for image analysis, review summaries, styling tips, brand information and feedback (Section 4: which feature, the anonymous device ID, the product image's address, whether it worked, and when) is deleted automatically 90 days after the request.</li>
-      <li><strong>Optional usage sharing</strong> (Section 9) is kept by PostHog for [RETENTION — CONFIRM IN POSTHOG PROJECT SETTINGS].</li>
+      <li><strong>Optional usage sharing</strong> (Section 9) is kept by PostHog for 1 year.</li>
       <li><strong>Instagram comments and messages</strong> (Section 18) are deleted automatically 90 days after we receive them.</li>
       <li><strong>IP addresses.</strong> For requests for image analysis, review summaries, styling tips, brand information, review searches (versions before 1.4.3 only), feedback from the panel, and the survey shown when you remove bustfit, our backend keeps the IP address only as a keyed one-way hash: the address is passed through the hash before anything is stored, and the address itself is never stored. The hash lets it count how many requests one address makes in a day (and, for image analysis, in ten minutes, to stop runaway loops) so it can apply usage limits. It can tell repeat requests apart but can't be turned back into your address. The hashes are deleted automatically after 30 days. Our hosting provider may also keep standard request logs, which include IP addresses, under its own retention policy.</li>
     </ul>
