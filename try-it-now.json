@@ -1,7 +1,7 @@
 {
-  "_about": "Products the 'Try it now' button at the end of onboarding opens (1.4.5). The live copy is fetched from bustfit-public (cdn.jsdelivr.net/gh/elizarags/bustfit-public@main/try-it-now.json) so a sold-out product can be swapped without a release; this bundled copy is used when that fetch fails. Ranges are by UK cup, the size scoring uses: a = US D to DDD/F, b = US G to H, c = US I and up. The first product in the shopper's range is opened, then the next, then the fallback list. Products approved by Eliza, 2026-11-06; reordered 2026-11-09 after checking which products lean on reviewers well below each range (the Neria tank dropped from b, the Renaissance corset added first to the fallback).",
-  "version": 1,
-  "updated": "2026-11-09",
+  "_about": "Products the 'Try it now' button at the end of onboarding opens (1.4.5). The live copy is fetched from bustfit-public (cdn.jsdelivr.net/gh/elizarags/bustfit-public@main/try-it-now.json) so a sold-out product can be swapped without a release; this bundled copy is used when that fetch fails. Ranges are by UK cup, the size scoring uses: a = US D to DDD/F, b = US G to H, c = US I and up. The first product in the shopper's range is opened, then the next, then the fallback list. Products approved by Eliza, 2026-11-06; reordered 2026-11-09 after checking which products lean on reviewers well below each range (the Neria tank dropped from b, the Renaissance corset added first to the fallback). 2026-11-18 (1.4.7): the Renaissance corset removed from b and c, where the corset ceiling holds it at 65 or lower, kept in a, and moved to last in the fallback (Marsai Maxi first).",
+  "version": 2,
+  "updated": "2026-11-18",
   "ranges": {
     "a": {
       "label": "US D to DDD",
@@ -60,11 +60,6 @@
         "store": "Free People",
         "title": "Dixie Maxi Dress",
         "url": "https://www.freepeople.com/shop/dixie-maxi/"
-      },
-      {
-        "store": "Princess Polly",
-        "title": "Renaissance Corset Lace Faux Leather Top",
-        "url": "https://us.princesspolly.com/products/renaissance-corset-lace-faux-leather-top-black"
       }
     ],
     "c": [
@@ -74,11 +69,6 @@
         "url": "https://www.abercrombie.com/shop/us/p/100-cotton-curve-love-a-and-f-bra-free-dylan-midi-dress-63970319"
       },
       {
-        "store": "Princess Polly",
-        "title": "Renaissance Corset Lace Faux Leather Top",
-        "url": "https://us.princesspolly.com/products/renaissance-corset-lace-faux-leather-top-black"
-      },
-      {
         "store": "Free People",
         "title": "Dixie Maxi Dress",
         "url": "https://www.freepeople.com/shop/dixie-maxi/"
@@ -86,11 +76,6 @@
     ]
   },
   "fallback": [
-    {
-      "store": "Princess Polly",
-      "title": "Renaissance Corset Lace Faux Leather Top",
-      "url": "https://us.princesspolly.com/products/renaissance-corset-lace-faux-leather-top-black"
-    },
     {
       "store": "Free People",
       "title": "Marsai Maxi Dress",
@@ -105,6 +90,11 @@
       "store": "Abercrombie & Fitch",
       "title": "A&F Dylan Bra-Free Knit Midi Dress",
       "url": "https://www.abercrombie.com/shop/us/p/a-and-f-dylan-bra-free-knit-midi-dress-63129320"
+    },
+    {
+      "store": "Princess Polly",
+      "title": "Renaissance Corset Lace Faux Leather Top",
+      "url": "https://us.princesspolly.com/products/renaissance-corset-lace-faux-leather-top-black"
     }
   ]
 }
