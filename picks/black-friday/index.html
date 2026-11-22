@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>bustfit Black Friday picks</title>
+<meta name="description" content="Black Friday picks for a fuller bust, chosen for fit only.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#FBFAFF; --text:#1E1A3A; --accent:#6A60FA; --muted:#5F5B78; --line:#E6E3F5; --soft:#EFEDFF; --card:#fff; --amber:#7A4B00; --amber-bg:#FFF4DF; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--text); font:400 15px/1.5 Inter,system-ui,sans-serif; }
+a { color:var(--accent); }
+.wrap { max-width:1160px; margin:0 auto; padding:0 16px; }
+header { padding:44px 0 18px; }
+.brand { font:800 20px 'Bricolage Grotesque',sans-serif; color:var(--accent); text-decoration:none; }
+h1 { font:800 clamp(34px,6vw,58px)/1.02 'Bricolage Grotesque',sans-serif; letter-spacing:-.02em; margin:18px 0 12px; max-width:15em; }
+.intro { font-size:17px; max-width:40em; margin:0 0 14px; }
+.disclosure { display:inline-block; background:var(--soft); border-radius:8px; padding:8px 12px; font-size:13.5px; font-weight:500; margin:0; }
+.meta { color:var(--muted); font-size:13px; margin:12px 0 0; }
+nav { position:sticky; top:0; z-index:5; background:rgba(251,250,255,.95); border-block:1px solid var(--line); margin-top:20px; }
+nav .wrap { display:flex; gap:6px; overflow-x:auto; padding-block:9px; }
+nav a { flex:none; color:var(--text); text-decoration:none; font-weight:500; font-size:13.5px; padding:6px 12px; border-radius:999px; }
+nav a:hover, nav a:focus-visible { background:var(--soft); }
+section { padding-top:34px; scroll-margin-top:50px; }
+h2 { font:800 28px/1.1 'Bricolage Grotesque',sans-serif; margin:0 0 16px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px; }
+.card { display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+.photo { position:relative; display:block; aspect-ratio:4/5; background:var(--soft); text-decoration:none; }
+.photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; }
+.fallback { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:20px; text-align:center; color:var(--text); font:600 18px/1.2 'Bricolage Grotesque',sans-serif; }
+.fallback small { font:500 12px Inter,sans-serif; color:var(--muted); }
+.body { display:flex; flex:1; flex-direction:column; gap:8px; padding:14px; }
+.kicker { color:var(--muted); font-size:12px; font-weight:500; }
+h3 { font:600 18px/1.2 'Bricolage Grotesque',sans-serif; margin:0; }
+.loved { align-self:flex-start; background:var(--soft); color:#3F35C8; border-radius:6px; padding:3px 8px; font-size:13px; font-weight:600; }
+.card p { margin:0; font-size:14px; }
+.who { color:var(--muted); font-size:12.5px; }
+.watch { background:var(--amber-bg); color:var(--amber); border-radius:6px; padding:6px 8px; font-size:13px !important; }
+.foot { margin-top:auto; padding-top:6px; display:flex; flex-direction:column; gap:8px; }
+.price { font-weight:600; }
+.price span { color:var(--muted); font-size:12px; font-weight:400; }
+.btn { display:block; text-align:center; background:var(--accent); color:#fff; font-weight:600; text-decoration:none; border-radius:9px; padding:11px; border:0; font-size:14px; font-family:inherit; }
+.btn:hover { background:#5549E8; }
+.btn[disabled] { background:#D9D6EE; color:#55516F; }
+.store { text-align:center; font-size:12.5px; }
+footer { margin-top:48px; padding:28px 0 40px; background:var(--soft); }
+footer h2 { font-size:24px; margin-bottom:6px; }
+footer p { margin:0 0 14px; max-width:40em; }
+footer .btn { display:inline-block; padding-inline:20px; }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="https://bustfit.com">bustfit</a>
+  <h1>Black Friday picks that fit a fuller bust</h1>
+  <p class="intro">I got tired of buying things that fit everywhere except my chest. So these are pieces reviewers with fuller busts say actually work, with the catches included.</p>
+  <p class="disclosure">Some links are affiliate links; I may earn a commission. Picks are chosen for fit only.</p>
+  <p class="meta">Last updated <span id="updated"></span>. Prices and stock change, so check before you buy.</p>
+</header>
+<nav aria-label="Stores"><div class="wrap" id="nav"></div></nav>
+<main class="wrap" id="stores"></main>
+<footer><div class="wrap">
+  <h2>Open it with bustfit for your personal score</h2>
+  <p>Reviews tell you what worked for someone else. bustfit checks a product against your size while you shop.</p>
+  <a class="btn" href="https://get.bustfit.com/install">Install bustfit</a>
+</div></footer>
+<script src="picks-data.js"></script>
+<script>
+(function () {
+  var D = window.BF_PICKS;
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  function storeUrl(u) { var x = new URL(u); x.searchParams.set('utm_source', 'picks'); return x.toString(); }
+  function card(p, store) {
+    var c = el('article', 'card'), link = storeUrl(p.url);
+    var ph = el('a', 'photo'); ph.href = link; ph.target = '_blank'; ph.rel = 'noopener noreferrer';
+    ph.setAttribute('aria-label', p.name + ' at ' + store);
+    var fb = el('span', 'fallback', p.name); fb.appendChild(el('small', null, store)); ph.appendChild(fb);
+    if (p.image) {
+      var img = document.createElement('img'); img.alt = p.name; img.loading = 'lazy';
+      img.referrerPolicy = 'no-referrer'; img.setAttribute('referrerpolicy', 'no-referrer');
+      img.addEventListener('error', function () { img.remove(); ph.dataset.imgFailed = '1'; }, { once: true });
+      img.src = p.image; ph.appendChild(img);
+    }
+    c.appendChild(ph);
+    var b = el('div', 'body');
+    b.appendChild(el('span', 'kicker', p.category));
+    b.appendChild(el('h3', null, p.name));
+    b.appendChild(el('span', 'loved', 'Loved by reviewers ' + p.loved));
+    b.appendChild(el('p', null, p.quote ? '“' + p.quote + '”' : p.reviewNote));
+    b.appendChild(el('p', 'who', p.quote ? p.reviewSize + ' reviewer, ' + p.reviewStore : 'Review at ' + p.reviewStore));
+    b.appendChild(el('p', null, p.fit));
+    if (p.watch) b.appendChild(el('p', 'watch', 'Watch out: ' + p.watch));
+    var f = el('div', 'foot'), pr = el('p', 'price');
+    if (p.price) { pr.textContent = p.price + ' '; pr.appendChild(el('span', null, 'as of ' + p.priceDate)); }
+    else pr.textContent = 'See price at store';
+    f.appendChild(pr);
+    if (/^SHOPMY_LINK_/.test(p.shopmy)) { var off = el('button', 'btn', 'Shop link coming'); off.disabled = true; off.dataset.placeholder = p.shopmy; f.appendChild(off); }
+    else { var a = el('a', 'btn', 'Shop at ' + store); a.href = p.shopmy; a.target = '_blank'; a.rel = 'noopener sponsored'; f.appendChild(a); }
+    var s = el('a', 'store', 'Open at ' + store + ' to see your bustfit score'); s.href = link; s.target = '_blank'; s.rel = 'noopener noreferrer'; f.appendChild(s);
+    b.appendChild(f); c.appendChild(b); return c;
+  }
+  document.getElementById('updated').textContent = D.updated;
+  var main = document.getElementById('stores'), nav = document.getElementById('nav');
+  D.stores.filter(function (s) { return s.picks.length; }).forEach(function (s) {
+    var id = slug(s.name), sec = el('section'); sec.id = id; sec.appendChild(el('h2', null, s.name));
+    var g = el('div', 'grid'); s.picks.forEach(function (p) { g.appendChild(card(p, s.name)); }); sec.appendChild(g); main.appendChild(sec);
+    var a = el('a', null, s.name); a.href = '#' + id; nav.appendChild(a);
+  });
+})();
+</script>
+</body>
+</html>
