@@ -47,7 +47,9 @@ h3 { font:600 18px/1.2 'Bricolage Grotesque',sans-serif; margin:0; }
 .btn { display:block; text-align:center; background:var(--accent); color:#fff; font-weight:600; text-decoration:none; border-radius:9px; padding:11px; border:0; font-size:14px; font-family:inherit; }
 .btn:hover { background:#5549E8; }
 .btn[disabled] { background:#D9D6EE; color:#55516F; }
-.store { text-align:center; font-size:12.5px; }
+.loved.pick { background:#F1EFF8; color:var(--text); }
+.score { font-weight:600; }
+.more { display:inline-block; margin-top:16px; font-weight:600; }
 footer { margin-top:48px; padding:28px 0 40px; background:var(--soft); }
 footer h2 { font-size:24px; margin-bottom:6px; }
 footer p { margin:0 0 14px; max-width:40em; }
@@ -58,9 +60,9 @@ footer .btn { display:inline-block; padding-inline:20px; }
 <header class="wrap">
   <a class="brand" href="https://bustfit.com">bustfit</a>
   <h1>Black Friday picks that fit a fuller bust</h1>
-  <p class="intro">I got tired of buying things that fit everywhere except my chest. So these are pieces reviewers with fuller busts say actually work, with the catches included.</p>
+  <p class="intro">I got tired of buying things that fit everywhere except my chest. Some of these have fuller-bust reviewers backing them up. The rest are my own picks based on how they’re made, and those cards say so. The catches are included.</p>
   <p class="disclosure">Some links are affiliate links; I may earn a commission. Picks are chosen for fit only.</p>
-  <p class="meta">Last updated <span id="updated"></span>. Prices and stock change, so check before you buy.</p>
+  <p class="meta"><strong>Prices update as Black Friday sales go live.</strong> Last updated <span id="updated"></span>. More stores added daily through Cyber Monday.</p>
 </header>
 <nav aria-label="Stores"><div class="wrap" id="nav"></div></nav>
 <main class="wrap" id="stores"></main>
@@ -75,10 +77,9 @@ footer .btn { display:inline-block; padding-inline:20px; }
   var D = window.BF_PICKS;
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
-  function storeUrl(u) { var x = new URL(u); x.searchParams.set('utm_source', 'picks'); return x.toString(); }
   function card(p, store) {
-    var c = el('article', 'card'), link = storeUrl(p.url);
-    var ph = el('a', 'photo'); ph.href = link; ph.target = '_blank'; ph.rel = 'noopener noreferrer';
+    var c = el('article', 'card'), link = p.shopmy;
+    var ph = el('a', 'photo'); ph.href = link; ph.target = '_blank'; ph.rel = 'noopener sponsored';
     ph.setAttribute('aria-label', p.name + ' at ' + store);
     var fb = el('span', 'fallback', p.name); fb.appendChild(el('small', null, store)); ph.appendChild(fb);
     if (p.image) {
@@ -91,25 +92,31 @@ footer .btn { display:inline-block; padding-inline:20px; }
     var b = el('div', 'body');
     b.appendChild(el('span', 'kicker', p.category));
     b.appendChild(el('h3', null, p.name));
-    b.appendChild(el('span', 'loved', 'Loved by reviewers ' + p.loved));
-    b.appendChild(el('p', null, p.quote ? '“' + p.quote + '”' : p.reviewNote));
-    b.appendChild(el('p', 'who', p.quote ? p.reviewSize + ' reviewer, ' + p.reviewStore : 'Review at ' + p.reviewStore));
-    b.appendChild(el('p', null, p.fit));
+    if (p.type === 'review') {
+      b.appendChild(el('span', 'loved', 'Loved by reviewers ' + p.loved));
+      b.appendChild(el('p', null, p.quote ? '“' + p.quote + '”' : p.reviewNote));
+      b.appendChild(el('p', 'who', p.quote ? p.reviewSize + ' reviewer, ' + p.reviewStore : 'Review at ' + p.reviewStore));
+      b.appendChild(el('p', null, p.fit));
+    } else {
+      b.appendChild(el('span', 'loved pick', 'Eliza’s pick · ' + (p.evidence === 'few' ? 'few fuller-bust reviews yet' : 'no fuller-bust reviews yet')));
+      b.appendChild(el('p', 'score', 'bustfit score at 34G: ' + p.score));
+      var why = el('p'); why.appendChild(el('strong', null, 'Why it should work: ')); why.appendChild(document.createTextNode(p.fit)); b.appendChild(why);
+    }
     if (p.watch) b.appendChild(el('p', 'watch', 'Watch out: ' + p.watch));
     var f = el('div', 'foot'), pr = el('p', 'price');
     if (p.price) { pr.textContent = p.price + ' '; pr.appendChild(el('span', null, 'as of ' + p.priceDate)); }
     else pr.textContent = 'See price at store';
     f.appendChild(pr);
-    if (/^SHOPMY_LINK_/.test(p.shopmy)) { var off = el('button', 'btn', 'Shop link coming'); off.disabled = true; off.dataset.placeholder = p.shopmy; f.appendChild(off); }
-    else { var a = el('a', 'btn', 'Shop at ' + store); a.href = p.shopmy; a.target = '_blank'; a.rel = 'noopener sponsored'; f.appendChild(a); }
-    var s = el('a', 'store', 'Open at ' + store + ' to see your bustfit score'); s.href = link; s.target = '_blank'; s.rel = 'noopener noreferrer'; f.appendChild(s);
+    var a = el('a', 'btn', 'Shop at ' + store); a.href = link; a.target = '_blank'; a.rel = 'noopener sponsored'; f.appendChild(a);
     b.appendChild(f); c.appendChild(b); return c;
   }
   document.getElementById('updated').textContent = D.updated;
   var main = document.getElementById('stores'), nav = document.getElementById('nav');
   D.stores.filter(function (s) { return s.picks.length; }).forEach(function (s) {
     var id = slug(s.name), sec = el('section'); sec.id = id; sec.appendChild(el('h2', null, s.name));
-    var g = el('div', 'grid'); s.picks.forEach(function (p) { g.appendChild(card(p, s.name)); }); sec.appendChild(g); main.appendChild(sec);
+    var g = el('div', 'grid'); s.picks.forEach(function (p) { g.appendChild(card(p, s.name)); }); sec.appendChild(g);
+    if (s.more) { var m = el('a', 'more', 'See more ' + s.name + ' picks'); m.href = s.more; m.target = '_blank'; m.rel = 'noopener sponsored'; sec.appendChild(m); }
+    main.appendChild(sec);
     var a = el('a', null, s.name); a.href = '#' + id; nav.appendChild(a);
   });
 })();
