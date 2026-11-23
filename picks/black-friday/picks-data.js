@@ -124,7 +124,7 @@ window.BF_PICKS = {
      "fit": "A stretchy knit in an easy fit, with a V-neck that works with most bras and breaks up the expanse of material over your chest while creating a bit of shape.",
      "price": null,
      "priceDate": "Nov 23",
-     "image": "https://img.hollisterco.com/is/image/anf/KIC_350-26023-00426-200_prod1?policy=product-medium&wid=350&hei=438",
+     "image": "https://img.hollisterco.com/is/image/anf/KIC_350-26008-00417-604_model1?policy=product-medium",
      "shopmy": "https://go.shopmy.us/p-109361251",
      "evidence": "none"
     }
