@@ -116,7 +116,7 @@ window.BF_PICKS = {
      "name": "Curvy Short-Sleeve V-Neck Top",
      "category": "Top",
      "type": "eliza",
-     "fit": "Curvy cut with a relaxed bodice and a V-neck.",
+     "fit": "Part of Hollister’s Curvy line, built with a fuller bust in mind, so it should fit better through the bust and waist than a standard version.",
      "watch": "The button front can gap at the bust, and it’s a little see-through below it.",
      "price": null,
      "priceDate": "Nov 23",
@@ -202,14 +202,14 @@ window.BF_PICKS = {
      "name": "Hansen & Gretel Martson Button Down Shirt",
      "category": "Shirt",
      "type": "eliza",
-     "fit": "The adjustable belt does the work: size for your bust, then use the belt to bring the waist back in.",
+     "fit": "The fabric belt (included) does the work: size for your bust, then use the belt to bring the waist back in.",
      "watch": "Button front with no stretch, so it’s likely to gap or pull at the bust. The silk is semi-sheer.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://images.urbndata.com/is/image/FreePeople/110357233_034_a",
      "shopmy": "https://go.shopmy.us/p-109368913",
      "evidence": "none",
-     "headsUp": "Heads up: bustfit scores button-front shirts without stretch low, because they often gape at bigger cups. This one comes with an adjustable belt, so size for your bust and cinch the waist back in."
+     "headsUp": "Heads up: bustfit scores button-front shirts without stretch low, because they often gape at bigger cups. This one comes with an adjustable fabric belt (included), so size for your bust and cinch the waist back in."
     }
    ]
   },
