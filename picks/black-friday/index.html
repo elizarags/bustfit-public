@@ -50,6 +50,7 @@ h3 { font:600 18px/1.2 'Bricolage Grotesque',sans-serif; margin:0; }
 .loved.pick { background:#F1EFF8; color:var(--text); }
 .heads { background:var(--soft); border-radius:6px; padding:6px 8px; font-size:13px !important; }
 .more { display:inline-block; margin-top:16px; font-weight:600; }
+.section-note { color:var(--muted); margin:-8px 0 16px; max-width:40em; }
 footer { margin-top:48px; padding:28px 0 40px; background:var(--soft); }
 footer h2 { font-size:24px; margin-bottom:6px; }
 footer p { margin:0 0 14px; max-width:40em; }
@@ -97,6 +98,9 @@ footer .btn { display:inline-block; padding-inline:20px; }
       b.appendChild(el('p', null, p.quote ? '“' + p.quote + '”' : p.reviewNote));
       b.appendChild(el('p', 'who', p.quote ? p.reviewSize + ' reviewer, ' + p.reviewStore : 'Review at ' + p.reviewStore));
       b.appendChild(el('p', null, p.fit));
+    } else if (p.type === 'handpicked') {
+      b.appendChild(el('span', 'loved pick', 'Eliza’s pick'));
+      var why2 = el('p'); why2.appendChild(el('strong', null, 'Why it should work: ')); why2.appendChild(document.createTextNode(p.fit)); b.appendChild(why2);
     } else {
       b.appendChild(el('span', 'loved pick', 'Eliza’s pick · ' + (p.evidence === 'few' ? 'few fuller-bust reviews yet' : 'no fuller-bust reviews yet')));
       var why = el('p'); why.appendChild(el('strong', null, 'Why it should work: ')); why.appendChild(document.createTextNode(p.fit)); b.appendChild(why);
@@ -114,6 +118,7 @@ footer .btn { display:inline-block; padding-inline:20px; }
   var main = document.getElementById('stores'), nav = document.getElementById('nav');
   D.stores.filter(function (s) { return s.picks.length; }).forEach(function (s) {
     var id = slug(s.name), sec = el('section'); sec.id = id; sec.appendChild(el('h2', null, s.name));
+    if (s.note) sec.appendChild(el('p', 'section-note', s.note));
     var g = el('div', 'grid'); s.picks.forEach(function (p) { g.appendChild(card(p, s.name)); }); sec.appendChild(g);
     if (s.more) { var m = el('a', 'more', 'See more ' + s.name + ' picks'); m.href = s.more; m.target = '_blank'; m.rel = 'noopener sponsored'; sec.appendChild(m); }
     main.appendChild(sec);
