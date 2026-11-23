@@ -38,7 +38,7 @@ h2 { font:800 28px/1.1 'Bricolage Grotesque',sans-serif; margin:0 0 16px; }
 .fallback { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:20px; text-align:center; color:var(--text); font:600 18px/1.2 'Bricolage Grotesque',sans-serif; }
 .fallback small { font:500 12px Inter,sans-serif; color:var(--muted); }
 .body { display:flex; flex:1; min-width:0; flex-direction:column; gap:8px; padding:14px; }
-.meta { display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
+.card .meta { display:flex; flex-direction:column; align-items:flex-start; gap:6px; margin:0; color:inherit; font-size:inherit; }
 .text { display:flex; flex-direction:column; gap:8px; }
 .kicker { color:var(--muted); font-size:12px; font-weight:500; }
 h3 { font:600 18px/1.2 'Bricolage Grotesque',sans-serif; margin:0; overflow-wrap:break-word; }
@@ -67,7 +67,7 @@ footer p { margin:0 0 14px; max-width:40em; }
   .side, .body { display:contents; }
   .pic { grid-area:pic; }
   .card h3 { grid-area:name; }
-  .meta { grid-area:meta; }
+  .card .meta { grid-area:meta; }
   .text { grid-area:text; margin-top:6px; }
   .foot { grid-area:foot; }
 }
