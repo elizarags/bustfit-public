@@ -14,7 +14,7 @@ window.BF_PICKS = {
    "picks": [
     {
      "id": "p-108894145",
-     "name": "100% Cotton Curve Love A&F Bra-Free Dylan Midi Dress",
+     "name": "Cotton Curve Love Bra-Free Dylan Midi",
      "category": "Dress",
      "type": "review",
      "fit": "Curve Love cut with extra bust room, a smocked back and adjustable straps.",
@@ -24,13 +24,13 @@ window.BF_PICKS = {
      "shopmy": "https://go.shopmy.us/p-108894145",
      "loved": "DDD to I cup",
      "reviewNote": "The chest fits perfectly, after the regular version had too little room.",
-     "headsUp": "Size to your waist for a snatched effect.",
+     "headsUp": "Size to your waist for a snatched effect. Curve Love collection almost never goes on sale so a great time to shop!",
      "elizaNote": "I was surprised I loved this without a bra. Shape and support are great, but regular bra friendly if you feel more comfortable that way. Cut is beautiful.",
      "attribution": "34I reviewer, A&F"
     },
     {
      "id": "p-108894238",
-     "name": "A&F Dylan Bra-Free Knit Midi Dress",
+     "name": "Dylan Bra-Free Knit Midi",
      "category": "Dress",
      "type": "eliza",
      "fit": "Stretch cotton-modal, princess seams and wide straps give the built-in bra some room.",
@@ -39,12 +39,12 @@ window.BF_PICKS = {
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-7449-00443-480_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-108894238",
      "evidence": "few",
-     "headsUp": "Same cut as the original Dylan but stretchier material, so may not provide as much support bra-free. Very regular bra friendly though.",
+     "headsUp": "Same cut as the original Dylan but stretchier material, so does not provide as much support bra-free, as indicated by fuller bust reviewers. Very regular bra friendly though.",
      "elizaNote": "The non-stretch Dylan already runs a bit large, so I'd size down in this one."
     },
     {
      "id": "p-109328082",
-     "name": "100% Cotton A&F Dylan Bra-Free Midi Dress",
+     "name": "Cotton Dylan Bra-Free Midi",
      "category": "Dress",
      "type": "eliza",
      "fit": "A ruched bodice and wide straps add room, and the pads are removable.",
@@ -53,11 +53,11 @@ window.BF_PICKS = {
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-26020-00616-500_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109328082",
      "evidence": "none",
-     "headsUp": "Can be worn with a plunge bra for extra support. V-neck is one of the most flattering necklines on a fuller bust."
+     "headsUp": "Can be worn with a plunge bra for extra support. V-neck is one of the most flattering necklines on a fuller bust. Note that this one is not \"curve love\" so won't be as generous in the bust, however V-neck typically offers more flexibility in the bust due to it being more open."
     },
     {
      "id": "p-109357828",
-     "name": "Bra-Free Button-Through Smocked Maxi Dress",
+     "name": "Bra-Free Button-Through Smocked Maxi",
      "category": "Dress",
      "type": "eliza",
      "fit": "A smocked bodice and adjustable straps give it room, with a seamed-in bra and removable pads.",
@@ -66,7 +66,7 @@ window.BF_PICKS = {
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-26036-00613-475_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109357828",
      "evidence": "few",
-     "headsUp": "Heads up: the top buttons can pull on a larger bust, so size for your bust."
+     "label": "Eliza’s pick · few fuller-bust reviews yet however several reviews mention roominess in the bust"
     }
    ],
    "more": "https://shopmy.us/shop/collections/9063500"
@@ -76,7 +76,7 @@ window.BF_PICKS = {
    "picks": [
     {
      "id": "p-109358455",
-     "name": "Hollister Ciara Short-Sleeve Ruffle Trim Top",
+     "name": "Ciara Short-Sleeve Top",
      "category": "Top",
      "type": "eliza",
      "fit": "It ties at the back to bring in the waist: size for your bust, then use the tie to take in the extra room.",
@@ -139,7 +139,7 @@ window.BF_PICKS = {
      "name": "Dixie Maxi Dress",
      "category": "Dress",
      "type": "review",
-     "fit": "Billowy shape with a smocked bodice and cinched waist.",
+     "fit": "Billowy shape with a smocked bodice and cinched waist. Comes in 10 colors.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://images.urbndata.com/is/image/FreePeople/85308708_097_a",
@@ -208,7 +208,7 @@ window.BF_PICKS = {
    "picks": [
     {
      "id": "p-109371738",
-     "name": "Gina Tricot shaped knit cardigan in black",
+     "name": "Gina Tricot shaped knit cardigan",
      "category": "Cardigan",
      "type": "eliza",
      "fit": "A stretchy knit with a shaped cut and a V-neck.",
@@ -221,7 +221,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109372456",
-     "name": "Gina Tricot wool shaped knitted cardigan in black",
+     "name": "Gina Tricot wool shaped knitted cardigan",
      "category": "Cardigan",
      "type": "eliza",
      "fit": "A stretchy slim-fit knit with a shaped cut. Two-way zipper allows maximum adjustability depending on preferred shape.",
@@ -233,7 +233,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109372753",
-     "name": "Gina Tricot knitted loungewear fitted cardigan in black",
+     "name": "Gina Tricot knitted cardigan",
      "category": "Cardigan",
      "type": "eliza",
      "fit": "A stretchy slim-fit knit that follows your shape. Offers more space through the shoulder and bust but tapers at the waist.",
@@ -245,7 +245,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109373206",
-     "name": "ASOS DESIGN knit cinched waist pleated sweater in red",
+     "name": "ASOS DESIGN knit cinched waist pleated sweater",
      "category": "Sweater",
      "type": "eliza",
      "fit": "A stretchy knit with a cinched, pleated waist. The lines work as a bit of an optical illusion to emphasize the waist even more.",
@@ -258,7 +258,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109376244",
-     "name": "ASOS DESIGN tailored sculpted cinch waist zip through blazer in chocolate",
+     "name": "ASOS DESIGN tailored sculpted cinch waist zip through blazer",
      "category": "Blazer",
      "type": "eliza",
      "fit": "A darted waist and 6% stretch shape it around the bust.",
@@ -276,7 +276,7 @@ window.BF_PICKS = {
    "picks": [
     {
      "id": "p-109384850",
-     "name": "Fionna Floral Maxi Dress Burgundy",
+     "name": "Fionna Floral Maxi",
      "category": "Dress",
      "type": "eliza",
      "fit": "Stretch mesh with a simple crew neck and shaped waist. Reviews show a few images of this dress working on a fuller bust (no size indicated).",
@@ -288,7 +288,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109385723",
-     "name": "Reyya 3/4 Sleeve V Neck Mini Dress Slate",
+     "name": "Reyya 3/4 Sleeve V Neck Mini Dress",
      "category": "Dress",
      "type": "eliza",
      "fit": "A ruched bust and 8% elastane add room.",
@@ -301,7 +301,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109387852",
-     "name": "Eldora Cropped Trench Coat Green",
+     "name": "Eldora Cropped Trench Coat",
      "category": "Outerwear",
      "type": "eliza",
      "fit": "An oversized cut with room through the chest and a belt for shape.",
@@ -314,7 +314,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109387957",
-     "name": "Vianne Cinched Waist Short Sleeve Knit Top Blue / Grey Stripe",
+     "name": "Vianne Cinched Waist Knit Top",
      "category": "Top",
      "type": "eliza",
      "fit": "A stretch knit with a cinched waist.",
@@ -327,7 +327,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109388025",
-     "name": "Ranique Tie Waist Cropped Trench Coat Beige",
+     "name": "Ranique Tie Waist Cropped Trench",
      "category": "Outerwear",
      "type": "eliza",
      "fit": "A tie waist adds shape to a drop-shoulder cut. Sits smooth over the bust and the asymmetrical vertical line can help slim and balance shape.",
@@ -339,7 +339,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109388283",
-     "name": "Blanc Cropped Trench Coat Chocolate",
+     "name": "Blanc Cropped Trench",
      "category": "Outerwear",
      "type": "eliza",
      "fit": "A drop-shoulder cut with a belt for waist shape.",
@@ -351,7 +351,7 @@ window.BF_PICKS = {
     },
     {
      "id": "p-109389239",
-     "name": "Kaelith Off Shoulder Knit Sweater Brown",
+     "name": "Kaelith Off Shoulder Sweater",
      "category": "Sweater",
      "type": "eliza",
      "fit": "A stretchy ribbed knit with a cinched waist.",
