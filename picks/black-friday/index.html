@@ -40,7 +40,6 @@ h3 { font:600 18px/1.2 'Bricolage Grotesque',sans-serif; margin:0; }
 .loved { align-self:flex-start; background:var(--soft); color:#3F35C8; border-radius:6px; padding:3px 8px; font-size:13px; font-weight:600; }
 .card p { margin:0; font-size:14px; }
 .who { color:var(--muted); font-size:12.5px; }
-.watch { background:var(--amber-bg); color:var(--amber); border-radius:6px; padding:6px 8px; font-size:13px !important; }
 .foot { margin-top:auto; padding-top:6px; display:flex; flex-direction:column; gap:8px; }
 .price { font-weight:600; }
 .price span { color:var(--muted); font-size:12px; font-weight:400; }
@@ -106,7 +105,6 @@ footer .btn { display:inline-block; padding-inline:20px; }
       var why = el('p'); why.appendChild(el('strong', null, 'Why it should work: ')); why.appendChild(document.createTextNode(p.fit)); b.appendChild(why);
     }
     if (p.headsUp) b.appendChild(el('p', 'heads', p.headsUp));
-    if (p.watch) b.appendChild(el('p', 'watch', 'Watch out: ' + p.watch));
     var f = el('div', 'foot'), pr = el('p', 'price');
     if (p.price) { pr.textContent = p.price + ' '; pr.appendChild(el('span', null, 'as of ' + p.priceDate)); }
     else pr.textContent = 'See price at store';
