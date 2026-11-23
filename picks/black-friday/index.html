@@ -48,7 +48,7 @@ h3 { font:600 18px/1.2 'Bricolage Grotesque',sans-serif; margin:0; }
 .btn:hover { background:#5549E8; }
 .btn[disabled] { background:#D9D6EE; color:#55516F; }
 .loved.pick { background:#F1EFF8; color:var(--text); }
-.score { font-weight:600; }
+.heads { background:var(--soft); border-radius:6px; padding:6px 8px; font-size:13px !important; }
 .more { display:inline-block; margin-top:16px; font-weight:600; }
 footer { margin-top:48px; padding:28px 0 40px; background:var(--soft); }
 footer h2 { font-size:24px; margin-bottom:6px; }
@@ -62,7 +62,7 @@ footer .btn { display:inline-block; padding-inline:20px; }
   <h1>Black Friday picks that fit a fuller bust</h1>
   <p class="intro">I got tired of buying things that fit everywhere except my chest. Some of these have fuller-bust reviewers backing them up. The rest are my own picks based on how they’re made, and those cards say so. The catches are included.</p>
   <p class="disclosure">Some links are affiliate links; I may earn a commission. Picks are chosen for fit only.</p>
-  <p class="meta"><strong>Prices update as Black Friday sales go live.</strong> Last updated <span id="updated"></span>. More stores added daily through Cyber Monday.</p>
+  <p class="meta"><strong>Sale prices change daily — check the store for today's price.</strong> Last updated <span id="updated"></span>. More stores added daily through Cyber Monday.</p>
 </header>
 <nav aria-label="Stores"><div class="wrap" id="nav"></div></nav>
 <main class="wrap" id="stores"></main>
@@ -99,9 +99,9 @@ footer .btn { display:inline-block; padding-inline:20px; }
       b.appendChild(el('p', null, p.fit));
     } else {
       b.appendChild(el('span', 'loved pick', 'Eliza’s pick · ' + (p.evidence === 'few' ? 'few fuller-bust reviews yet' : 'no fuller-bust reviews yet')));
-      b.appendChild(el('p', 'score', 'bustfit score at 34G: ' + p.score));
       var why = el('p'); why.appendChild(el('strong', null, 'Why it should work: ')); why.appendChild(document.createTextNode(p.fit)); b.appendChild(why);
     }
+    if (p.waistTie) b.appendChild(el('p', 'heads', 'Heads up: bustfit may score this lower than you’d expect, because it doesn’t give full credit to the adjustable waist tie yet. Size for your bust and use the tie to bring the waist back in.'));
     if (p.watch) b.appendChild(el('p', 'watch', 'Watch out: ' + p.watch));
     var f = el('div', 'foot'), pr = el('p', 'price');
     if (p.price) { pr.textContent = p.price + ' '; pr.appendChild(el('span', null, 'as of ' + p.priceDate)); }
