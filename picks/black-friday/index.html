@@ -22,24 +22,31 @@ h1 { font:800 clamp(34px,6vw,58px)/1.02 'Bricolage Grotesque',sans-serif; letter
 .intro { font-size:17px; max-width:40em; margin:0 0 14px; }
 .disclosure { display:inline-block; background:var(--soft); border-radius:8px; padding:8px 12px; font-size:13.5px; font-weight:500; margin:0; }
 .meta { color:var(--muted); font-size:13px; margin:12px 0 0; }
-nav { position:sticky; top:0; z-index:5; background:rgba(251,250,255,.95); border-block:1px solid var(--line); margin-top:20px; }
+nav { position:sticky; top:0; z-index:5; background:var(--bg); border-block:1px solid var(--line); margin-top:20px; }
 nav .wrap { display:flex; gap:6px; overflow-x:auto; padding-block:9px; }
 nav a { flex:none; color:var(--text); text-decoration:none; font-weight:500; font-size:13.5px; padding:6px 12px; border-radius:999px; }
 nav a:hover, nav a:focus-visible { background:var(--soft); }
-section { padding-top:34px; scroll-margin-top:50px; }
+section { padding-top:34px; scroll-margin-top:var(--nav-h,54px); }
 h2 { font:800 28px/1.1 'Bricolage Grotesque',sans-serif; margin:0 0 16px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px; }
-.card { display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
-.photo { position:relative; display:block; aspect-ratio:4/5; background:var(--soft); text-decoration:none; }
+.grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.card { display:flex; flex-direction:row; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+.side { flex:0 0 37%; min-width:0; display:flex; flex-direction:column; gap:10px; padding:12px 0 14px 12px; }
+.pic { display:flex; flex-direction:column; gap:4px; min-width:0; }
+.photo { position:relative; display:block; aspect-ratio:4/5; background:var(--soft); text-decoration:none; border-radius:9px; overflow:hidden; flex:none; }
 .photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; }
 .fallback { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:20px; text-align:center; color:var(--text); font:600 18px/1.2 'Bricolage Grotesque',sans-serif; }
 .fallback small { font:500 12px Inter,sans-serif; color:var(--muted); }
-.body { display:flex; flex:1; flex-direction:column; gap:8px; padding:14px; }
+.body { display:flex; flex:1; min-width:0; flex-direction:column; gap:8px; padding:14px; }
+.meta { display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
+.text { display:flex; flex-direction:column; gap:8px; }
 .kicker { color:var(--muted); font-size:12px; font-weight:500; }
-h3 { font:600 18px/1.2 'Bricolage Grotesque',sans-serif; margin:0; }
+h3 { font:600 18px/1.2 'Bricolage Grotesque',sans-serif; margin:0; overflow-wrap:break-word; }
 .loved { align-self:flex-start; background:var(--soft); color:#3F35C8; border-radius:6px; padding:3px 8px; font-size:13px; font-weight:600; }
 .card p { margin:0; font-size:14px; }
-.who { color:var(--muted); font-size:12.5px; }
+.attr { color:var(--muted); }
+.card .shown { color:var(--muted); font-size:12px; }
+.eliza { border-left:3px solid var(--accent); padding-left:10px; }
+.eliza-label { display:block; color:#3F35C8; font-size:12px; font-weight:600; margin-bottom:2px; }
 .foot { margin-top:auto; padding-top:6px; display:flex; flex-direction:column; gap:8px; }
 .price { font-weight:600; }
 .price span { color:var(--muted); font-size:12px; font-weight:400; }
@@ -54,6 +61,16 @@ footer { margin-top:48px; padding:28px 0 40px; background:var(--soft); }
 footer h2 { font-size:24px; margin-bottom:6px; }
 footer p { margin:0 0 14px; max-width:40em; }
 footer .btn { display:inline-block; padding-inline:20px; }
+@media (max-width:699px) {
+  .grid { grid-template-columns:minmax(0,1fr); }
+  .card { display:grid; grid-template-columns:104px minmax(0,1fr); grid-template-rows:auto 1fr auto auto; grid-template-areas:"pic name" "pic meta" "text text" "foot foot"; gap:6px 12px; padding:12px; }
+  .side, .body { display:contents; }
+  .pic { grid-area:pic; }
+  .card h3 { grid-area:name; }
+  .meta { grid-area:meta; }
+  .text { grid-area:text; margin-top:6px; }
+  .foot { grid-area:foot; }
+}
 </style>
 </head>
 <body>
@@ -79,33 +96,34 @@ footer .btn { display:inline-block; padding-inline:20px; }
   function slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function card(p, store) {
     var c = el('article', 'card'), link = p.shopmy;
+    var side = el('div', 'side'), pic = el('div', 'pic'), shown = null;
     var ph = el('a', 'photo'); ph.href = link; ph.target = '_blank'; ph.rel = 'noopener sponsored';
     ph.setAttribute('aria-label', p.name + ' at ' + store);
-    var fb = el('span', 'fallback', p.name); fb.appendChild(el('small', null, store)); ph.appendChild(fb);
+    var fb = el('span', 'fallback'); fb.appendChild(el('small', null, store)); ph.appendChild(fb);
     if (p.image) {
       var img = document.createElement('img'); img.alt = p.name; img.loading = 'lazy';
       img.referrerPolicy = 'no-referrer'; img.setAttribute('referrerpolicy', 'no-referrer');
-      img.addEventListener('error', function () { img.remove(); ph.dataset.imgFailed = '1'; }, { once: true });
+      img.addEventListener('error', function () { img.remove(); ph.dataset.imgFailed = '1'; if (shown) shown.remove(); }, { once: true });
       img.src = p.image; ph.appendChild(img);
     }
-    c.appendChild(ph);
-    var b = el('div', 'body');
-    b.appendChild(el('span', 'kicker', p.category));
-    b.appendChild(el('h3', null, p.name));
+    pic.appendChild(ph);
+    if (p.image && p.shownIn) { shown = el('p', 'shown', 'Shown in ' + p.shownIn); pic.appendChild(shown); }
+    side.appendChild(pic); side.appendChild(el('h3', null, p.name)); c.appendChild(side);
+    var b = el('div', 'body'), meta = el('div', 'meta'), tx = el('div', 'text');
+    meta.appendChild(el('span', 'kicker', p.category));
     if (p.type === 'review') {
-      b.appendChild(el('span', 'loved', p.label || 'Loved by reviewers ' + p.loved));
-      b.appendChild(el('p', null, p.quote ? '“' + p.quote + '”' : p.reviewNote));
-      b.appendChild(el('p', 'who', p.quote ? p.reviewSize + ' reviewer, ' + p.reviewStore : 'Review at ' + p.reviewStore));
-      if (p.elizaNote) b.appendChild(el('p', null, p.elizaNote));
-      b.appendChild(el('p', null, p.fit));
-    } else if (p.type === 'handpicked') {
-      b.appendChild(el('span', 'loved pick', p.label || 'Eliza’s pick'));
-      if (p.fit) { var why2 = el('p'); why2.appendChild(el('strong', null, 'Why it should work: ')); why2.appendChild(document.createTextNode(p.fit)); b.appendChild(why2); }
+      meta.appendChild(el('span', 'loved', p.label || 'Loved by reviewers ' + p.loved));
+      var q = el('p', null, (p.quote ? '“' + p.quote + '”' : p.reviewNote) + ' ');
+      if (p.attribution) q.appendChild(el('span', 'attr', '(' + p.attribution + ')'));
+      tx.appendChild(q);
+      if (p.fit) tx.appendChild(el('p', null, p.fit));
     } else {
-      b.appendChild(el('span', 'loved pick', p.label || 'Eliza’s pick · ' + (p.evidence === 'few' ? 'few fuller-bust reviews yet' : 'no fuller-bust reviews yet')));
-      var why = el('p'); why.appendChild(el('strong', null, 'Why it should work: ')); why.appendChild(document.createTextNode(p.fit)); b.appendChild(why);
+      meta.appendChild(el('span', 'loved pick', p.label || (p.type === 'handpicked' ? 'Eliza’s pick' : 'Eliza’s pick · ' + (p.evidence === 'few' ? 'few fuller-bust reviews yet' : 'no fuller-bust reviews yet'))));
+      if (p.fit) { var why = el('p'); why.appendChild(el('strong', null, 'Why it should work: ')); why.appendChild(document.createTextNode(p.fit)); tx.appendChild(why); }
     }
-    if (p.headsUp) b.appendChild(el('p', 'heads', p.headsUp));
+    if (p.elizaNote) { var en = el('div', 'eliza'); en.appendChild(el('span', 'eliza-label', 'From Eliza (US 32/34J)')); en.appendChild(el('p', null, p.elizaNote)); tx.appendChild(en); }
+    if (p.headsUp) tx.appendChild(el('p', 'heads', p.headsUp));
+    b.appendChild(meta); b.appendChild(tx);
     var f = el('div', 'foot'), pr = el('p', 'price');
     if (p.price) { pr.textContent = p.price + ' '; pr.appendChild(el('span', null, 'as of ' + p.priceDate)); }
     else pr.textContent = 'See price at store';
@@ -123,6 +141,9 @@ footer .btn { display:inline-block; padding-inline:20px; }
     main.appendChild(sec);
     var a = el('a', null, s.name); a.href = '#' + id; nav.appendChild(a);
   });
+  function navHeight() { document.documentElement.style.setProperty('--nav-h', document.querySelector('nav').offsetHeight + 'px'); }
+  navHeight(); window.addEventListener('resize', navHeight);
+  if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
 })();
 </script>
 </body>

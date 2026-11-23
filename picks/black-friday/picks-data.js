@@ -2,7 +2,8 @@
 // type 'review': 2+ positive sized reviews at DDD/F or bigger. type 'eliza': Eliza's pick.
 // headsUp: an optional line explaining why bustfit may score this lower than expected.
 // type 'handpicked': Eliza's pick at a store bustfit doesn't read. No score or review range.
-// elizaNote: Eliza's own note on a review card, shown after the review line.
+// elizaNote: Eliza's own words, shown in the "From Eliza" block. The label is added by the page.
+// attribution: who a review note came from. shownIn: colour of a photo that differs from the linked colour.
 // evidence 'none' = no fuller-bust reviews yet; 'few' = some fuller-bust mentions, too few to count.
 // price: fill in like '$48'. While null the card shows 'See price at store'.
 window.BF_PICKS = {
@@ -23,9 +24,9 @@ window.BF_PICKS = {
      "shopmy": "https://go.shopmy.us/p-108894145",
      "loved": "DDD to I cup",
      "reviewNote": "A 34I reviewer says the chest fits perfectly, after the regular version had too little room.",
-     "reviewStore": "Abercrombie & Fitch",
      "headsUp": "Size to your waist for a snatched effect.",
-     "elizaNote": "From Eliza (US 32J): I was surprised I loved this without a bra. Shape and support are great, but regular bra friendly if you feel more comfortable that way. Cut is beautiful."
+     "elizaNote": "I was surprised I loved this without a bra. Shape and support are great, but regular bra friendly if you feel more comfortable that way. Cut is beautiful.",
+     "attribution": "34I reviewer, A&F"
     },
     {
      "id": "p-108894238",
@@ -38,7 +39,8 @@ window.BF_PICKS = {
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-7449-00443-480_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-108894238",
      "evidence": "few",
-     "headsUp": "Same cut as the original Dylan but stretchier material, so may not provide as much support bra-free. Very regular bra friendly though. From Eliza: the non-stretch Dylan already runs a bit large, so I'd size down in this one."
+     "headsUp": "Same cut as the original Dylan but stretchier material, so may not provide as much support bra-free. Very regular bra friendly though.",
+     "elizaNote": "The non-stretch Dylan already runs a bit large, so I'd size down in this one."
     },
     {
      "id": "p-109328082",
@@ -52,6 +54,18 @@ window.BF_PICKS = {
      "shopmy": "https://go.shopmy.us/p-109328082",
      "evidence": "none",
      "headsUp": "Can be worn with a plunge bra for extra support. V-neck is one of the most flattering necklines on a fuller bust."
+    },
+    {
+     "id": "p-109357828",
+     "name": "Bra-Free Button-Through Smocked Maxi Dress",
+     "category": "Dress",
+     "type": "eliza",
+     "fit": "A smocked bodice and adjustable straps give it room, with a seamed-in bra and removable pads.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://img.abercrombie.com/is/image/anf/KIC_159-26036-00613-475_prod1?policy=product-medium&wid=350&hei=438",
+     "shopmy": "https://go.shopmy.us/p-109357828",
+     "evidence": "few"
     }
    ],
    "more": "https://shopmy.us/shop/collections/9063500"
@@ -64,13 +78,14 @@ window.BF_PICKS = {
      "name": "Hollister Ciara Short-Sleeve Ruffle Trim Top",
      "category": "Top",
      "type": "eliza",
-     "fit": "It ties at the back to bring in the waist: size for your bust, then use the tie to take in the extra room. From Eliza (US 32J): size large worked amazing for me and the tie is a thick ribbon so it makes the top even more elevated and doesn't make the waist fold weirdly. Hook and eye front so can be adjusted for lower coverage as well.",
+     "fit": "It ties at the back to bring in the waist: size for your bust, then use the tie to take in the extra room.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6338-00172-204_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109358455",
      "evidence": "none",
-     "headsUp": "Heads up: bustfit may score this lower than you’d expect, because it doesn’t give full credit yet to a top that ties at the back to bring in the waist. Size for your bust and use the tie to bring the waist back in."
+     "headsUp": "Heads up: bustfit may score this lower than you’d expect, because it doesn’t fully credit back ties yet.",
+     "elizaNote": "Size large worked amazing for me and the tie is a thick ribbon so it makes the top even more elevated and doesn't make the waist fold weirdly. Hook and eye front so can be adjusted for lower coverage as well."
     },
     {
      "id": "p-109359256",
@@ -80,11 +95,12 @@ window.BF_PICKS = {
      "fit": "Part of Hollister’s Curvy line, built with a fuller bust in mind, so it should fit better through the bust and waist than a standard version. One of the only babydoll style tops made for us!",
      "price": null,
      "priceDate": "Nov 23",
-     "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6104-00202-100_prod1?policy=product-medium&wid=350&hei=438",
+     "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6104-00202-200_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109359256",
      "loved": "DDD to H cup",
      "reviewNote": "A 34H reviewer says it fits the chest perfectly.",
-     "reviewStore": "Hollister"
+     "attribution": "34H reviewer, Hollister",
+     "shownIn": "navy"
     },
     {
      "id": "p-109360434",
@@ -128,8 +144,8 @@ window.BF_PICKS = {
      "shopmy": "https://go.shopmy.us/p-109365798",
      "loved": "DDD to H cup",
      "reviewNote": "A 34G reviewer says a small fits well and flatters the chest.",
-     "reviewStore": "Free People",
-     "headsUp": "Runs large."
+     "headsUp": "Runs large.",
+     "attribution": "34G reviewer, Free People"
     },
     {
      "id": "p-109366809",
