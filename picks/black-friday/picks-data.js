@@ -111,10 +111,11 @@ window.BF_PICKS = {
      "fit": "Part of Hollister’s Curvy line, built with a fuller bust in mind, so it should fit better through the bust and waist than a standard version.",
      "price": null,
      "priceDate": "Nov 23",
-     "image": "https://img.hollisterco.com/is/image/anf/KIC_350-26008-00417-604_model1?policy=product-medium",
+     "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6024-00118-208_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109360434",
      "evidence": "few",
-     "headsUp": "Underbust portion can be a bit sheer especially in lighter colors."
+     "headsUp": "Underbust portion can be a bit sheer especially in lighter colors.",
+     "shownIn": "navy polka dot"
     },
     {
      "id": "p-109361251",
