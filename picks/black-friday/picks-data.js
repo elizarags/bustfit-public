@@ -60,13 +60,13 @@ window.BF_PICKS = {
      "name": "Bra-Free Button-Through Smocked Maxi",
      "category": "Dress",
      "type": "eliza",
-     "fit": "A smocked bodice and adjustable straps give it room, with a seamed-in bra and removable pads.",
+     "fit": "A smocked bodice and adjustable straps give it room, with a seamed-in bra and removable pads. Several reviews mention roominess in the bust.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-26036-00613-475_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109357828",
      "evidence": "few",
-     "label": "Eliza’s pick · few fuller-bust reviews yet however several reviews mention roominess in the bust"
+     "headsUp": "Heads up: top two buttons may gape, which seems to be part of the design as opposed to a fit issue. Keep in mind if you do wear a bra."
     }
    ],
    "more": "https://shopmy.us/shop/collections/9063500"
@@ -160,7 +160,7 @@ window.BF_PICKS = {
      "image": "https://images.urbndata.com/is/image/FreePeople/104028600_004_b",
      "shopmy": "https://go.shopmy.us/p-109366809",
      "evidence": "few",
-     "headsUp": "A fuller bust reviewer wished they had sized up. Boat neck, so standard bra straps will show at the sides. Opt for a strapless if it bothers you, or embrace the strap and wear a fun color."
+     "headsUp": "A fuller bust reviewer wished they had sized up. Boat neck, so regular bra straps will show at the sides. Opt for a strapless if it bothers you, or embrace the strap and wear a fun color."
     },
     {
      "id": "p-109367514",
@@ -254,7 +254,7 @@ window.BF_PICKS = {
      "image": "https://images.asos-media.com/products/asos-design-knit-cinched-waist-pleated-sweater-in-red/210530298-1-red",
      "shopmy": "https://go.shopmy.us/p-109373206",
      "evidence": "none",
-     "headsUp": "May add a bit of volume around the bust and boat neck will show standard bra straps at the sides, plan accordingly."
+     "headsUp": "May add a bit of volume around the bust and boat neck will show regular bra straps at the sides, plan accordingly."
     },
     {
      "id": "p-109376244",
@@ -323,7 +323,7 @@ window.BF_PICKS = {
      "image": "https://us.princesspolly.com/cdn/shop/files/0-modelinfo-emmah-us2_c5c3f481-20a8-4a81-98b0-a9e56f2910bc_1024x1024.jpg?v=1774997372",
      "shopmy": "https://go.shopmy.us/p-109387957",
      "evidence": "none",
-     "headsUp": "Wide neckline means standard straps will show at the sides."
+     "headsUp": "Wide neckline means regular bra straps will show at the sides."
     },
     {
      "id": "p-109388025",
