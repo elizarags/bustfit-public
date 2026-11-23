@@ -23,7 +23,7 @@ window.BF_PICKS = {
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-26074-00550-320_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-108894145",
      "loved": "DDD to I cup",
-     "reviewNote": "A 34I reviewer says the chest fits perfectly, after the regular version had too little room.",
+     "reviewNote": "The chest fits perfectly, after the regular version had too little room.",
      "headsUp": "Size to your waist for a snatched effect.",
      "elizaNote": "I was surprised I loved this without a bra. Shape and support are great, but regular bra friendly if you feel more comfortable that way. Cut is beautiful.",
      "attribution": "34I reviewer, A&F"
@@ -65,7 +65,8 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-26036-00613-475_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109357828",
-     "evidence": "few"
+     "evidence": "few",
+     "headsUp": "Heads up: the top buttons can pull on a larger bust, so size for your bust."
     }
    ],
    "more": "https://shopmy.us/shop/collections/9063500"
@@ -98,7 +99,7 @@ window.BF_PICKS = {
      "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6104-00202-200_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109359256",
      "loved": "DDD to H cup",
-     "reviewNote": "A 34H reviewer says it fits the chest perfectly.",
+     "reviewNote": "It fits the chest perfectly.",
      "attribution": "34H reviewer, Hollister",
      "shownIn": "navy"
     },
@@ -110,10 +111,11 @@ window.BF_PICKS = {
      "fit": "Part of Hollister’s Curvy line, built with a fuller bust in mind, so it should fit better through the bust and waist than a standard version.",
      "price": null,
      "priceDate": "Nov 23",
-     "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6024-00118-101_prod1?policy=product-medium&wid=350&hei=438",
+     "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6024-00118-208_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109360434",
      "evidence": "few",
-     "headsUp": "Underbust portion can be a bit sheer especially in lighter colors."
+     "headsUp": "Underbust portion can be a bit sheer especially in lighter colors.",
+     "shownIn": "navy polka dot"
     },
     {
      "id": "p-109361251",
@@ -143,7 +145,7 @@ window.BF_PICKS = {
      "image": "https://images.urbndata.com/is/image/FreePeople/85308708_097_a",
      "shopmy": "https://go.shopmy.us/p-109365798",
      "loved": "DDD to H cup",
-     "reviewNote": "A 34G reviewer says a small fits well and flatters the chest.",
+     "reviewNote": "A small fits well and flatters the chest.",
      "headsUp": "Runs large.",
      "attribution": "34G reviewer, Free People"
     },
@@ -266,122 +268,6 @@ window.BF_PICKS = {
      "shopmy": "https://go.shopmy.us/p-109376244",
      "evidence": "none",
      "headsUp": "No fuller bust reviews yet, so safest move is to size to your bust and allow the structured design to do the shaping."
-    }
-   ]
-  },
-  {
-   "name": "Garage",
-   "note": "bustfit doesn't read Garage yet, so these are hand-picked by me.",
-   "picks": [
-    {
-     "id": "p-109579754",
-     "name": "Ultrafleece Cotton Zip Hoodie",
-     "category": "Hoodie",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109579754"
-    },
-    {
-     "id": "p-109581094",
-     "name": "Ryan Fitted Boatneck Sweater",
-     "category": "Sweater",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109581094"
-    },
-    {
-     "id": "p-109581160",
-     "name": "Wrap Me Sweater",
-     "category": "Sweater",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109581160"
-    },
-    {
-     "id": "p-109581928",
-     "name": "Sweater Zippie",
-     "category": "Sweater",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109581928"
-    },
-    {
-     "id": "p-109582156",
-     "name": "Sleek Keyhole Long-Sleeve Top",
-     "category": "Long-sleeve top",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109582156"
-    },
-    {
-     "id": "p-109582292",
-     "name": "Plunge Open Tie-Back Top",
-     "category": "Top",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109582292"
-    },
-    {
-     "id": "p-109582613",
-     "name": "Sleek Scoop Henley T-Shirt",
-     "category": "Tee",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109582613"
-    },
-    {
-     "id": "p-109584727",
-     "name": "Snatch Waist Dolman T-Shirt",
-     "category": "Tee",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109584727"
-    },
-    {
-     "id": "p-109584807",
-     "name": "Plunge Ruched Tie Mesh Top",
-     "category": "Top",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109584807"
-    },
-    {
-     "id": "p-109584856",
-     "name": "Cowl-Neck Long-Sleeve Top",
-     "category": "Long-sleeve top",
-     "type": "handpicked",
-     "fit": "",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": null,
-     "shopmy": "https://go.shopmy.us/p-109584856"
     }
    ]
   },
