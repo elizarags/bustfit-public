@@ -1,6 +1,8 @@
 // Black Friday picks. Edit this file to add or change cards; the page reads it.
 // type 'review': 2+ positive sized reviews at DDD/F or bigger. type 'eliza': Eliza's pick.
 // headsUp: an optional line explaining why bustfit may score this lower than expected.
+// type 'handpicked': Eliza's pick at a store bustfit doesn't read. No score or review range.
+// elizaNote: Eliza's own note on a review card, shown after the review line.
 // evidence 'none' = no fuller-bust reviews yet; 'few' = some fuller-bust mentions, too few to count.
 // price: fill in like '$48'. While null the card shows 'See price at store'.
 window.BF_PICKS = {
@@ -21,7 +23,9 @@ window.BF_PICKS = {
      "shopmy": "https://go.shopmy.us/p-108894145",
      "loved": "DDD to I cup",
      "reviewNote": "A 34I reviewer says the chest fits perfectly, after the regular version had too little room.",
-     "reviewStore": "Abercrombie & Fitch"
+     "reviewStore": "Abercrombie & Fitch",
+     "headsUp": "Size to your waist for a snatched effect.",
+     "elizaNote": "From Eliza (US 32J): I was surprised I loved this without a bra. Shape and support are great, but regular bra friendly if you feel more comfortable that way. Cut is beautiful."
     },
     {
      "id": "p-108894238",
@@ -33,7 +37,8 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-7449-00443-480_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-108894238",
-     "evidence": "few"
+     "evidence": "few",
+     "headsUp": "Same cut as the original Dylan but stretchier material, so may not provide as much support bra-free. Very regular bra friendly though. From Eliza: the non-stretch Dylan already runs a bit large, so I'd size down in this one."
     },
     {
      "id": "p-109328082",
@@ -45,31 +50,8 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-26020-00616-500_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109328082",
-     "evidence": "none"
-    },
-    {
-     "id": "p-109356542",
-     "name": "Flutter-Sleeve Slash Top",
-     "category": "Top",
-     "type": "eliza",
-     "fit": "8% elastane and a ruched bodice stretch over the bust.",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": "https://img.abercrombie.com/is/image/anf/KIC_139-6310-00390-480_prod1?policy=product-medium&wid=350&hei=438",
-     "shopmy": "https://go.shopmy.us/p-109356542",
-     "evidence": "few"
-    },
-    {
-     "id": "p-109356642",
-     "name": "Airspun Cotton-Blend Slash Sweater",
-     "category": "Sweater",
-     "type": "eliza",
-     "fit": "A stretchy knit with a slash neck that sits wide of the bust.",
-     "price": null,
-     "priceDate": "Nov 23",
-     "image": "https://img.abercrombie.com/is/image/anf/KIC_150-6440-00987-220_prod1?policy=product-medium&wid=350&hei=438",
-     "shopmy": "https://go.shopmy.us/p-109356642",
-     "evidence": "few"
+     "evidence": "none",
+     "headsUp": "Can be worn with a plunge bra for extra support. V-neck is one of the most flattering necklines on a fuller bust."
     }
    ],
    "more": "https://shopmy.us/shop/collections/9063500"
@@ -82,7 +64,7 @@ window.BF_PICKS = {
      "name": "Hollister Ciara Short-Sleeve Ruffle Trim Top",
      "category": "Top",
      "type": "eliza",
-     "fit": "It ties at the back to bring in the waist: size for your bust, then use the tie to take in the extra room.",
+     "fit": "It ties at the back to bring in the waist: size for your bust, then use the tie to take in the extra room. From Eliza (US 32J): size large worked amazing for me and the tie is a thick ribbon so it makes the top even more elevated and doesn't make the waist fold weirdly. Hook and eye front so can be adjusted for lower coverage as well.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6338-00172-204_prod1?policy=product-medium&wid=350&hei=438",
@@ -95,7 +77,7 @@ window.BF_PICKS = {
      "name": "Curvy Ruffle Trim Tunic Top",
      "category": "Top",
      "type": "review",
-     "fit": "Part of Hollister’s Curvy line, built with a fuller bust in mind, so it should fit better through the bust and waist than a standard version.",
+     "fit": "Part of Hollister’s Curvy line, built with a fuller bust in mind, so it should fit better through the bust and waist than a standard version. One of the only babydoll style tops made for us!",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6104-00202-100_prod1?policy=product-medium&wid=350&hei=438",
@@ -114,14 +96,15 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6024-00118-101_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109360434",
-     "evidence": "few"
+     "evidence": "few",
+     "headsUp": "Underbust portion can be a bit sheer especially in lighter colors."
     },
     {
      "id": "p-109361251",
      "name": "Easy V-Neck Sweater",
      "category": "Sweater",
      "type": "eliza",
-     "fit": "A stretchy knit in an easy fit, with a V-neck that works with most bras.",
+     "fit": "A stretchy knit in an easy fit, with a V-neck that works with most bras and breaks up the expanse of material over your chest while creating a bit of shape.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://img.hollisterco.com/is/image/anf/KIC_350-26023-00426-200_prod1?policy=product-medium&wid=350&hei=438",
@@ -145,7 +128,8 @@ window.BF_PICKS = {
      "shopmy": "https://go.shopmy.us/p-109365798",
      "loved": "DDD to H cup",
      "reviewNote": "A 34G reviewer says a small fits well and flatters the chest.",
-     "reviewStore": "Free People"
+     "reviewStore": "Free People",
+     "headsUp": "Runs large."
     },
     {
      "id": "p-109366809",
@@ -157,14 +141,15 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://images.urbndata.com/is/image/FreePeople/104028600_004_b",
      "shopmy": "https://go.shopmy.us/p-109366809",
-     "evidence": "few"
+     "evidence": "few",
+     "headsUp": "A fuller bust reviewer wished they had sized up. Boat neck, so standard bra straps will show at the sides. Opt for a strapless if it bothers you, or embrace the strap and wear a fun color."
     },
     {
      "id": "p-109367514",
      "name": "Mulholland Mini Dress",
      "category": "Dress",
      "type": "eliza",
-     "fit": "The adjustable drawcord waist does the work: size for your bust, then use the tie to bring the waist back in.",
+     "fit": "The adjustable drawcord waist does the work: size for your bust, then use the tie to bring the waist back in. A rare relaxed style that still offers adjustable shape.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://images.urbndata.com/is/image/FreePeople/115862955_020_a",
@@ -182,7 +167,8 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://images.urbndata.com/is/image/FreePeople/98395239_010_a",
      "shopmy": "https://go.shopmy.us/p-109368534",
-     "evidence": "few"
+     "evidence": "few",
+     "headsUp": "Not a stretchy material, so size to your bust and the cinched waist will bring back shape. When sized up it worked for a US 34G."
     },
     {
      "id": "p-109368913",
@@ -212,14 +198,15 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://images.asos-media.com/products/gina-tricot-shaped-knit-cardigan-in-black/211270473-1-black",
      "shopmy": "https://go.shopmy.us/p-109371738",
-     "evidence": "none"
+     "evidence": "none",
+     "headsUp": "If worried about gapping, size to your bust as the garment has a tapered waist that will offer shape. Buttons start a bit lower so will avoid the worst gapping, but still possible depending on your size."
     },
     {
      "id": "p-109372456",
      "name": "Gina Tricot wool shaped knitted cardigan in black",
      "category": "Cardigan",
      "type": "eliza",
-     "fit": "A stretchy slim-fit knit with a shaped cut.",
+     "fit": "A stretchy slim-fit knit with a shaped cut. Two-way zipper allows maximum adjustability depending on preferred shape.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://images.asos-media.com/products/gina-tricot-wool-shaped-knitted-cardigan-in-black/211650238-1-black",
@@ -231,7 +218,7 @@ window.BF_PICKS = {
      "name": "Gina Tricot knitted loungewear fitted cardigan in black",
      "category": "Cardigan",
      "type": "eliza",
-     "fit": "A stretchy slim-fit knit that follows your shape.",
+     "fit": "A stretchy slim-fit knit that follows your shape. Offers more space through the shoulder and bust but tapers at the waist.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://images.asos-media.com/products/gina-tricot-knitted-loungewear-fitted-cardigan-in-black/211650655-1-black",
@@ -243,12 +230,13 @@ window.BF_PICKS = {
      "name": "ASOS DESIGN knit cinched waist pleated sweater in red",
      "category": "Sweater",
      "type": "eliza",
-     "fit": "A stretchy knit with a cinched, pleated waist.",
+     "fit": "A stretchy knit with a cinched, pleated waist. The lines work as a bit of an optical illusion to emphasize the waist even more.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://images.asos-media.com/products/asos-design-knit-cinched-waist-pleated-sweater-in-red/210530298-1-red",
      "shopmy": "https://go.shopmy.us/p-109373206",
-     "evidence": "none"
+     "evidence": "none",
+     "headsUp": "May add a bit of volume around the bust and boat neck will show standard bra straps at the sides, plan accordingly."
     },
     {
      "id": "p-109376244",
@@ -260,7 +248,124 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://images.asos-media.com/products/asos-design-tailored-sculpted-cinch-waist-zip-through-blazer-in-chocolate/209611845-1-chocolate",
      "shopmy": "https://go.shopmy.us/p-109376244",
-     "evidence": "none"
+     "evidence": "none",
+     "headsUp": "No fuller bust reviews yet, so safest move is to size to your bust and allow the structured design to do the shaping."
+    }
+   ]
+  },
+  {
+   "name": "Garage",
+   "note": "bustfit doesn't read Garage yet, so these are hand-picked by me.",
+   "picks": [
+    {
+     "id": "p-109579754",
+     "name": "Ultrafleece Cotton Zip Hoodie",
+     "category": "Hoodie",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109579754"
+    },
+    {
+     "id": "p-109581094",
+     "name": "Ryan Fitted Boatneck Sweater",
+     "category": "Sweater",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109581094"
+    },
+    {
+     "id": "p-109581160",
+     "name": "Wrap Me Sweater",
+     "category": "Sweater",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109581160"
+    },
+    {
+     "id": "p-109581928",
+     "name": "Sweater Zippie",
+     "category": "Sweater",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109581928"
+    },
+    {
+     "id": "p-109582156",
+     "name": "Sleek Keyhole Long-Sleeve Top",
+     "category": "Long-sleeve top",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109582156"
+    },
+    {
+     "id": "p-109582292",
+     "name": "Plunge Open Tie-Back Top",
+     "category": "Top",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109582292"
+    },
+    {
+     "id": "p-109582613",
+     "name": "Sleek Scoop Henley T-Shirt",
+     "category": "Tee",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109582613"
+    },
+    {
+     "id": "p-109584727",
+     "name": "Snatch Waist Dolman T-Shirt",
+     "category": "Tee",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109584727"
+    },
+    {
+     "id": "p-109584807",
+     "name": "Plunge Ruched Tie Mesh Top",
+     "category": "Top",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109584807"
+    },
+    {
+     "id": "p-109584856",
+     "name": "Cowl-Neck Long-Sleeve Top",
+     "category": "Long-sleeve top",
+     "type": "handpicked",
+     "fit": "",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": null,
+     "shopmy": "https://go.shopmy.us/p-109584856"
     }
    ]
   },
@@ -272,7 +377,7 @@ window.BF_PICKS = {
      "name": "Fionna Floral Maxi Dress Burgundy",
      "category": "Dress",
      "type": "eliza",
-     "fit": "Stretch mesh with a simple crew neck.",
+     "fit": "Stretch mesh with a simple crew neck and shaped waist. Reviews show a few images of this dress working on a fuller bust (no size indicated).",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://us.princesspolly.com/cdn/shop/files/0-modelinfo-crystal-us2_f7b81d62-031d-41bd-b253-6a62e71caa67_1024x1024.jpg?v=1764894137",
@@ -289,7 +394,8 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://us.princesspolly.com/cdn/shop/files/0-modelinfo-grace-us2_cb7631a1-937e-4a76-b66f-5cf567cf6923_1024x1024.jpg?v=1793159509",
      "shopmy": "https://go.shopmy.us/p-109385723",
-     "evidence": "none"
+     "evidence": "none",
+     "headsUp": "Needs a plunge bra."
     },
     {
      "id": "p-109387852",
@@ -301,7 +407,8 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://us.princesspolly.com/cdn/shop/files/0-modelinfo-ashley-us2_49050294-7118-475d-937a-46ad6379efef_1024x1024.jpg?v=1789442746",
      "shopmy": "https://go.shopmy.us/p-109387852",
-     "evidence": "none"
+     "evidence": "none",
+     "headsUp": "Collar style can add volume at the bust. See below for a similar style with a more sleek bust."
     },
     {
      "id": "p-109387957",
@@ -313,14 +420,15 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://us.princesspolly.com/cdn/shop/files/0-modelinfo-emmah-us2_c5c3f481-20a8-4a81-98b0-a9e56f2910bc_1024x1024.jpg?v=1774997372",
      "shopmy": "https://go.shopmy.us/p-109387957",
-     "evidence": "none"
+     "evidence": "none",
+     "headsUp": "Wide neckline means standard straps will show at the sides."
     },
     {
      "id": "p-109388025",
      "name": "Ranique Tie Waist Cropped Trench Coat Beige",
      "category": "Outerwear",
      "type": "eliza",
-     "fit": "A tie waist adds shape to a drop-shoulder cut.",
+     "fit": "A tie waist adds shape to a drop-shoulder cut. Sits smooth over the bust and the asymmetrical vertical line can help slim and balance shape.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://us.princesspolly.com/cdn/shop/files/0-modelinfo-guste-us2_d65c3846-cff2-45b3-a7bd-d2bebb9dd004_1024x1024.jpg?v=1789606881",
@@ -349,7 +457,8 @@ window.BF_PICKS = {
      "priceDate": "Nov 23",
      "image": "https://us.princesspolly.com/cdn/shop/files/0-modelinfo-kartier-us2_0e9e2231-78b8-4bfa-bce9-dea85b6c6820_1024x1024.jpg?v=1753417276",
      "shopmy": "https://go.shopmy.us/p-109389239",
-     "evidence": "few"
+     "evidence": "few",
+     "headsUp": "Needs a strapless or one shoulder bra. Fuller bust reviewer recommends sizing up."
     }
    ]
   }
