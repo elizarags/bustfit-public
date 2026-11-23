@@ -82,7 +82,7 @@ window.BF_PICKS = {
      "fit": "It ties at the back to bring in the waist: size for your bust, then use the tie to take in the extra room.",
      "price": null,
      "priceDate": "Nov 23",
-     "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6338-00172-204_prod1?policy=product-medium&wid=350&hei=438",
+     "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6338-00172-900_model1?policy=product-medium",
      "shopmy": "https://go.shopmy.us/p-109358455",
      "evidence": "none",
      "headsUp": "Heads up: bustfit may score this lower than you’d expect, because it doesn’t fully credit back ties yet.",
@@ -111,11 +111,10 @@ window.BF_PICKS = {
      "fit": "Part of Hollister’s Curvy line, built with a fuller bust in mind, so it should fit better through the bust and waist than a standard version.",
      "price": null,
      "priceDate": "Nov 23",
-     "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6024-00118-208_prod1?policy=product-medium&wid=350&hei=438",
+     "image": "https://img.hollisterco.com/is/image/anf/KIC_350-26008-00417-604_model1?policy=product-medium",
      "shopmy": "https://go.shopmy.us/p-109360434",
      "evidence": "few",
-     "headsUp": "Underbust portion can be a bit sheer especially in lighter colors.",
-     "shownIn": "navy polka dot"
+     "headsUp": "Underbust portion can be a bit sheer especially in lighter colors."
     },
     {
      "id": "p-109361251",
@@ -214,10 +213,11 @@ window.BF_PICKS = {
      "fit": "A stretchy knit with a shaped cut and a V-neck.",
      "price": null,
      "priceDate": "Nov 23",
-     "image": "https://images.asos-media.com/products/gina-tricot-shaped-knit-cardigan-in-black/211270473-1-black",
+     "image": "https://images.asos-media.com/products/gina-tricot-shaped-knit-cardigan-in-stone/211270243-1-stone?$n_1280w$&wid=1125&fit=constrain",
      "shopmy": "https://go.shopmy.us/p-109371738",
      "evidence": "none",
-     "headsUp": "If worried about gapping, size to your bust as the garment has a tapered waist that will offer shape. Buttons start a bit lower so will avoid the worst gapping, but still possible depending on your size."
+     "headsUp": "If worried about gapping, size to your bust as the garment has a tapered waist that will offer shape. Buttons start a bit lower so will avoid the worst gapping, but still possible depending on your size.",
+     "shownIn": "stone"
     },
     {
      "id": "p-109372456",
@@ -239,9 +239,10 @@ window.BF_PICKS = {
      "fit": "A stretchy slim-fit knit that follows your shape. Offers more space through the shoulder and bust but tapers at the waist.",
      "price": null,
      "priceDate": "Nov 23",
-     "image": "https://images.asos-media.com/products/gina-tricot-knitted-loungewear-fitted-cardigan-in-black/211650655-1-black",
+     "image": "https://images.asos-media.com/products/gina-tricot-knitted-loungewear-fitted-cardigan-in-dark-green/211650493-1-darkgreen?$n_1920w$&wid=1926&fit=constrain",
      "shopmy": "https://go.shopmy.us/p-109372753",
-     "evidence": "none"
+     "evidence": "none",
+     "shownIn": "dark green"
     },
     {
      "id": "p-109373206",
