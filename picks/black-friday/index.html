@@ -101,7 +101,7 @@ footer .btn { display:inline-block; padding-inline:20px; }
       b.appendChild(el('span', 'loved pick', 'Eliza’s pick · ' + (p.evidence === 'few' ? 'few fuller-bust reviews yet' : 'no fuller-bust reviews yet')));
       var why = el('p'); why.appendChild(el('strong', null, 'Why it should work: ')); why.appendChild(document.createTextNode(p.fit)); b.appendChild(why);
     }
-    if (p.waistTie) b.appendChild(el('p', 'heads', 'Heads up: bustfit may score this lower than you’d expect, because it doesn’t give full credit to the adjustable waist tie yet. Size for your bust and use the tie to bring the waist back in.'));
+    if (p.headsUp) b.appendChild(el('p', 'heads', p.headsUp));
     if (p.watch) b.appendChild(el('p', 'watch', 'Watch out: ' + p.watch));
     var f = el('div', 'foot'), pr = el('p', 'price');
     if (p.price) { pr.textContent = p.price + ' '; pr.appendChild(el('span', null, 'as of ' + p.priceDate)); }

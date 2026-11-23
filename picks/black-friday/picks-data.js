@@ -1,6 +1,6 @@
 // Black Friday picks. Edit this file to add or change cards; the page reads it.
 // type 'review': 2+ positive sized reviews at DDD/F or bigger. type 'eliza': Eliza's pick.
-// waistTie: true adds the adjustable waist tie note.
+// headsUp: an optional line explaining why bustfit may score this lower than expected.
 // evidence 'none' = no fuller-bust reviews yet; 'few' = some fuller-bust mentions, too few to count.
 // price: fill in like '$48'. While null the card shows 'See price at store'.
 window.BF_PICKS = {
@@ -87,20 +87,21 @@ window.BF_PICKS = {
      "name": "Hollister Ciara Short-Sleeve Ruffle Trim Top",
      "category": "Top",
      "type": "eliza",
-     "fit": "Stretch poplin with a V-neck that adds no bulk up top.",
+     "fit": "It ties at the back to bring in the waist: size for your bust, then use the tie to take in the extra room.",
      "watch": "The hook-and-eye front on a slim fit can gap or pull at the bust.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://img.hollisterco.com/is/image/anf/KIC_340-6338-00172-204_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109358455",
-     "evidence": "none"
+     "evidence": "none",
+     "headsUp": "Heads up: bustfit may score this lower than you’d expect, because it doesn’t give full credit yet to a top that ties at the back to bring in the waist. Size for your bust and use the tie to bring the waist back in."
     },
     {
      "id": "p-109359256",
      "name": "Curvy Ruffle Trim Tunic Top",
      "category": "Top",
      "type": "review",
-     "fit": "Curvy cut with a stretchy smocked section and a longer length.",
+     "fit": "Part of Hollister’s Curvy line, built with a fuller bust in mind, so it should fit better through the bust and waist than a standard version.",
      "watch": "Can feel tight in the chest if you size down, and it runs long.",
      "price": null,
      "priceDate": "Nov 23",
@@ -181,7 +182,7 @@ window.BF_PICKS = {
      "image": "https://images.urbndata.com/is/image/FreePeople/115862955_020_a",
      "shopmy": "https://go.shopmy.us/p-109367514",
      "evidence": "none",
-     "waistTie": true
+     "headsUp": "Heads up: bustfit may score this lower than you’d expect, because it doesn’t give full credit to the adjustable waist tie yet. Size for your bust and use the tie to bring the waist back in."
     },
     {
      "id": "p-109368534",
@@ -201,14 +202,14 @@ window.BF_PICKS = {
      "name": "Hansen & Gretel Martson Button Down Shirt",
      "category": "Shirt",
      "type": "eliza",
-     "fit": "The adjustable tie belt does the work: size for your bust, then use the tie to bring the waist back in.",
+     "fit": "The adjustable belt does the work: size for your bust, then use the belt to bring the waist back in.",
      "watch": "Button front with no stretch, so it’s likely to gap or pull at the bust. The silk is semi-sheer.",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://images.urbndata.com/is/image/FreePeople/110357233_034_a",
      "shopmy": "https://go.shopmy.us/p-109368913",
      "evidence": "none",
-     "waistTie": true
+     "headsUp": "Heads up: bustfit scores button-front shirts without stretch low, because they often gape at bigger cups. This one comes with an adjustable belt, so size for your bust and cinch the waist back in."
     }
    ]
   },
