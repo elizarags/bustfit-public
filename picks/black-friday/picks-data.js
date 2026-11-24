@@ -7,7 +7,7 @@
 // evidence 'none' = no fuller-bust reviews yet; 'few' = some fuller-bust mentions, too few to count.
 // price: fill in like '$48'. While null the card shows 'See price at store'.
 window.BF_PICKS = {
- "updated": "November 23, 2026",
+ "updated": "November 24, 2026",
  "stores": [
   {
    "name": "Abercrombie & Fitch",
@@ -70,6 +70,131 @@ window.BF_PICKS = {
     }
    ],
    "more": "https://shopmy.us/shop/collections/9063500"
+  },
+  {
+   "name": "Urban Outfitters",
+   "picks": [
+    {
+     "id": "p-110351581",
+     "name": "WeWoreWhat Cinched Waist Cardigan",
+     "category": "Cardigan",
+     "type": "eliza",
+     "fit": "An open front and deep V-neck, relaxed through the shoulders and chest, with a cinched waist.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/116579996_049_m",
+     "shopmy": "https://go.shopmy.us/p-110351581",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110352230",
+     "name": "Edikted Ihara Lacey Cinched Waist Top",
+     "category": "Top",
+     "type": "eliza",
+     "fit": "A deep V-neck with lace trim and a cinched waist.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/111798633_001_m",
+     "shopmy": "https://go.shopmy.us/p-110352230",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110356425",
+     "name": "Peachy Den Gloria Cinch Fitted Button-Up Shirt",
+     "category": "Shirt",
+     "type": "eliza",
+     "fit": "Stretch cotton with princess seams, and cinch buttons at the waist for an adjustable peplum.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/115222390_041_b",
+     "shopmy": "https://go.shopmy.us/p-110356425",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110358410",
+     "name": "Levi’s ’80s Oversized Denim Bomber Jacket",
+     "category": "Outerwear",
+     "type": "eliza",
+     "fit": "Oversized rigid denim with an adjustable belt at the waist.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/111832762_020_b3",
+     "shopmy": "https://go.shopmy.us/p-110358410",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110361194",
+     "name": "BDG In The Mix Cropped Button-Down Shirt",
+     "category": "Shirt",
+     "type": "eliza",
+     "fit": "A boxy, cropped button-down with an elasticated hem that cinches in.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/111121463_010_b",
+     "shopmy": "https://go.shopmy.us/p-110361194",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110362333",
+     "name": "LoveShackFancy Lunelle Pointelle Fit-And-Flare Mini Dress",
+     "category": "Dress",
+     "type": "eliza",
+     "fit": "A stretchy pointelle knit with a square neck, fitted waist and tiered skirt.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/110915709_020_b",
+     "shopmy": "https://go.shopmy.us/p-110362333",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110362473",
+     "name": "Kimchi Blue Irene Sheer Lace Ruffle Bell Sleeve Top",
+     "category": "Long-sleeve top",
+     "type": "eliza",
+     "fit": "Stretchy semi-sheer lace with a plunging V-neck and a body-hugging fit.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/102408176_004_b",
+     "shopmy": "https://go.shopmy.us/p-110362473",
+     "evidence": "few"
+    },
+    {
+     "id": "p-110366312",
+     "name": "Motel Lanie Jersey Knit Asymmetric Ruched Mini Dress",
+     "category": "Dress",
+     "type": "eliza",
+     "fit": "Stretchy jersey with a plunging V-neck, ruched bodice and drop waist.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/114541824_004_b",
+     "shopmy": "https://go.shopmy.us/p-110366312",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110368774",
+     "name": "Motel Kagipa Plunging V-Neck Asymmetric Hem Mini Dress",
+     "category": "Dress",
+     "type": "eliza",
+     "fit": "Stretchy cupro with a deep V-neck and a fit-and-flare shape.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/114541428_020_b",
+     "shopmy": "https://go.shopmy.us/p-110368774",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110368836",
+     "name": "Motel Sunmi Plunging Gathered Drop Waist Mini Dress",
+     "category": "Dress",
+     "type": "eliza",
+     "fit": "Stretchy cupro with a deep V-neck, ruched bodice and gathered drop waist.",
+     "price": null,
+     "priceDate": "Nov 24",
+     "image": "https://images.urbndata.com/is/image/UrbanOutfitters/114619182_020_b",
+     "shopmy": "https://go.shopmy.us/p-110368836",
+     "evidence": "none"
+    }
+   ]
   },
   {
    "name": "Hollister",
