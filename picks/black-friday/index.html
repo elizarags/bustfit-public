@@ -94,6 +94,7 @@ footer p { margin:0 0 14px; max-width:40em; }
   function slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function card(p, store) {
     var c = el('article', 'card'), link = p.shopmy;
+    c.dataset.store = store; c.dataset.product = p.name; c.dataset.type = p.type;
     var side = el('div', 'side'), pic = el('div', 'pic'), shown = null;
     var ph = el('a', 'photo'); ph.href = link; ph.target = '_blank'; ph.rel = 'noopener sponsored';
     ph.setAttribute('aria-label', p.name + ' at ' + store);
@@ -142,6 +143,38 @@ footer p { margin:0 0 14px; max-width:40em; }
   function navHeight() { document.documentElement.style.setProperty('--nav-h', document.querySelector('nav').offsetHeight + 'px'); }
   navHeight(); window.addEventListener('resize', navHeight);
   if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+})();
+</script>
+<script>
+// Counts page views and shop clicks with PostHog (EU), only on the live page:
+// no cookies, no person profiles, no location lookup, a random ID that lasts
+// only while the page is open, and nothing at all when Global Privacy Control
+// is on. #nostats turns counting off in this browser; #stats turns it back on.
+(function () {
+  var OFF = 'bfPicksNoStats', off = false;
+  window.addEventListener('hashchange', function () { if (location.hash === '#nostats' || location.hash === '#stats') location.reload(); });
+  try {
+    if (location.hash === '#nostats') localStorage.setItem(OFF, '1');
+    if (location.hash === '#stats') localStorage.removeItem(OFF);
+    off = localStorage.getItem(OFF) === '1';
+  } catch (e) {}
+  if (off) { document.querySelector('footer .wrap').appendChild(el('p', 'stats-off', 'Visit counting is off in this browser.')); return; }
+  if (location.hostname !== 'elizarags.github.io' || navigator.globalPrivacyControl) return;
+  var id = crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + String(Math.random()).slice(2);
+  function send(event, props) {
+    props = props || {}; props.$process_person_profile = false; props.$geoip_disable = true;
+    try {
+      fetch('https://eu.i.posthog.com/i/v0/e/', { method: 'POST', keepalive: true, credentials: 'omit', headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ api_key: 'phc_rg3VNh2MPTLicov7JVEDFPUVQCeXSoNKHrS7qDxrheAs', event: event, distinct_id: id, properties: props }) }).catch(function () {});
+    } catch (e) {}
+  }
+  send('picks_pageview');
+  function click(e) {
+    var a = e.target.closest && e.target.closest('a.btn, a.photo'), c = a && a.closest('article.card');
+    if (c) send('picks_shop_click', { store: c.dataset.store, product: c.dataset.product, card_type: c.dataset.type });
+  }
+  document.addEventListener('click', click); document.addEventListener('auxclick', click);
+  function el(tag, cls, text) { var e = document.createElement(tag); e.className = cls; e.textContent = text; return e; }
 })();
 </script>
 </body>
