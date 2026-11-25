@@ -68,8 +68,7 @@ window.BF_PICKS = {
      "evidence": "few",
      "headsUp": "Heads up: top two buttons may gape, which seems to be part of the design as opposed to a fit issue. Keep in mind if you do wear a bra."
     }
-   ],
-   "more": "https://shopmy.us/shop/collections/9063500"
+   ]
   },
   {
    "name": "Urban Outfitters",
