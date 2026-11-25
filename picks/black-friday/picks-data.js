@@ -491,6 +491,85 @@ window.BF_PICKS = {
      "headsUp": "Needs a strapless or one shoulder bra. Fuller bust reviewer recommends sizing up."
     }
    ]
+  },
+  {
+   "name": "H&M",
+   "note": "H&M isn't my go-to for a fuller bust, since it tends to run small in the chest. But these pieces work around that with stretch, wrap fronts or adjustable details.",
+   "picks": [
+    {
+     "id": "p-110987547",
+     "name": "Gathered Mock Turtleneck Dress",
+     "category": "Dress",
+     "type": "eliza",
+     "fit": "Pleats at the shoulders let extra fabric fall over your bust, and the gathered seam underneath pulls it back in, so the high neck doesn't turn into one flat wall of fabric.",
+     "price": null,
+     "priceDate": "Nov 25",
+     "image": "https://image.hm.com/assets/hm/99/0d/990de2d4a469c74325a37789b170545010654cf5.jpg",
+     "shopmy": "https://go.shopmy.us/p-110987547",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110987616",
+     "name": "Dress with Tiered Skirt",
+     "category": "Dress",
+     "type": "eliza",
+     "fit": "Princess seams shape the bodice around your bust instead of pressing it flat. The fabric doesn't stretch, so size for your bust and let the seams do the shaping.",
+     "price": null,
+     "priceDate": "Nov 25",
+     "image": "https://image.hm.com/assets/hm/5a/51/5a512af587877e63501985a613d12aaae6ee60dc.jpg",
+     "shopmy": "https://go.shopmy.us/p-110987616",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110987677",
+     "name": "Wrap Cardigan",
+     "category": "Cardigan",
+     "type": "eliza",
+     "fit": "The wrap front adjusts to your bust: tie it as loose or snug as you like, and the V-neck keeps it open across your chest.",
+     "price": null,
+     "priceDate": "Nov 25",
+     "image": "https://image.hm.com/assets/hm/f3/6b/f36ba8227feaea2cb664805bb22014adf0a5af66.jpg",
+     "shopmy": "https://go.shopmy.us/p-110987677",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110987769",
+     "name": "Lace-Trimmed Layered-Look Top",
+     "category": "Long-sleeve top",
+     "type": "eliza",
+     "fit": "Soft, stretchy rib with gathers all over, so there's give where your bust needs it and the ruching hides any pulling. The lace-trimmed hem adds interest lower down to balance things out.",
+     "price": null,
+     "priceDate": "Nov 25",
+     "image": "https://image.hm.com/assets/hm/4b/76/4b765481bb42c9d69fe1f997b25a7345e9933196.jpg",
+     "shopmy": "https://go.shopmy.us/p-110987769",
+     "evidence": "none"
+    },
+    {
+     "id": "p-110987908",
+     "name": "Rib-Knit Off-the-Shoulder Dress",
+     "category": "Dress",
+     "type": "eliza",
+     "fit": "The wide foldover neckline sits below your shoulders, so nothing's pulling across your chest, and the stretchy rib hugs your shape before the skirt flares out.",
+     "price": null,
+     "priceDate": "Nov 25",
+     "image": "https://image.hm.com/assets/hm/48/3f/483fdbfe35eb22417d39c6d1966ec2aa91396e46.jpg",
+     "shopmy": "https://go.shopmy.us/p-110987908",
+     "evidence": "none",
+     "headsUp": "Heads up: needs a strapless bra. If you have one you trust, the off-shoulder line and flared shape are really flattering."
+    },
+    {
+     "id": "p-110987983",
+     "name": "Button-Detail Jersey Top",
+     "category": "Top",
+     "type": "eliza",
+     "fit": "Cut loose through the top so there's room for your bust, then tapered at the waist so it doesn't hang like a box. The soft, brushed jersey has a little stretch too.",
+     "price": null,
+     "priceDate": "Nov 25",
+     "image": "https://image.hm.com/assets/hm/f2/64/f26440d0cde86406959ace6047aa71dc11848422.jpg",
+     "shopmy": "https://go.shopmy.us/p-110987983",
+     "evidence": "none"
+    }
+   ]
   }
  ]
 };
