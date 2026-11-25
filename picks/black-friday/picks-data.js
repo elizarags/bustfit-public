@@ -7,7 +7,7 @@
 // evidence 'none' = no fuller-bust reviews yet; 'few' = some fuller-bust mentions, too few to count.
 // price: fill in like '$48'. While null the card shows 'See price at store'.
 window.BF_PICKS = {
- "updated": "November 25, 2026",
+ "updated": "November 26, 2026",
  "stores": [
   {
    "name": "Abercrombie & Fitch",
@@ -513,7 +513,7 @@ window.BF_PICKS = {
      "name": "Dress with Tiered Skirt",
      "category": "Dress",
      "type": "eliza",
-     "fit": "Princess seams shape the bodice around your bust instead of pressing it flat. The fabric doesn't stretch, so size for your bust and let the seams do the shaping.",
+     "fit": "Princess seams shape the bodice around your bust instead of pressing it flat. The fabric doesn't stretch, so size for your bust and let the seams do the shaping. You may find the non-stretch fabric helps to shape and lift your chest without a bra.",
      "price": null,
      "priceDate": "Nov 25",
      "image": "https://image.hm.com/assets/hm/5a/51/5a512af587877e63501985a613d12aaae6ee60dc.jpg",
@@ -567,7 +567,8 @@ window.BF_PICKS = {
      "priceDate": "Nov 25",
      "image": "https://image.hm.com/assets/hm/f2/64/f26440d0cde86406959ace6047aa71dc11848422.jpg",
      "shopmy": "https://go.shopmy.us/p-110987983",
-     "evidence": "none"
+     "evidence": "none",
+     "headsUp": "Heads up: cropped styles can sit a little higher on a fuller bust."
     }
    ]
   }
