@@ -130,9 +130,13 @@ footer p { margin:0 0 14px; max-width:40em; }
     var a = el('a', 'btn', 'Shop at ' + store); a.href = link; a.target = '_blank'; a.rel = 'noopener sponsored'; f.appendChild(a);
     b.appendChild(f); c.appendChild(b); return c;
   }
-  document.getElementById('updated').textContent = D.updated;
+  // Scheduled changes, checked once when the page loads.
+  var now = Date.now();
+  function due(at) { var t = Date.parse(at); return !isNaN(t) && now >= t; }
+  var upd = D.updatedFrom && due(D.updatedFrom.at) ? D.updatedFrom.text : D.updated;
+  document.getElementById('updated').textContent = upd;
   var main = document.getElementById('stores'), nav = document.getElementById('nav');
-  D.stores.filter(function (s) { return s.picks.length; }).forEach(function (s) {
+  D.stores.filter(function (s) { return s.picks.length && (!s.showFrom || due(s.showFrom)); }).forEach(function (s) {
     var id = slug(s.name), sec = el('section'); sec.id = id; sec.appendChild(el('h2', null, s.name));
     if (s.note) sec.appendChild(el('p', 'section-note', s.note));
     var g = el('div', 'grid'); s.picks.forEach(function (p) { g.appendChild(card(p, s.name)); }); sec.appendChild(g);

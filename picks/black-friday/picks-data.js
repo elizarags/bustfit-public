@@ -5,9 +5,15 @@
 // elizaNote: Eliza's own words, shown in the "From Eliza" block. The label is added by the page.
 // attribution: who a review note came from. shownIn: colour of a photo that differs from the linked colour.
 // evidence 'none' = no fuller-bust reviews yet; 'few' = some fuller-bust mentions, too few to count.
+// showFrom: a store stays hidden (cards and nav link) until this moment, checked when the page loads.
+// updatedFrom: "Last updated" switches to its text from its moment.
 // price: fill in like '$48'. While null the card shows 'See price at store'.
 window.BF_PICKS = {
- "updated": "November 26, 2026",
+ "updated": "November 25, 2026",
+ "updatedFrom": {
+  "at": "2026-11-26T15:00:00Z",
+  "text": "November 26, 2026"
+ },
  "stores": [
   {
    "name": "Abercrombie & Fitch",
@@ -494,6 +500,7 @@ window.BF_PICKS = {
   },
   {
    "name": "H&M",
+   "showFrom": "2026-11-26T15:00:00Z",
    "note": "H&M isn't my go-to for a fuller bust, since it tends to run small in the chest. But these pieces work around that with stretch, wrap fronts or adjustable details.",
    "picks": [
     {
