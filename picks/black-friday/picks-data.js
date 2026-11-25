@@ -7,7 +7,7 @@
 // evidence 'none' = no fuller-bust reviews yet; 'few' = some fuller-bust mentions, too few to count.
 // price: fill in like '$48'. While null the card shows 'See price at store'.
 window.BF_PICKS = {
- "updated": "November 24, 2026",
+ "updated": "November 25, 2026",
  "stores": [
   {
    "name": "Abercrombie & Fitch",
@@ -47,13 +47,13 @@ window.BF_PICKS = {
      "name": "Cotton Dylan Bra-Free Midi",
      "category": "Dress",
      "type": "eliza",
-     "fit": "The V-neck lets your chest breathe instead of boxing it in, and the dipped waist adds shape underneath. The pads come out if you'd rather wear your own bra.",
+     "fit": "The V-neck lets your chest breathe instead of boxing it in, and the dipped waist adds shape underneath. The pads come out if you'd rather wear your own bra (works with a plunge).",
      "price": null,
      "priceDate": "Nov 23",
      "image": "https://img.abercrombie.com/is/image/anf/KIC_159-26020-00616-500_prod1?policy=product-medium&wid=350&hei=438",
      "shopmy": "https://go.shopmy.us/p-109328082",
      "evidence": "none",
-     "headsUp": "Can be worn with a plunge bra for extra support. V-neck is one of the most flattering necklines on a fuller bust. Note that this one is not \"curve love\" so won't be as generous in the bust, however V-neck typically offers more flexibility in the bust due to it being more open."
+     "headsUp": "Note that this one is not \"curve love\" so won't be as generous in the bust, however V-neck typically offers more flexibility in the bust due to it being more open."
     },
     {
      "id": "p-109357828",
@@ -84,14 +84,15 @@ window.BF_PICKS = {
      "priceDate": "Nov 24",
      "image": "https://images.urbndata.com/is/image/UrbanOutfitters/116579996_049_m",
      "shopmy": "https://go.shopmy.us/p-110351581",
-     "evidence": "none"
+     "evidence": "none",
+     "headsUp": "WeWoreWhat suggests sizing up for a fuller bust."
     },
     {
      "id": "p-110352230",
      "name": "Edikted Ihara Lacey Cinched Waist Top",
      "category": "Top",
      "type": "eliza",
-     "fit": "The deep V gives your bust space instead of squashing it, with pretty lace along the edge. If you're been loving the batwing trend but don't want something that tightly hugs the waist, this skims it instead, giving a bit of a roomier fit while maintaining elegance through the satin finish.",
+     "fit": "If you've been loving the batwing trend but don't want something that tightly hugs the waist, this skims it instead, giving a bit of a roomier fit while maintaining elegance through the satin finish.",
      "price": null,
      "priceDate": "Nov 24",
      "image": "https://images.urbndata.com/is/image/UrbanOutfitters/111798633_001_m",
@@ -109,7 +110,7 @@ window.BF_PICKS = {
      "image": "https://images.urbndata.com/is/image/UrbanOutfitters/115222390_041_b",
      "shopmy": "https://go.shopmy.us/p-110356425",
      "evidence": "none",
-     "elizaNote": "Size to your bust to alleviate gaping, then adjust the waist ties to fit to the rest of your body."
+     "headsUp": "Size to your bust to avoid gaping."
     },
     {
      "id": "p-110358410",
@@ -134,14 +135,14 @@ window.BF_PICKS = {
      "image": "https://images.urbndata.com/is/image/UrbanOutfitters/111121463_010_b",
      "shopmy": "https://go.shopmy.us/p-110361194",
      "evidence": "none",
-     "elizaNote": "Photo shows it ultra cropped, but it has a waist band that makes it a normal crop length, so 2 options depending on your preference. either one offers a gathered fit at the waist and an edgy look."
+     "elizaNote": "Photo shows it ultra cropped, but it has a waist band that makes it a normal crop length, so 2 options depending on your preference. Either one offers a gathered fit at the waist and an edgy look."
     },
     {
      "id": "p-110362333",
      "name": "LoveShackFancy Lunelle Pointelle Fit-And-Flare Mini Dress",
      "category": "Dress",
      "type": "eliza",
-     "fit": "Soft, stretchy knit moves with your bust, the square neck frames your chest, and the fitted waist stops it hanging straight down from the bust. Regular or potentially balconette bra friendly with a lacy neckline so if you wanted to, you could have a lacy bra peak out above it.",
+     "fit": "Soft, stretchy knit moves with your bust, the square neck frames your chest, and the fitted waist stops it hanging straight down from the bust. Pair with a balconette bra.",
      "price": null,
      "priceDate": "Nov 24",
      "image": "https://images.urbndata.com/is/image/UrbanOutfitters/110915709_020_b",
@@ -271,7 +272,7 @@ window.BF_PICKS = {
      "image": "https://images.urbndata.com/is/image/FreePeople/85308708_097_a",
      "shopmy": "https://go.shopmy.us/p-109365798",
      "loved": "DDD to H cup",
-     "reviewNote": "A small fits well and flatters the chest.",
+     "reviewNote": "\"A small fits well and flatters the chest.\"",
      "headsUp": "Runs large.",
      "attribution": "34G reviewer, Free People"
     },
@@ -382,7 +383,7 @@ window.BF_PICKS = {
      "image": "https://images.asos-media.com/products/asos-design-knit-cinched-waist-pleated-sweater-in-red/210530298-1-red",
      "shopmy": "https://go.shopmy.us/p-109373206",
      "evidence": "none",
-     "headsUp": "May add a bit of volume around the bust and boat neck will show regular bra straps at the sides, plan accordingly."
+     "headsUp": "Boat neck will show regular bra straps at the sides, plan accordingly."
     },
     {
      "id": "p-109376244",
