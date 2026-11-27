@@ -175,7 +175,7 @@
     <div class="header">
       <div class="brand">bustfit</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: 25 November 2026 &nbsp;·&nbsp; Applies to the bustfit Chrome extension, the bustfit email list, and automatic replies on bustfit's Instagram account</p>
+      <p class="meta">Last updated: 27 November 2026 &nbsp;·&nbsp; Applies to the bustfit Chrome extension, bustfit's shopping picks pages, the bustfit email list, and automatic replies on bustfit's Instagram account</p>
     </div>
 
     <!-- ── Plain-English summary ───────────────────────────── -->
@@ -264,6 +264,10 @@
           <td><strong>Review service settings</strong></td>
           <td>The public access keys some stores' review services use (kept for 7 days), and, for a few stores, a count of recent failed review requests and when to try again, so bustfit doesn't keep asking a review service that isn't answering. Nothing about you.</td>
         </tr>
+        <tr>
+          <td><strong>Prompt history</strong></td>
+          <td>When bustfit was installed (or, if you installed before version 1.4.10, the date of your oldest saved activity), the IDs of up to 10 products you've looked at in the panel, whether the one-time "Is bustfit helping you shop?" question has been shown and how you answered it, which products showed a feedback question today, and when you last used the panel. Used only to decide when to show that question, once, and to count each product's feedback questions once a day (version 1.4.10 and later). It stays on your device and is never sent anywhere.</td>
+        </tr>
       </tbody>
     </table>
 
@@ -275,7 +279,7 @@
     <h2>3. Data read from retailer pages</h2>
     <p>When you visit a product page on a supported retailer (ASOS, Nordstrom, Revolve, and others), the extension reads the product title, description, fabric information, neckline details, and the main product image URL from the page. On some retailers (for example Revolve and ASOS) it also reads the photographed model's published measurements or height and size worn, used only to caption the estimated bust coverage. This information is used locally to calculate a fit score. It is not stored beyond the current session unless you've previously scored the same product (in which case the score is cached locally — see above).</p>
     <p>The extension does not read your browsing history, your account details, your saved payment methods, your basket contents, or any other information on retailer pages beyond the specific product fields needed for scoring.</p>
-    <p>bustfit sees the address of the tab you're on, to decide whether it's a supported store (and, on another country's or language's version of one, to say where bustfit works). It can't read the pages of other sites, and nothing is kept or sent for them. Chrome describes this permission as "Read your browsing history" when you install bustfit.</p>
+    <p>bustfit sees a tab's address only on the stores it supports, to decide whether to score the page, or on a tab where you've just clicked its toolbar icon (for example, to tell you where bustfit works if you're on another country's version of a store). On any other site it can't see the address or read the page, and nothing is kept or sent. Since version 1.4.10, Chrome no longer shows "Read your browsing history" when you install bustfit; earlier versions used a wider permission that Chrome describes that way.</p>
 
     <!-- ── 4 ───────────────────────────────────────────────── -->
     <h2>4. Anthropic API — image analysis, review summaries, styling tips and brand information</h2>
@@ -350,6 +354,7 @@
       <li>no score was shown: why, as one of bustfit's own reasons (for example "not a garment bustfit scores" or "couldn't read this page")</li>
       <li>a panel tab was opened (Fit Analysis or Community); "Try it now" was clicked</li>
       <li>a feedback question was shown or answered: which question, and the answer's category (for example "yes", "no", or a shape tier) — never anything you type</li>
+      <li>the one-time "Is bustfit helping you shop?" question was shown, answered ("Yes!" or "Not really") or closed, or its Chrome Web Store review link was clicked: only that it happened, nothing else (version 1.4.10 and later)</li>
       <li>you turned usage sharing on, and where (setup, the panel card or the menu)</li>
     </ul>
     <p>Each event also carries a random ID made only for this (not the anonymous device ID in Section 2, so these events can't be linked to anything bustfit's backend records) and the time. PostHog's code adds these to every event by itself:</p>
