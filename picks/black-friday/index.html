@@ -169,7 +169,7 @@ footer p { margin:0 0 14px; max-width:40em; }
       });
       b.appendChild(r);
     }
-    var f = el('div', 'foot'), a = el('a', 'btn', 'Shop ' + p.name + ' swim'); a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+    var f = el('div', 'foot'), a = el('a', 'btn', 'Shop ' + p.name + (/swim$/i.test(p.name) ? '' : ' swim')); a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
     f.appendChild(a); b.appendChild(f); c.appendChild(b); return c;
   }
   // Scheduled changes, checked once when the page loads.

@@ -719,8 +719,8 @@ window.BF_PICKS = {
      "name": "Ayorkoh",
      "fit": "\"[S]wimwear that truly supports, flatters, and celebrates,\" Ayorkoh offers more coverage in the cups than I've seen in any other brand, while at the same time maintaining the ability to adjust for lower coverage so you don't have to choose between wearing what fits and what makes you feel most beautiful.",
      "photos": [
-      "https://ayorkoh.com/cdn/shop/files/IMG_2048.jpg?v=1782468160&width=2560",
-      "https://ayorkoh.com/cdn/shop/files/IMG_2083_1.jpg?v=1782844288&width=2560"
+      "https://ayorkoh.com/cdn/shop/files/IMG_2048.jpg?v=1782468160&width=800",
+      "https://ayorkoh.com/cdn/shop/files/IMG_2083_1.jpg?v=1782844288&width=800"
      ],
      "cups": "US A–K",
      "sale": "up to 40% off with code ABFRIDAY",
@@ -734,9 +734,9 @@ window.BF_PICKS = {
      "name": "Toco Swim",
      "fit": "Focuses on making swimwear that's both comfy and supportive. Nearly everything is adjustable at both the neck and the back.",
      "photos": [
-      "https://tocoswim.com/cdn/shop/files/havana-matcha-green-jen-warnes-edit-front_1_f850b4a9-00b5-4010-8efc-3132cf6062ba.jpg?v=1776951789&width=3000",
-      "https://tocoswim.com/cdn/shop/files/carib-cut-out-tie-front-one-piece-plum-dark-purple-front_1.jpg?v=1773088999&width=3000",
-      "https://tocoswim.com/cdn/shop/files/tulum-underwire-demi-cup-plunge-bikini-top-sapphire-royal-blue-front_1.jpg?v=1773692280&width=3000"
+      "https://tocoswim.com/cdn/shop/files/havana-matcha-green-jen-warnes-edit-front_1_f850b4a9-00b5-4010-8efc-3132cf6062ba.jpg?v=1776951789&width=800",
+      "https://tocoswim.com/cdn/shop/files/carib-cut-out-tie-front-one-piece-plum-dark-purple-front_1.jpg?v=1773088999&width=800",
+      "https://tocoswim.com/cdn/shop/files/tulum-underwire-demi-cup-plunge-bikini-top-sapphire-royal-blue-front_1.jpg?v=1773692280&width=800"
      ],
      "cups": "US A–M",
      "sale": "25–50% off sitewide",
