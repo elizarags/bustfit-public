@@ -58,6 +58,11 @@ h3 { font:600 18px/1.2 'Bricolage Grotesque',sans-serif; margin:0; overflow-wrap
 .heads { background:var(--soft); border-radius:6px; padding:6px 8px; font-size:13px !important; }
 .more { display:inline-block; margin-top:16px; font-weight:600; }
 .section-note { color:var(--muted); margin:-8px 0 16px; max-width:40em; }
+.card.bcard { flex-direction:column; }
+.bbody { display:flex; flex:1; flex-direction:column; gap:8px; padding:14px; min-width:0; }
+.styles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.styles .photo .fallback { padding:6px; font-size:13px; }
+.sale span { color:var(--muted); font-size:12px; }
 footer { margin-top:48px; padding:28px 0 40px; background:var(--soft); }
 footer h2 { font-size:24px; margin-bottom:6px; }
 footer p { margin:0 0 14px; max-width:40em; }
@@ -70,6 +75,7 @@ footer p { margin:0 0 14px; max-width:40em; }
   .card .meta { grid-area:meta; }
   .text { grid-area:text; margin-top:6px; }
   .foot { grid-area:foot; }
+  .card.bcard { display:flex; padding:0; }
 }
 </style>
 </head>
@@ -93,12 +99,13 @@ footer p { margin:0 0 14px; max-width:40em; }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function card(p, store) {
-    var c = el('article', 'card'), link = p.shopmy;
+    if (p.type === 'brand') return brandCard(p, store);
+    var c = el('article', 'card'), link = p.shopmy, shop = p.store || store;
     c.dataset.store = store; c.dataset.product = p.name; c.dataset.type = p.type;
     var side = el('div', 'side'), pic = el('div', 'pic'), shown = null;
     var ph = el('a', 'photo'); ph.href = link; ph.target = '_blank'; ph.rel = 'noopener sponsored';
-    ph.setAttribute('aria-label', p.name + ' at ' + store);
-    var fb = el('span', 'fallback'); fb.appendChild(el('small', null, store)); ph.appendChild(fb);
+    ph.setAttribute('aria-label', p.name + ' at ' + shop);
+    var fb = el('span', 'fallback'); fb.appendChild(el('small', null, shop)); ph.appendChild(fb);
     if (p.image) {
       var img = document.createElement('img'); img.alt = p.name; img.loading = 'lazy';
       img.referrerPolicy = 'no-referrer'; img.setAttribute('referrerpolicy', 'no-referrer');
@@ -109,7 +116,7 @@ footer p { margin:0 0 14px; max-width:40em; }
     if (p.image && p.shownIn) { shown = el('p', 'shown', 'Shown in ' + p.shownIn); pic.appendChild(shown); }
     side.appendChild(pic); side.appendChild(el('h3', null, p.name)); c.appendChild(side);
     var b = el('div', 'body'), meta = el('div', 'meta'), tx = el('div', 'text');
-    meta.appendChild(el('span', 'kicker', p.category));
+    meta.appendChild(el('span', 'kicker', p.store ? p.store + ' · ' + p.category : p.category));
     if (p.type === 'review') {
       meta.appendChild(el('span', 'loved', p.label || 'Loved by reviewers ' + p.loved));
       var q = el('p', null, (p.quote ? '“' + p.quote + '”' : p.reviewNote) + ' ');
@@ -118,7 +125,7 @@ footer p { margin:0 0 14px; max-width:40em; }
       if (p.fit) tx.appendChild(el('p', null, p.fit));
     } else {
       meta.appendChild(el('span', 'loved pick', p.label || (p.type === 'handpicked' ? 'Eliza’s pick' : 'Eliza’s pick · ' + (p.evidence === 'few' ? 'few fuller-bust reviews yet' : 'no fuller-bust reviews yet'))));
-      if (p.fit) { var why = el('p'); why.appendChild(el('strong', null, 'Why it should work: ')); why.appendChild(document.createTextNode(p.fit)); tx.appendChild(why); }
+      if (p.fit) { var why = el('p'); why.appendChild(el('strong', null, (p.whyLabel || 'Why it should work') + ': ')); why.appendChild(document.createTextNode(p.fit)); tx.appendChild(why); }
     }
     if (p.elizaNote) { var en = el('div', 'eliza'); en.appendChild(el('span', 'eliza-label', 'From Eliza (US 32/34J)')); en.appendChild(el('p', null, p.elizaNote)); tx.appendChild(en); }
     if (p.headsUp) tx.appendChild(el('p', 'heads', p.headsUp));
@@ -127,8 +134,43 @@ footer p { margin:0 0 14px; max-width:40em; }
     if (p.price) { pr.textContent = p.price + ' '; pr.appendChild(el('span', null, 'as of ' + p.priceDate)); }
     else pr.textContent = 'See price at store';
     f.appendChild(pr);
-    var a = el('a', 'btn', 'Shop at ' + store); a.href = link; a.target = '_blank'; a.rel = 'noopener sponsored'; f.appendChild(a);
+    if (p.sale) f.insertBefore(saleLine(p), pr);
+    var a = el('a', 'btn', 'Shop at ' + shop); a.href = link; a.target = '_blank'; a.rel = 'noopener sponsored'; f.appendChild(a);
     b.appendChild(f); c.appendChild(b); return c;
+  }
+  function labelled(cls, label, text) { var e = el('p', cls); e.appendChild(el('strong', null, label + ': ')); e.appendChild(document.createTextNode(text)); return e; }
+  function saleLine(p) { var e = labelled('sale', 'Sale', p.sale + ' '); if (p.saleDate) e.appendChild(el('span', null, 'as of ' + p.saleDate)); return e; }
+  // A brand card (Swimwear): a brand rather than one product. No score, no review range.
+  function brandCard(p, store) {
+    var c = el('article', 'card bcard'), b = el('div', 'bbody');
+    c.dataset.store = store; c.dataset.product = p.name; c.dataset.type = p.type;
+    b.appendChild(el('h3', null, p.name));
+    var photos = (p.photos || []).slice(0, 3);
+    if (photos.length) {
+      var row = el('div', 'styles'), cap = el('p', 'shown', 'A few of their styles'), left = photos.length;
+      photos.forEach(function (src) {
+        var ph = el('span', 'photo'), fb = el('span', 'fallback'); fb.appendChild(el('small', null, p.name)); ph.appendChild(fb);
+        var img = document.createElement('img'); img.alt = 'A ' + p.name + ' swimsuit'; img.loading = 'lazy';
+        img.referrerPolicy = 'no-referrer'; img.setAttribute('referrerpolicy', 'no-referrer');
+        img.addEventListener('error', function () { img.remove(); ph.dataset.imgFailed = '1'; if (!--left) { row.remove(); cap.remove(); } }, { once: true });
+        img.src = src; ph.appendChild(img); row.appendChild(ph);
+      });
+      var pic = el('div', 'pic'); pic.appendChild(row); pic.appendChild(cap); b.appendChild(pic);
+    }
+    if (p.fit) b.appendChild(labelled(null, 'Why this works', p.fit));
+    if (p.cups) b.appendChild(labelled(null, 'Cup sizes', p.cups));
+    if (p.sale) b.appendChild(saleLine(p));
+    var handles = String(p.recommendedBy || '').split(/[\s,]+/).map(function (h) { return h.replace(/^@/, ''); }).filter(function (h) { return /^[A-Za-z0-9._]{1,30}$/.test(h); });
+    if (handles.length) {
+      var r = el('p'); r.appendChild(el('strong', null, 'Recommended by: '));
+      handles.forEach(function (h, i) {
+        if (i) r.appendChild(document.createTextNode(', '));
+        var a = el('a', null, '@' + h); a.href = 'https://instagram.com/' + h; a.target = '_blank'; a.rel = 'noopener'; r.appendChild(a);
+      });
+      b.appendChild(r);
+    }
+    var f = el('div', 'foot'), a = el('a', 'btn', 'Shop ' + p.name + ' swim'); a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+    f.appendChild(a); b.appendChild(f); c.appendChild(b); return c;
   }
   // Scheduled changes, checked once when the page loads.
   var now = Date.now();

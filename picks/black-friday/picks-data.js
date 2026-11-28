@@ -7,6 +7,9 @@
 // evidence 'none' = no fuller-bust reviews yet; 'few' = some fuller-bust mentions, too few to count.
 // showFrom: a store stays hidden (cards and nav link) until this moment, checked when the page loads.
 // updatedFrom (optional): "Last updated" switches to its text from its moment.
+// type 'brand' (Swimwear): a brand, not one product. photos: up to 3 style photos. cups: cup range. url: the brand's own site (not an affiliate link).
+// sale + saleDate: an optional 'Sale:' line ('as of' the date). recommendedBy: '@handle, @handle', each linked to Instagram.
+// store: the shop for a product card that sits in a non-store section (Swimwear). whyLabel: replaces 'Why it should work'.
 // price: fill in like '$48'. While null the card shows 'See price at store'.
 window.BF_PICKS = {
  "updated": "November 27, 2026",
@@ -687,6 +690,75 @@ window.BF_PICKS = {
      "shopmy": "https://go.shopmy.us/p-110987983",
      "evidence": "none",
      "headsUp": "Heads up: cropped styles can sit a little higher on a fuller bust."
+    }
+   ]
+  },
+  {
+   "name": "Swimwear",
+   "note": "bustfit doesn't score swimwear yet, so these picks come from fuller-bust creators I trust and brands that make bigger cup sizes, plus one I've tried myself.",
+   "picks": [
+    {
+     "id": "swim-junk-ldn",
+     "type": "brand",
+     "name": "Junk LDN",
+     "fit": "",
+     "photos": [
+      "https://junkldn.com/cdn/shop/files/florence-v-neck-bikini-top-fuller-bust-cherub-2_900x.png?v=1793040655",
+      "https://junkldn.com/cdn/shop/files/lily-underwired-bikini-top-fuller-bust-green-plaid-4_900x.png?v=1793032072",
+      "https://junkldn.com/cdn/shop/files/sydney-triangle-bikini-top-fuller-bust-coconut-4_900x.png?v=1793031354"
+     ],
+     "cups": "US A–K",
+     "sale": "15–50% off sitewide",
+     "saleDate": "Nov 27",
+     "recommendedBy": "@laramil1er, @maia_andrews",
+     "url": "https://junkldn.com"
+    },
+    {
+     "id": "swim-ayorkoh",
+     "type": "brand",
+     "name": "Ayorkoh",
+     "fit": "",
+     "photos": [
+      "https://ayorkoh.com/cdn/shop/files/IMG_2048.jpg?v=1782468160&width=2560",
+      "https://ayorkoh.com/cdn/shop/files/IMG_2083_1.jpg?v=1782844288&width=2560"
+     ],
+     "cups": "US A–K",
+     "sale": "up to 40% off with code ABFRIDAY",
+     "saleDate": "Nov 27",
+     "recommendedBy": "@fiiera_inc, @lucianavirasoro",
+     "url": "https://ayorkoh.com"
+    },
+    {
+     "id": "swim-toco-swim",
+     "type": "brand",
+     "name": "Toco Swim",
+     "fit": "",
+     "photos": [
+      "https://tocoswim.com/cdn/shop/files/havana-matcha-green-jen-warnes-edit-front_1_f850b4a9-00b5-4010-8efc-3132cf6062ba.jpg?v=1776951789&width=3000",
+      "https://tocoswim.com/cdn/shop/files/carib-cut-out-tie-front-one-piece-plum-dark-purple-front_1.jpg?v=1773088999&width=3000",
+      "https://tocoswim.com/cdn/shop/files/tulum-underwire-demi-cup-plunge-bikini-top-sapphire-royal-blue-front_1.jpg?v=1773692280&width=3000"
+     ],
+     "cups": "US A–M",
+     "sale": "25–50% off sitewide",
+     "saleDate": "Nov 27",
+     "recommendedBy": "@itsjenwarnes",
+     "url": "https://tocoswim.com"
+    },
+    {
+     "id": "p-112309780",
+     "name": "Curve Love Wide Strap Underwire Bikini Top",
+     "store": "Abercrombie & Fitch",
+     "category": "Bikini top",
+     "type": "handpicked",
+     "whyLabel": "Why this works",
+     "fit": "",
+     "elizaNote": "",
+     "sale": "30–75% off depending on colour",
+     "saleDate": "Nov 27",
+     "price": null,
+     "priceDate": "Nov 27",
+     "image": "https://img.abercrombie.com/is/image/anf/KIC_111-6073-00302-478_model1?policy=product-medium",
+     "shopmy": "https://go.shopmy.us/p-112309780"
     }
    ]
   }
