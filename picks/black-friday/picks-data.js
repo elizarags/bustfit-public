@@ -6,14 +6,10 @@
 // attribution: who a review note came from. shownIn: colour of a photo that differs from the linked colour.
 // evidence 'none' = no fuller-bust reviews yet; 'few' = some fuller-bust mentions, too few to count.
 // showFrom: a store stays hidden (cards and nav link) until this moment, checked when the page loads.
-// updatedFrom: "Last updated" switches to its text from its moment.
+// updatedFrom (optional): "Last updated" switches to its text from its moment.
 // price: fill in like '$48'. While null the card shows 'See price at store'.
 window.BF_PICKS = {
- "updated": "November 25, 2026",
- "updatedFrom": {
-  "at": "2026-11-26T15:00:00Z",
-  "text": "November 26, 2026"
- },
+ "updated": "November 27, 2026",
  "stores": [
   {
    "name": "Abercrombie & Fitch",
@@ -402,6 +398,121 @@ window.BF_PICKS = {
      "shopmy": "https://go.shopmy.us/p-109376244",
      "evidence": "none",
      "headsUp": "No fuller bust reviews yet, so safest move is to size to your bust and allow the structured design to do the shaping."
+    }
+   ]
+  },
+  {
+   "name": "Garage",
+   "note": "bustfit doesn't read Garage yet, but a recent trip there had so many wins I had to share.",
+   "picks": [
+    {
+     "id": "p-109579754",
+     "name": "Ultrafleece Cotton Zip Hoodie",
+     "category": "Hoodie",
+     "type": "handpicked",
+     "fit": "Cropped, cinched fit that sits neatly over a fuller bust.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://dam.dynamiteclothing.com/asset/85705579-c460-4845-aa1e-bb1615039c83/100103480_8NZ_alt1_1920x2880.jpg",
+     "shopmy": "https://go.shopmy.us/p-109579754",
+     "headsUp": "Comes in paired sizes (XXS/XS, S/M, L/XL), so check where you fall between them.",
+     "elizaNote": "If I could have purchased an M or L I think the fit would be perfect. Was slightly too cropped for my liking."
+    },
+    {
+     "id": "p-109581094",
+     "name": "Ryan Fitted Boatneck Sweater",
+     "category": "Sweater",
+     "type": "handpicked",
+     "fit": "Roomier through the bust and shoulders, fitted at the waist.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://dam.dynamiteclothing.com/asset/0ca96751-9516-48f8-9c2c-23f35f2f905d/100098794_81F_1920x2880.jpg",
+     "shopmy": "https://go.shopmy.us/p-109581094",
+     "headsUp": "The wide neckline shows regular bra straps at the shoulders."
+    },
+    {
+     "id": "p-109581160",
+     "name": "Wrap Me Sweater",
+     "category": "Sweater",
+     "type": "handpicked",
+     "fit": "V-neck gives the bust room, and the wrap pulls in at the waist.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://dam.dynamiteclothing.com/asset/8b840f1a-15d8-46be-946f-ce5af264a665/100103990_8UO_1920x2880.jpg",
+     "shopmy": "https://go.shopmy.us/p-109581160",
+     "elizaNote": "It's definitely low cut/booby but for me a plunge bra was completely hidden under the shirt and the underbust line sat well."
+    },
+    {
+     "id": "p-109581928",
+     "name": "Sweater Zippie",
+     "category": "Sweater",
+     "type": "handpicked",
+     "fit": "Double zip lets you adjust both coverage and shape, with a tapered waist.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://dam.dynamiteclothing.com/asset/b6336770-7222-4d3a-b13c-485d24a20f24/100107424_8PV_1920x2880.jpg",
+     "shopmy": "https://go.shopmy.us/p-109581928",
+     "elizaNote": "Amazingly soft and comfy with a sleeve length that partially covers hands."
+    },
+    {
+     "id": "p-109582156",
+     "name": "Sleek Keyhole Long-Sleeve Top",
+     "category": "Long-sleeve top",
+     "type": "handpicked",
+     "fit": "Open keyhole neckline gives the bust room, and the tie lets you adjust the fit.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://dam.dynamiteclothing.com/asset/136ebf1d-df02-41b2-a6ae-b93c9941f358/100109537_8YA_1920x2880.jpg",
+     "shopmy": "https://go.shopmy.us/p-109582156",
+     "elizaNote": "The keyhole is slightly bigger than I'd want personally. Can still work for a fuller bust, you'll just need to plan your bra accordingly."
+    },
+    {
+     "id": "p-109582292",
+     "name": "Plunge Open Tie-Back Top",
+     "category": "Top",
+     "type": "handpicked",
+     "fit": "Deep plunge with flared, adjustable sleeves and a fitted waist.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://dam.dynamiteclothing.com/asset/d2a10379-a973-48f9-8e13-a3fe315ca58a/100109661_8JK_alt2_1920x2880.jpg",
+     "shopmy": "https://go.shopmy.us/p-109582292",
+     "elizaNote": "The plunge is low enough that the edges of my bra showed. I liked it, so pick a bra you don't mind seeing. Wearing it higher covers more, but the underbust seam then sits on the bust. The sleeves adjust from a gathered strap to a full flutter sleeve."
+    },
+    {
+     "id": "p-109582613",
+     "name": "Sleek Scoop Henley T-Shirt",
+     "category": "Tee",
+     "type": "handpicked",
+     "fit": "Scoop neck and cap sleeves, with a curved hem that keeps it from boxing out at the waist.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://dam.dynamiteclothing.com/asset/dabde7df-f83e-4e21-86f4-ecb98701717b/100108875_8YC_alt6_1920x2880.jpg",
+     "shopmy": "https://go.shopmy.us/p-109582613",
+     "elizaNote": "Some photos show it unbuttoned, which won't work on a fuller bust unless you want your bra on show. The edges of my regular bra showed, so a balconette is probably best."
+    },
+    {
+     "id": "p-109584727",
+     "name": "Snatch Waist Dolman T-Shirt",
+     "category": "Tee",
+     "type": "handpicked",
+     "fit": "A t-shirt with a fitted waist, which is rare for a fuller bust.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://dam.dynamiteclothing.com/asset/9c440813-0c14-48bf-9026-e9c479cc2bf2/100108039_06V_alt4_1920x2880.jpg",
+     "shopmy": "https://go.shopmy.us/p-109584727",
+     "elizaNote": "This style is very popular at the moment, but this is a more casual less fussy t-shirt version without the fluttery sleeves and boatneck, making it regular bra friendly."
+    },
+    {
+     "id": "p-109584807",
+     "name": "Plunge Ruched Tie Mesh Top",
+     "category": "Top",
+     "type": "handpicked",
+     "fit": "Plunge neckline with side ties that adjust the length and how fitted it is.",
+     "price": null,
+     "priceDate": "Nov 23",
+     "image": "https://dam.dynamiteclothing.com/asset/a5a3c0aa-a979-433d-87d9-1843ba7cac94/100107580_8Q6_alt2_1920x2880.jpg",
+     "shopmy": "https://go.shopmy.us/p-109584807",
+     "elizaNote": "My go-to going-out top if you don't mind a little bra showing. Wearing it higher works too, but the underbust seam may land on the bust."
     }
    ]
   },
