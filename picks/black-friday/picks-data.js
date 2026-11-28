@@ -701,7 +701,7 @@ window.BF_PICKS = {
      "id": "swim-junk-ldn",
      "type": "brand",
      "name": "Junk LDN",
-     "fit": "Adjustable backs so you can size to get enough coverage in your cup and adjust band tightness and support from there. The style on the right offers an adjustable cup size/coverage as well, as you can move the knots to create a taller or shorter triangle. Fuller bust owner so we're always kept in mind here.",
+     "fit": "Adjustable backs let you pick your size for cup coverage, then set the band as tight as you need for support. The triangle style on the right adjusts in the cup too: slide the knots to make the triangle taller or shorter. The owner has a fuller bust too, so we're always kept in mind.",
      "photos": [
       "https://junkldn.com/cdn/shop/files/florence-v-neck-bikini-top-fuller-bust-cherub-2_900x.png?v=1793040655",
       "https://junkldn.com/cdn/shop/files/lily-underwired-bikini-top-fuller-bust-green-plaid-4_900x.png?v=1793032072",
@@ -717,7 +717,7 @@ window.BF_PICKS = {
      "id": "swim-ayorkoh",
      "type": "brand",
      "name": "Ayorkoh",
-     "fit": "\"[S]wimwear that truly supports, flatters, and celebrates,\" Ayorkoh offers more coverage in the cups than I've seen in any other brand, while at the same time maintaining the ability to adjust for lower coverage so you don't have to choose between wearing what fits and what makes you feel most beautiful.",
+     "fit": "Ayorkoh makes “swimwear that truly supports, flatters, and celebrates,” with more cup coverage than any other brand I've seen. You can still adjust it for less coverage, so you don't have to choose between what fits and what makes you feel most beautiful.",
      "photos": [
       "https://ayorkoh.com/cdn/shop/files/IMG_2048.jpg?v=1782468160&width=800",
       "https://ayorkoh.com/cdn/shop/files/IMG_2083_1.jpg?v=1782844288&width=800"
@@ -732,7 +732,7 @@ window.BF_PICKS = {
      "id": "swim-toco-swim",
      "type": "brand",
      "name": "Toco Swim",
-     "fit": "Focuses on making swimwear that's both comfy and supportive. Nearly everything is adjustable at both the neck and the back.",
+     "fit": "Toco focuses on swimwear that's both comfy and supportive. Nearly every style adjusts at the neck and the back, so you can set your own lift and band fit.",
      "photos": [
       "https://tocoswim.com/cdn/shop/files/havana-matcha-green-jen-warnes-edit-front_1_f850b4a9-00b5-4010-8efc-3132cf6062ba.jpg?v=1776951789&width=800",
       "https://tocoswim.com/cdn/shop/files/carib-cut-out-tie-front-one-piece-plum-dark-purple-front_1.jpg?v=1773088999&width=800",
@@ -751,8 +751,8 @@ window.BF_PICKS = {
      "category": "Bikini top",
      "type": "handpicked",
      "whyLabel": "Why this works",
-     "fit": "Abercrombie's Curve Love line offers more coverage in the cups while maintaining a smaller band. Some colors offer a fully adjustable back tie, which will be even better for many fuller bust gals especially small band large cup and H+ cup folks who need a big cup.",
-     "elizaNote": "I can wear an M or L in this. L has a bit better coverage and no spillage, but M is more supportive (could still go tighter in the band) and gives more lift with just a teeny bit of spillage.",
+     "fit": "Abercrombie's Curve Love line gives you more cup coverage without sizing up the band. Some colours come with a fully adjustable back tie, which is even better for a lot of fuller-bust gals, especially small-band, big-cup and H+ folks.",
+     "elizaNote": "I can wear an M or L in this. The L gives a bit more coverage with no spillage. The M is more supportive (the band could even go tighter) and gives more lift, with just a teeny bit of spillage.",
      "sale": "30–75% off depending on colour",
      "saleDate": "Nov 27",
      "price": null,
